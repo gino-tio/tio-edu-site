@@ -118,5 +118,100 @@ window.TY=(function(){
     start();
   }
 
-  return {shuffle:shuffle,lsGet:lsGet,lsSet:lsSet,esc:esc,tabs:tabs,mask:mask,quiz:quiz};
+  /* 填空：FQ=[{t,p:'文字 {0} {1}',b:[[答案,可接受…],…]}] */
+  function norm(s){return String(s).replace(/[\s，。、「」！？,.!?]/g,'')}
+  function okAns(v,list){
+    v=norm(v); if(!v) return false;
+    return list.some(function(a){return v===a||(v.length>a.length&&v.indexOf(a)>=0&&v.length<=a.length+2)});
+  }
+  function fill(host,FQ){
+    FQ.forEach(function(q){
+      var box=document.createElement('div'); box.className='fq';
+      var html=esc(q.p).replace(/\{(\d+)\}/g,function(m,n){
+        var len=q.b[+n][0].length;
+        return '<input class="blank" type="text" data-b="'+n+'" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="第'+(+n+1)+'個空格" style="--w:'+(len*1.15+1.6).toFixed(1)+'em" placeholder="'+len+'字">';
+      });
+      box.innerHTML='<h3>'+esc(q.t)+'</h3><div class="fill">'+html+'</div>'
+        +'<div class="fbtns"><button class="main" data-f="check">檢查</button><button data-f="hint">提示</button><button data-f="show">睇答案</button><button data-f="clear">重做</button></div>'
+        +'<p class="fres" aria-live="polite"></p>';
+      host.appendChild(box);
+      var inputs=box.querySelectorAll('input.blank'), res=box.querySelector('.fres');
+      function check(){
+        var n=0;
+        inputs.forEach(function(inp){
+          var o=okAns(inp.value,q.b[+inp.getAttribute('data-b')]);
+          inp.classList.toggle('ok',o); inp.classList.toggle('bad',!o&&norm(inp.value)!=='');
+          if(o) n++;
+        });
+        res.className='fres'+(n===inputs.length?' good':'');
+        res.textContent=n===inputs.length?'全部答啱！好叻！':('答啱 '+n+' / '+inputs.length+'，紅色嘅再試下。');
+      }
+      box.addEventListener('click',function(e){
+        var b=e.target.closest('[data-f]'); if(!b) return; var f=b.getAttribute('data-f');
+        if(f==='check') check();
+        else if(f==='hint'){
+          var shown=false;
+          inputs.forEach(function(inp){
+            if(shown||okAns(inp.value,q.b[+inp.getAttribute('data-b')])) return;
+            inp.value=q.b[+inp.getAttribute('data-b')][0].charAt(0); shown=true; inp.focus();
+          });
+          res.className='fres'; res.textContent=shown?'已經填咗第一個字，繼續寫下去。':'已經全部啱晒。';
+        }else if(f==='show'){
+          inputs.forEach(function(inp){inp.value=q.b[+inp.getAttribute('data-b')][0]}); check();
+          res.className='fres'; res.textContent='答案已填好，再試一次自己寫就更好。';
+        }else if(f==='clear'){
+          inputs.forEach(function(inp){inp.value='';inp.classList.remove('ok','bad')}); res.textContent=''; res.className='fres';
+        }
+      });
+      inputs.forEach(function(inp){inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();check()}})});
+    });
+  }
+
+  /* 配對：cfg={sets:[{name,help,pairs:[[左,右],…]}]} 左右一一對應 */
+  function match(root,cfg){
+    var cur=0, done=0, miss=0, t0=0, SETS=cfg.sets;
+    root.innerHTML=(SETS.length>1?'<div class="mset" data-m="sets">'+SETS.map(function(s,i){return '<button class="chip" data-set="'+i+'" aria-pressed="'+(i===0)+'">'+esc(s.name)+'</button>'}).join('')+'</div>':'')
+      +'<p class="sub" data-m="help"></p><div class="mg" data-m="grid"></div>'
+      +'<div class="mres" data-m="res" hidden><p data-m="rt"></p><button class="qbtn" data-m="again">再玩一次</button></div>';
+    function q$(k){return root.querySelector('[data-m="'+k+'"]')}
+    var grid=q$('grid');
+    function build(){
+      var set=SETS[cur].pairs; done=0; miss=0; t0=Date.now();
+      q$('res').hidden=true; q$('help').textContent=SETS[cur].help||'先撳左邊，再撳右邊相配嘅一項。';
+      var R=shuffle(set.map(function(p,i){return {i:i,t:p[1]}})), html='';
+      for(var k=0;k<set.length;k++){
+        html+='<button class="mt l" data-i="'+k+'" data-side="l">'+esc(set[k][0])+'</button>';
+        html+='<button class="mt" data-i="'+R[k].i+'" data-side="r">'+esc(R[k].t)+'</button>';
+      }
+      grid.innerHTML=html;
+      root.querySelectorAll('[data-set]').forEach(function(c){c.setAttribute('aria-pressed',(+c.getAttribute('data-set')===cur)?'true':'false')});
+    }
+    grid.addEventListener('click',function(e){
+      var b=e.target.closest('.mt'); if(!b||b.classList.contains('done')) return;
+      var side=b.getAttribute('data-side'), same=grid.querySelector('.mt.sel[data-side="'+side+'"]');
+      if(same) same.classList.remove('sel');
+      b.classList.add('sel');
+      var l=grid.querySelector('.mt.sel[data-side="l"]'), r=grid.querySelector('.mt.sel[data-side="r"]');
+      if(l&&r){
+        if(l.getAttribute('data-i')===r.getAttribute('data-i')){
+          l.classList.remove('sel'); r.classList.remove('sel'); l.classList.add('done'); r.classList.add('done'); done++;
+          if(done===SETS[cur].pairs.length){
+            var s=Math.round((Date.now()-t0)/1000);
+            q$('rt').textContent='全部配對完成！用咗 '+s+' 秒，錯咗 '+miss+' 次。'+(miss===0?'一次過全中，好叻！':'再玩一次，爭取零失誤。');
+            q$('res').hidden=false;
+          }
+        }else{
+          miss++; l.classList.add('wrong'); r.classList.add('wrong');
+          setTimeout(function(){l.classList.remove('wrong','sel'); r.classList.remove('wrong','sel')},400);
+        }
+      }
+    });
+    root.addEventListener('click',function(e){
+      var c=e.target.closest('[data-set]'); if(c){cur=+c.getAttribute('data-set'); build(); return}
+      if(e.target.closest('[data-m="again"]')) build();
+    });
+    build();
+  }
+
+  return {fill:fill,match:match,shuffle:shuffle,lsGet:lsGet,lsSet:lsSet,esc:esc,tabs:tabs,mask:mask,quiz:quiz};
 })();

@@ -1,4 +1,4 @@
-/* 繪本風 SVG 插圖：全部平塗、3px 墨灰線。用 data-art="scene|walker|notebook|cloud" 放入頁面 */
+/* 繪本風 SVG 插圖：全部平塗、3px 墨灰線。用 data-art="scene|walker|notebook|camp|cloud" 放入頁面 */
 (function(){
   var I='#3E3A39',C='#F2A497',Y='#F6D27A',B='#A8D3E6',G='#B9DAA5',P='#FFFCF6';
   var S='stroke="'+I+'" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"';
@@ -95,6 +95,17 @@
       t+='<g class="bob">'+cloud(316,38,.62,true)+'</g>';
       t+='<g class="bob"><path d="M26 124 h34 l-7 11 h-20 Z" fill="'+Y+'" '+S+'/><rect x="36" y="108" width="14" height="16" rx="5" fill="'+P+'" '+S+'/></g>';
       return frame(t,[360,160],'可愛嘅插畫：打開嘅筆記簿、鉛筆、細細朵颱風雲同海上嘅船','sc3');
+    },
+    camp:function(){
+      var t='';
+      t+='<circle cx="316" cy="40" r="17" fill="'+Y+'" '+S+'/>';
+      t+='<path d="M-10 150 Q90 126 190 144 T380 134 V200 H-10 Z" fill="'+G+'" '+S+'/>';
+      t+='<path d="M64 156 L128 68 L192 156 Z" fill="'+C+'" '+S+'/><path d="M128 156 L128 112 L108 156 Z" fill="'+P+'" '+S+'/><path d="M128 156 L128 112 L150 156 Z" fill="'+Y+'" '+S+'/>';
+      t+='<path d="M128 68 V40" fill="none" '+S+'/><g class="wig" style="transform-origin:128px 46px"><path d="M128 40 l36 10 l-36 10 Z" fill="'+Y+'" '+S+'/></g>';
+      t+='<g class="bob"><g transform="translate(262 104) rotate(-28)"><rect x="18" y="-6" width="40" height="12" rx="6" fill="'+P+'" '+S+'/><circle cx="60" cy="-7" r="8" fill="'+P+'" '+S+'/><circle cx="60" cy="7" r="8" fill="'+P+'" '+S+'/><rect x="52" y="-6" width="10" height="12" fill="'+P+'"/>';
+      t+='<ellipse cx="0" cy="0" rx="30" ry="23" fill="'+Y+'" '+S+'/><circle cx="-9" cy="-3" r="3" fill="'+I+'"/><circle cx="9" cy="-3" r="3" fill="'+I+'"/><ellipse cx="-16" cy="6" rx="5" ry="3.4" fill="'+C+'"/><ellipse cx="16" cy="6" rx="5" ry="3.4" fill="'+C+'"/><path d="M-4 5 q4 4 8 0" fill="none" '+S+'/></g></g>';
+      t+='<path class="flow" d="M200 80 h36" fill="none" '+S+'/><path class="flow" style="animation-delay:-.6s" d="M212 98 h28" fill="none" '+S+'/>';
+      return frame(t,[360,190],'可愛嘅插畫：軍帳、旗同一隻雞肋','sc4');
     },
     cloud:function(){
       return '<svg class="art" style="width:64px;margin:0" viewBox="0 0 90 70" role="img" aria-label="颱風雲"><g class="bob">'+cloud(45,36,1.05,true)+'</g></svg>';

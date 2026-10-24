@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>楊修之死 寫作手法</title>
+<meta name="description" content="《楊修之死》寫作手法溫習。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&display=swap">
+<link rel="stylesheet" href="../assets/base.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar"><a href="../part-c/">‹ 丙部</a><b>楊修之死</b></div>
+  <h1>寫作手法</h1>
+  <p class="sub">過渡句，同埋點解有詳寫同略寫</p>
+  <div data-art="notebook"></div>
+  <nav class="tabs" id="tabs" aria-label="溫習方式"><button role="tab" data-pane="p-ref" aria-selected="true">重點速覽</button><button role="tab" data-pane="p-tf" aria-selected="false">對錯快答</button><button role="tab" data-pane="p-match" aria-selected="false">配對遊戲</button><button role="tab" data-pane="p-fill" aria-selected="false">寫字填空</button></nav>
+<section id="p-ref"><div class="row"><span>黃色字就係要背嘅答案</span><button class="chip" id="mk" aria-pressed="false">遮住答案</button></div>
+<div id="refbox"><p class="grp">過渡句</p><div class="item " id="w-bridge"><h3>第 4 段過渡句</h3><p>「<span class="k">原來楊修為人，恃才放曠，數犯曹操之忌</span>」（摘錄原文）是本文的過渡句。</p><p><b>作用：</b>上承<span class="k">記述楊修被曹操處死的經過和結果</span>，下啟過去<span class="k">楊修與曹操之間發生的往事</span>，具體交代楊修之死的因由，使文章轉折<span class="k">自然</span>，段落過渡流暢。</p></div><p class="grp">詳略安排</p><div class="item s2" id="w-detail"><h3>邊件詳寫，邊件略寫？</h3><p><b>詳寫：</b><span class="k">雞肋事件</span>。</p><p><b>略寫：</b><span class="k">闊門</span>、<span class="k">一合酥</span>、<span class="k">夢中殺人</span>、<span class="k">吳質</span>、<span class="k">城門</span>、<span class="k">答教</span>事件。</p></div><div class="item s3" id="w-why"><h3>點解咁安排？</h3><p><b>詳寫</b>嘅事件<span class="k">直接</span>指出導致楊修被殺嘅原因，能充分反映楊修<span class="k">恃才放曠</span>嘅性格帶來嘅結果，故須詳細交代。</p><p><b>略寫</b>嘅事件用來補充說明楊修嘅<span class="k">性格特點</span>和他數次<span class="k">觸犯曹操</span>，交代楊修和曹操之間嘅矛盾<span class="k">由來已久</span>，故可以略寫。</p></div></div></section>
+<section id="p-tf" hidden><div id="tfroot"></div></section>
+<section id="p-match" hidden><div id="matchroot"></div></section>
+<section id="p-fill" hidden><p class="sub">喺空格入面打字，撳「檢查」睇對唔對。唔肯定可以撳「提示」。</p><div id="fills"></div></section>
+</div>
+<script src="../assets/art.js"></script>
+<script src="../assets/shared.js"></script>
+<script>
+(function(){
+  var show=TY.tabs(document.getElementById('tabs'));
+  TY.mask(document.getElementById('mk'),document.getElementById('refbox'));
+  var T=[["第 4 段「原來楊修為人，恃才放曠，數犯曹操之忌」係過渡句。", 1, "過渡句", "呢句係本文嘅過渡句。"], ["過渡句上承楊修被曹操處死嘅經過和結果。", 1, "過渡句", "上承：記述楊修被曹操處死的經過和結果。"], ["過渡句下啟楊修同曹操之間發生嘅往事。", 1, "過渡句", "下啟：過去楊修與曹操之間發生的往事。"], ["過渡句令文章轉折自然，段落過渡流暢。", 1, "過渡句", "過渡句嘅作用。"], ["過渡句表示記敘嘅時間由「過去」轉為「現在」。", 0, "過渡句", "係由「現在」（雞肋事件）轉為「過去」（六件往事）。"], ["雞肋事件屬於詳寫。", 1, "詳略", "雞肋事件篇幅較長，屬詳寫。"], ["一合酥事件屬於詳寫。", 0, "詳略", "一合酥事件屬略寫。"], ["夢中殺人事件屬於略寫。", 1, "詳略", "夢中殺人事件屬略寫。"], ["答教事件屬於略寫。", 1, "詳略", "答教事件屬略寫。"], ["吳質事件同城門事件都屬於詳寫。", 0, "詳略", "兩件都屬略寫。"], ["詳寫雞肋事件，係因為佢直接指出楊修被殺嘅原因。", 1, "原因", "詳寫嘅事件直接指出導致楊修被殺嘅原因。"], ["詳寫能夠充分反映楊修恃才放曠嘅性格帶來嘅結果。", 1, "原因", "所以須詳細交代。"], ["略寫嘅事件用來補充說明楊修嘅性格特點，同佢數次觸犯曹操。", 1, "原因", "略寫嘅作用。"], ["略寫表示楊修同曹操之間嘅矛盾係新近先出現。", 0, "原因", "矛盾由來已久，所以可以略寫。"]];
+  var QS=T.map(function(t){return {q:t[0],opts:['對','錯'],a:t[1]?0:1,tag:t[2],note:t[3]}});
+  var tagPane={"過渡句": "w-bridge", "詳略": "w-detail", "原因": "w-why"};
+  TY.quiz(document.getElementById('tfroot'),{
+    key:'tfBestYxWriting',mode:'tf',time:12,count:10,
+    kicker:'對錯快答',title:'10 句說話，判斷對定錯',
+    rules:['每句 12 秒，撳「對」或「錯」','答得越快分數越高','連續答啱有額外加分'],
+    questions:QS,
+    rank:function(r,n){return r>=n?['十號風球','全對！背得好熟']:r>=n*0.9?['九號風球','幾乎滿分']:r>=n*0.7?['八號風球','好穩陣']:r>=n*0.5?['三號風球','仲差少少，睇多次重點']:['一號風球','返去重點睇返先']},
+    onReview:function(tag){show('p-ref');var id=tagPane[tag];setTimeout(function(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})},60)}
+  });
+  TY.match(document.getElementById("matchroot"),{sets:[{"name": "概念配對", "help": "先撳左邊，再撳右邊相配嘅一項。", "pairs": [["過渡句", "「原來楊修為人，恃才放曠，數犯曹操之忌」"], ["上承", "記述楊修被曹操處死嘅經過和結果"], ["下啟", "交代楊修與曹操之間發生嘅往事"], ["詳寫", "直接指出楊修被殺嘅原因"], ["略寫", "補充楊修嘅性格特點，交代矛盾由來已久"]]}]});
+  TY.fill(document.getElementById("fills"),[{"t": "過渡句", "p": "第{0}段中「原來楊修為人，恃才放曠，數犯曹操之忌」是本文的{1}。這個句子表示前後文的過渡，上承記述楊修被曹操處死的{2}，下啟過去楊修與曹操之間發生的{3}，使文章轉折{4}，段落過渡流暢。", "b": [["4", "四"], ["過渡句"], ["經過和結果", "經過及結果"], ["往事"], ["自然"]]}, {"t": "詳寫", "p": "詳寫的{0}事件，直接指出導致楊修被殺的原因，能充分反映楊修{1}的性格帶來的結果，故須詳細交代。", "b": [["雞肋"], ["恃才放曠"]]}, {"t": "略寫", "p": "略寫的事件則用來補充說明楊修的{0}和他數次{1}，交代楊修和曹操之間的{2}由來已久，故可以略寫。", "b": [["性格特點"], ["觸犯曹操"], ["矛盾"]]}]);
+
+})();
+</script>
+</body>
+</html>
