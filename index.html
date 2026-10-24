@@ -1,32 +1,24 @@
-<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tio Edu</title><meta name="description" content="Tio Edu：為學生而設嘅溫習 app，附學習作品分享。">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@600&display=swap">
-<style>
-:root{--bg:#f6f4ee;--ink:#14262e;--ink2:#4d6068;--line:#d9d6cb;--accent:#0f5e6e;--sig:#e0a526;--card:#fffdf8;color-scheme:light}
-@media (prefers-color-scheme:dark){:root{--bg:#0e1a20;--ink:#e8eff1;--ink2:#9fb3bb;--line:#26404a;--accent:#7fd0e0;--sig:#f4c24b;--card:#142630;color-scheme:dark}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;padding:0 max(18px,env(safe-area-inset-left)) 48px}
-main{max-width:640px;margin:0 auto}
-nav{display:flex;gap:18px;padding:18px 0;font-size:15px;border-bottom:1px solid var(--line)}
-nav a{color:var(--ink2);text-decoration:none}nav a[aria-current]{color:var(--ink);font-weight:500}nav b{margin-right:auto;font-family:"Noto Serif TC",serif;font-size:18px}
-h1{font-family:"Noto Serif TC","Songti TC",serif;font-size:34px;line-height:1.25;margin:40px 0 8px;text-wrap:balance}
-h2{font-family:"Noto Serif TC","Songti TC",serif;font-size:21px;margin:36px 0 8px}
-p{margin:8px 0;color:var(--ink2)}.lead{font-size:18px;color:var(--ink)}
-ul{padding-left:20px;color:var(--ink2)}li{margin:4px 0}
-.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;color:inherit;text-decoration:none;margin-top:14px}
-.card:hover{border-color:var(--accent)}.card strong{display:block;font-size:18px;color:var(--ink)}.tag{display:inline-block;font-size:13px;color:var(--ink);background:var(--sig);border-radius:999px;padding:0 10px;margin-top:6px}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-footer{margin-top:48px;font-size:13px;color:var(--ink2)}
-</style></head><body><main>
-<nav><b>Tio Edu</b><a href="./" aria-current="page">介紹</a><a href="works/">作品</a></nav>
-<h1>陪學生溫習嘅學習 app</h1>
-<p class="lead">Tio Edu 幫學生做默書、查字典、記筆記同跟進提醒，由家長開戶，學生專用。</p>
-<h2>功能</h2>
-<ul><li>默書：朗讀同練習</li><li>字典：隨時查字詞</li><li>筆記：整理課堂內容</li><li>提醒：功課同測驗日期</li><li>小組：同同學一齊溫習</li></ul>
-<h2>家長可以放心</h2>
-<ul><li>家長開戶，再為學生建立子帳戶</li><li>冇廣告，冇追蹤</li><li>AI 功能經伺服器處理，每位學生每日有使用上限</li></ul>
-<h2>學習作品</h2>
-<p>我哋會將溫習用嘅小作品放喺呢度，手機直接開到。</p>
-<a class="card" href="works/"><strong>颱風 溫習目錄</strong>中二中文《颱風》三節溫習：3D 路線、問答挑戰、對錯、配對、填空。<span class="tag">新</span></a>
-<footer>Tio Edu · 開發中</footer>
-</main></body></html>
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tio Edu</title>
+<meta name="description" content="Tio Edu：為學生而設嘅溫習 app，附學習作品分享。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&display=swap">
+<link rel="stylesheet" href="works/assets/base.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="bar"><b>Tio Edu</b><a href="works/">作品 ›</a></div>
+  <h1>陪學生溫習嘅學習 app</h1>
+  <p class="lead">Tio Edu 幫學生做默書、查字典、記筆記同跟進提醒，由家長開戶，學生專用。</p>
+  <div data-art="scene"></div>
+  <div class="box"><h2>功能</h2><ul><li>默書：朗讀同練習</li><li>字典：隨時查字詞</li><li>筆記：整理課堂內容</li><li>提醒：功課同測驗日期</li><li>小組：同同學一齊溫習</li></ul></div>
+  <div class="box"><h2>家長可以放心</h2><ul><li>家長開戶，再為學生建立子帳戶</li><li>冇廣告，冇追蹤</li><li>AI 功能經伺服器處理，每位學生每日有使用上限</li></ul></div>
+  <a class="hub h1c" href="works/"><strong>颱風 溫習目錄</strong><span class="d">中二中文《颱風》三節溫習：3D 路線、問答、對錯、配對、填空。</span><span class="tag">新</span></a>
+  <footer>Tio Edu · 開發中</footer>
+</div>
+<script src="works/assets/art.js"></script>
+</body>
+</html>
