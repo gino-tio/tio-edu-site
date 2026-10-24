@@ -215,5 +215,22 @@ window.TY=(function(){
   }
 
   function derange(arr){var r,t=0;do{r=shuffle(arr);t++}while(t<50&&arr.length>1&&r.some(function(x,k){return x.i===k}));return r}
-  return {derange:derange,fill:fill,match:match,shuffle:shuffle,lsGet:lsGet,lsSet:lsSet,esc:esc,tabs:tabs,mask:mask,quiz:quiz};
+  /* 「只睇考試範圍」：標咗 data-out 嘅內容會收埋，題目亦會過濾 */
+  function scopeOn(){try{return localStorage.getItem('tyScope')==='exam'}catch(e){return false}}
+  function scopeInit(){
+    var on=scopeOn(); document.documentElement.setAttribute('data-scope',on?'exam':'all');
+    var nav=document.getElementById('tabs'); if(!nav) return;
+    var row=document.createElement('div'); row.className='row';
+    row.innerHTML='<span class="scopehint"></span><button class="chip" id="scopeBtn" type="button" aria-pressed="'+on+'"></button>';
+    nav.parentNode.insertBefore(row,nav);
+    function paint(){row.querySelector('.scopehint').textContent=on?'而家淨係顯示考試範圍':'而家顯示晒所有內容（包括唔考嘅）';
+      row.querySelector('#scopeBtn').textContent=on?'顯示全部':'只睇考試範圍'}
+    paint();
+    row.querySelector('#scopeBtn').addEventListener('click',function(){
+      try{localStorage.setItem('tyScope',on?'all':'exam')}catch(e){}
+      location.reload();
+    });
+  }
+
+  return {scopeOn:scopeOn,scopeInit:scopeInit,derange:derange,fill:fill,match:match,shuffle:shuffle,lsGet:lsGet,lsSet:lsSet,esc:esc,tabs:tabs,mask:mask,quiz:quiz};
 })();
