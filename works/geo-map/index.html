@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Map Reading 讀圖</title>
+<meta name="description" content="中二地理上學期統一測驗溫習。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&display=swap">
+<link rel="stylesheet" href="../assets/base.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar"><a href="../geo/">‹ Geography</a><b>Geography</b></div>
+  <h1>Map Reading 讀圖</h1>
+  <p class="sub">Chapter 1-4：比例尺、方格參考、方向、距離</p>
+  <div data-art="scene"></div>
+  <nav class="tabs" id="tabs" aria-label="溫習方式"><button role="tab" data-pane="p-ref" aria-selected="true">重點速覽</button><button role="tab" data-pane="p-fill" aria-selected="false">計算練習</button><button role="tab" data-pane="p-match" aria-selected="false">配對遊戲</button><button role="tab" data-pane="p-mcq" aria-selected="false">選擇題</button></nav>
+<section id="p-ref"><div class="row"><span>黃色字係重點，撳開睇</span><button class="chip" id="mk" aria-pressed="false">遮住答案</button></div>
+<div id="refbox"><p class="sub">新世紀地理 Map Reading Chapter 1, 2（唔考 p.33–35）, 3, 4（唔考 p.59–66）。請對返課本。</p><div class="item " id="m-i0"><h3>1. Scale 比例尺</h3><p><span class="k">Representative fraction 1 : 5,000 → 1 cm to 50 m</span></p><p><b>換算：</b>1 : n，1 cm 代表 n cm。n 除以 100 就係「1 cm to ? m」。<br>例：1 : 20,000 → 1 cm to 200 m；1 : 5,000 → 1 cm to 50 m。</p><p><b>Statement scale：</b>1 cm to 50 m　<b>Linear scale：</b>畫一條尺，標 0、50、100…250 m。</p><p><b>實際距離 = 圖上長度 × 比例尺。</b></p><p class="eg">QE 例：East Rail Line 圖上 6.1 cm × 200 m = 1,220 m（1,200–1,240 m 都接受）。</p></div><div class="item s2" id="m-i1"><h3>2. Grid references 方格參考</h3><p><span class="k">先 easting（橫），後 northing（直）</span></p><p><b>4-figure：</b>指一個方格（用方格左下角嘅 easting + northing），例：1865。<br><b>6-figure：</b>將每格分成十等份，easting 3 位 + northing 3 位，例：182656。</p><p class="eg">UT 例：Legislative Council Complex 4-figure = 1667；church along Hennessy Road 6-figure = 182656。</p></div><div class="item s3" id="m-i2"><h3>3. Direction 方向</h3><p><span class="k">Compass points ／ whole-circle bearing ／ reduced bearing</span></p><p><b>Compass point（八個方向）：</b>N 0°、NE 45°、E 90°、SE 135°、S 180°、SW 225°、W 270°、NW 315°。</p><p><b>Whole-circle bearing：</b>由北順時針量度，0°–360°，寫成三位數字（如 027°）。誤差 ±2° 都接受。</p><p><b>Reduced bearing：</b>由北（N）或南（S）向東（E）或西（W）量，不超過 90°，如 N 45° W。</p><p><b>換算：</b>NE：WCB = θ；SE：WCB = 180° − θ；SW：WCB = 180° + θ；NW：WCB = 360° − θ。</p><p class="eg">QE 例：police station (073721) from fire station → SW，222°；restricted access from spot height 305 → ENE，84°。</p><p class="eg">UT 例：shopping mall (177672) from spot height 53.1 (162644) → 027°；cinema from primary school → N 45° W。</p><p><b>量度要點：</b>方向「由 A 去 B」＝站喺 A，望住 B。</p></div><div class="item s4" id="m-i3"><h3>4. Conventional signs 圖例</h3><p><span class="k">常見符號</span></p><p>Declared monument（法定古蹟）、Government office、Trigonometric station、Spot height（高度點）、Church、Hotel、Playground、Kindergarten、Secondary school、Petrol station、Car park、Post office、Clinic、Fire station、Police station。</p><p class="eg">唔識嘅符號要睇 map extract 嘅 legend／平時練習。</p></div></div></section>
+<section id="p-fill" hidden><p class="sub">每次入嚟都係新題目（隨機數字）。想要新一輪就重新整理頁面。</p><div id="fills"></div></section>
+<section id="p-match" hidden><div id="matchroot"></div></section>
+<section id="p-mcq" hidden><div id="mcqroot"></div></section>
+</div>
+<script src="../assets/art.js"></script>
+<script src="../assets/shared.js"></script>
+<script>
+(function(){
+  var show=TY.tabs(document.getElementById('tabs'));
+  TY.mask(document.getElementById('mk'),document.getElementById('refbox'));
+  var R=function(a,b){return a+Math.floor(Math.random()*(b-a+1))};
+  var pick=function(a){return a[R(0,a.length-1)]};
+  var FQ=[];
+  var sc=[2000,5000,10000,20000,25000];
+  for(var i=0;i<3;i++){var n=pick(sc);FQ.push({t:'Scale '+(i+1),p:'Scale 1 : '+n.toLocaleString('en-US')+'　→　1 cm to {0} m',b:[[String(n/100)]]})}
+  for(var i=0;i<3;i++){var n=pick([5000,10000,20000]);var L=R(2,9)+R(0,9)/10;var real=Math.round(L*n/100);FQ.push({t:'Distance '+(i+1),p:'Scale 1 : '+n.toLocaleString('en-US')+'，圖上長度 '+L.toFixed(1)+' cm，實際距離 = {0} m',b:[[String(real)]]})}
+  var rb=[['NE',function(t){return t}],['SE',function(t){return 180-t}],['SW',function(t){return 180+t}],['NW',function(t){return 360-t}]];
+  for(var i=0;i<4;i++){var q=pick(rb),t=R(1,8)*10;var lbl=(q[0][0]+' '+t+'° '+q[0][1]);FQ.push({t:'Bearing '+(i+1),p:'Reduced bearing '+lbl+'　→　whole-circle bearing = {0}°',b:[[String(q[1](t)),('00'+q[1](t)).slice(-3)]]})}
+  var cp=[['N',0],['NE',45],['E',90],['SE',135],['S',180],['SW',225],['W',270],['NW',315]];
+  for(var i=0;i<2;i++){var c=pick(cp);FQ.push({t:'Compass '+(i+1),p:'Whole-circle bearing '+('00'+c[1]).slice(-3)+'°　→　compass point = {0}',b:[[c[0]]]})}
+  for(var i=0;i<3;i++){var e=R(10,19),n=R(60,69),a=R(0,9),b=R(0,9);FQ.push({t:'Grid ref '+(i+1),p:'某處喺 easting '+e+' 之後 '+a+' 格（十分一），northing '+n+' 之後 '+b+' 格。6-figure grid reference = {0}　4-figure grid reference = {1}',b:[[''+e+a+n+b],[''+e+n]]})}
+  TY.fill(document.getElementById('fills'),FQ);
+  var sets=[{name:'讀圖配對（一）',help:'先撳術語，再撳相配嘅意思。',pairs:[['Statement scale','1 cm to 50 m'],['Linear scale','A ruler marked 0, 50, 100 … m'],['Easting','Vertical grid line number (read first)'],['Northing','Horizontal grid line number (read second)'],['6-figure grid reference','Locates a point within a grid square'],['4-figure grid reference','Locates a whole grid square']]},
+   {name:'讀圖配對（二）',help:'先撳術語，再撳相配嘅意思。',pairs:[['Whole-circle bearing','Measured clockwise from north, 0°–360°'],['Reduced bearing','Measured from N or S towards E or W, up to 90°'],['Compass point','NE, SE, SW, NW …'],['Spot height','Height of a point shown on the map'],['Declared monument','Conventional sign for protected historic site'],['Trigonometric station','Survey point used for mapping']]}];
+  TY.match(document.getElementById('matchroot'),{sets:sets});
+  var M=[["Scale 1 : 20,000 can be written as …", ["1 cm to 200 m", "1 cm to 20 m", "1 cm to 2 km", "1 cm to 2,000 m"], 0, "m-i0", "n ÷ 100 = 200 m。"], ["In a 6-figure grid reference such as 182656, which part is the easting?", ["182", "656", "18", "65"], 0, "m-i1", "Easting 先，northing 後。"], ["A 4-figure grid reference refers to …", ["A grid square", "An exact point", "A whole road", "A contour line"], 0, "m-i1", "4-figure = 一個方格。"], ["A whole-circle bearing is measured …", ["Clockwise from north", "Anticlockwise from east", "Clockwise from south", "From west to east"], 0, "m-i2", "由北順時針。"], ["A place is N 45° W of another. Its whole-circle bearing is …", ["315°", "045°", "135°", "225°"], 0, "m-i2", "NW：360° − 45° = 315°。"], ["Which of the following is a reduced bearing?", ["S 30° E", "150°", "SE", "030°"], 0, "m-i2", "Reduced bearing 用 N／S + 角度 + E／W。"], ["The compass point of a whole-circle bearing 225° is …", ["SW", "NW", "SE", "NE"], 0, "m-i2", "225° = SW。"], ["On a map 1 : 20,000, 6.1 cm represents …", ["1,220 m", "122 m", "12,200 m", "610 m"], 0, "m-i0", "6.1 × 200 = 1,220 m。"], ["Direction of B from A means …", ["Standing at A and looking at B", "Standing at B and looking at A", "The distance between them", "The height difference"], 0, "m-i2", "由 A 去 B。"], ["Which sign is shown by “I” in the 2024-25 QE map (Declared monument)?", ["Declared monument", "Government office", "Trigonometric station", "Church"], 0, "m-i3", "I = Declared monument。"]];
+  var QS2=M.map(function(m){return {q:m[0],opts:m[1],a:m[2],tag:m[3],note:m[4]}});
+  var tagPane2={"m-i0": "m-i0", "m-i1": "m-i1", "m-i2": "m-i2", "m-i3": "m-i3"};
+  TY.quiz(document.getElementById('mcqroot'),{
+    key:'mcqBestGeoMap',mode:'mcq',time:25,count:10,
+    kicker:'選擇題',title:'十條題，四揀一',
+    rules:['每題 25 秒','答得越快分數越高','錯咗會話你知係邊一題要溫習'],
+    questions:QS2,
+    rank:function(r,n){return r>=n?['十號風球','全對！背得好熟']:r>=n*0.9?['九號風球','幾乎滿分']:r>=n*0.7?['八號風球','好穩陣']:r>=n*0.5?['三號風球','仲差少少，睇多次重點']:['一號風球','返去重點睇返先']},
+    onReview:function(tag){show('p-ref');var id=tagPane2[tag];setTimeout(function(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})},60)}
+  });
+
+})();
+</script>
+</body>
+</html>
