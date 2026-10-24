@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Map Reading</title>
+<meta name="description" content="F.2 Geography first-term uniform test revision.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&display=swap">
+<link rel="stylesheet" href="../../assets/base.css">
+<meta name="ty-lang" content="bi">
+<script src="../../assets/theme.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar"><a href="../geo/">‹ Geography</a><b>Geography</b></div>
+  <h1>Map Reading</h1>
+  <p class="sub">Chapters 1-4: scale, grid references, direction, distance</p>
+  <div data-art="map"></div>
+  <nav class="tabs" id="tabs" aria-label="Study modes"><button role="tab" data-pane="p-ref" aria-selected="true">Notes</button><button role="tab" data-pane="p-fill" aria-selected="false">Practice</button><button role="tab" data-pane="p-match" aria-selected="false">Match</button><button role="tab" data-pane="p-mcq" aria-selected="false">Quiz</button></nav>
+<section id="p-ref"><div class="row"><span>Highlighted text = key points. Tap to open</span><button class="chip" id="mk" aria-pressed="false">Hide answers</button></div>
+<div id="refbox"><p class="sub">New Century Geography Map Reading: Chapters 1, 2 (excluding pp.33–35), 3, 4 (excluding pp.59–66). Please check against the textbook.</p><div class="item " id="m-i0"><h3>1. Scale </h3><p><span class="k">Representative fraction 1 : 5,000 → 1 cm to 50 m</span></p><p><b>Conversion:</b> in 1 : n, 1 cm stands for n cm. Divide n by 100 to get “1 cm to ? m”.<br>E.g. 1 : 20,000 → 1 cm to 200 m; 1 : 5,000 → 1 cm to 50 m.</p><p><b>Statement scale:</b> 1 cm to 50 m　<b>Linear scale:</b> draw a ruler marked 0, 50, 100 … 250 m.</p><p><b>Real distance = map length × scale.</b></p><p class="eg">QE example: East Rail Line 6.1 cm on the map × 200 m = 1,220 m (1,200–1,240 m accepted).</p></div><div class="item s2" id="m-i1"><h3>2. Grid references</h3><p><span class="k">Easting first, then northing</span></p><p><b>4-figure:</b> refers to a grid square (easting + northing of its lower-left corner), e.g. 1865.<br><b>6-figure:</b> divide each square into tenths; 3-digit easting + 3-digit northing, e.g. 182656.</p><p class="eg">UT example: Legislative Council Complex, 4-figure = 1667; church along Hennessy Road, 6-figure = 182656.</p></div><div class="item s3" id="m-i2"><h3>3. Direction</h3><p><span class="k">Compass points / whole-circle bearing / reduced bearing</span></p><p><b>Compass points (8 directions):</b> N 0°, NE 45°, E 90°, SE 135°, S 180°, SW 225°, W 270°, NW 315°.</p><p><b>Whole-circle bearing:</b> measured clockwise from north, 0°–360°, written with three digits (e.g. 027°). ±2° is accepted.</p><p><b>Reduced bearing:</b> measured from north (N) or south (S) towards east (E) or west (W), up to 90°, e.g. N 45° W.</p><p><b>Conversion:</b> NE: WCB = θ; SE: WCB = 180° − θ; SW: WCB = 180° + θ; NW: WCB = 360° − θ.</p><p class="eg">QE example: police station (073721) from fire station → SW, 222°; restricted access from spot height 305 → ENE, 84°.</p><p class="eg">UT example: shopping mall (177672) from spot height 53.1 (162644) → 027°; cinema from primary school → N 45° W.</p><p><b>Tip:</b> “direction of B from A” = stand at A and look at B.</p></div><div class="item s4" id="m-i3"><h3>4. Conventional signs</h3><p><span class="k">Common signs</span></p><p>Declared monument, Government office, Trigonometric station, Spot height, Church, Hotel, Playground, Kindergarten, Secondary school, Petrol station, Car park, Post office, Clinic, Fire station, Police station.</p><p class="eg">If you do not know a sign, check the legend of the map extract and practise often.</p></div></div></section>
+<section id="p-fill" hidden><p class="sub">New random numbers every time. Reload the page for a new round.</p><div id="fills"></div></section>
+<section id="p-match" hidden><div id="matchroot"></div></section>
+<section id="p-mcq" hidden><div id="mcqroot"></div></section>
+</div>
+<script src="../../assets/art.js"></script>
+<script src="../../assets/shared.js"></script>
+<script>
+(function(){
+  var show=TY.tabs(document.getElementById('tabs'));
+  TY.mask(document.getElementById('mk'),document.getElementById('refbox'));
+  var R=function(a,b){return a+Math.floor(Math.random()*(b-a+1))};
+  var pick=function(a){return a[R(0,a.length-1)]};
+  var FQ=[];
+  var sc=[2000,5000,10000,20000,25000];
+  for(var i=0;i<3;i++){var n=pick(sc);FQ.push({t:'Scale '+(i+1),p:'Scale 1 : '+n.toLocaleString('en-US')+'　→　1 cm to {0} m',b:[[String(n/100)]]})}
+  for(var i=0;i<3;i++){var n=pick([5000,10000,20000]);var L=R(2,9)+R(0,9)/10;var real=Math.round(L*n/100);FQ.push({t:'Distance '+(i+1),p:'Scale 1 : '+n.toLocaleString('en-US')+', map length '+L.toFixed(1)+' cm. Real distance = {0} m',b:[[String(real)]]})}
+  var rb=[['NE',function(t){return t}],['SE',function(t){return 180-t}],['SW',function(t){return 180+t}],['NW',function(t){return 360-t}]];
+  for(var i=0;i<4;i++){var q=pick(rb),t=R(1,8)*10;var lbl=(q[0][0]+' '+t+'° '+q[0][1]);FQ.push({t:'Bearing '+(i+1),p:'Reduced bearing '+lbl+'　→　whole-circle bearing = {0}°',b:[[String(q[1](t)),('00'+q[1](t)).slice(-3)]]})}
+  var cp=[['N',0],['NE',45],['E',90],['SE',135],['S',180],['SW',225],['W',270],['NW',315]];
+  for(var i=0;i<2;i++){var c=pick(cp);FQ.push({t:'Compass '+(i+1),p:'Whole-circle bearing '+('00'+c[1]).slice(-3)+'°　→　compass point = {0}',b:[[c[0]]]})}
+  for(var i=0;i<3;i++){var e=R(10,19),n=R(60,69),a=R(0,9),b=R(0,9);FQ.push({t:'Grid ref '+(i+1),p:'A point is '+a+' tenths east of easting '+e+' and '+b+' tenths north of northing '+n+'. 6-figure grid reference = {0}　4-figure grid reference = {1}',b:[[''+e+a+n+b],[''+e+n]]})}
+  TY.fill(document.getElementById('fills'),FQ);
+  var sets=[{name:"Map terms (1)",help:"Tap a term, then its meaning.",pairs:[['Statement scale','1 cm to 50 m'],['Linear scale','A ruler marked 0, 50, 100 … m'],['Easting','Vertical grid line number (read first)'],['Northing','Horizontal grid line number (read second)'],['6-figure grid reference','Locates a point within a grid square'],['4-figure grid reference','Locates a whole grid square']]},
+   {name:"Map terms (2)",help:"Tap a term, then its meaning.",pairs:[['Whole-circle bearing','Measured clockwise from north, 0°–360°'],['Reduced bearing','Measured from N or S towards E or W, up to 90°'],['Compass point','NE, SE, SW, NW …'],['Spot height','Height of a point shown on the map'],['Declared monument','Conventional sign for protected historic site'],['Trigonometric station','Survey point used for mapping']]}];
+  sets.push({name:"AI match",help:"AI-made: tap a direction, then its whole-circle bearing.",pairs:[['Due east','090°'],['Due south','180°'],['Southwest','225°'],['Northwest','315°'],['N 30° E','030°'],['S 45° E','135°']]});
+  TY.match(document.getElementById('matchroot'),{sets:sets});
+  var M=[["Scale 1 : 20,000 can be written as …", ["1 cm to 200 m", "1 cm to 20 m", "1 cm to 2 km", "1 cm to 2,000 m"], 0, "m-i0", "n ÷ 100 = 200 m."], ["In a 6-figure grid reference such as 182656, which part is the easting?", ["182", "656", "18", "65"], 0, "m-i1", "Easting comes first, then northing."], ["A 4-figure grid reference refers to …", ["A grid square", "An exact point", "A whole road", "A contour line"], 0, "m-i1", "4-figure = one grid square."], ["A whole-circle bearing is measured …", ["Clockwise from north", "Anticlockwise from east", "Clockwise from south", "From west to east"], 0, "m-i2", "Clockwise from north."], ["A place is N 45° W of another. Its whole-circle bearing is …", ["315°", "045°", "135°", "225°"], 0, "m-i2", "NW: 360° − 45° = 315°."], ["Which of the following is a reduced bearing?", ["S 30° E", "150°", "SE", "030°"], 0, "m-i2", "A reduced bearing uses N/S + angle + E/W."], ["The compass point of a whole-circle bearing 225° is …", ["SW", "NW", "SE", "NE"], 0, "m-i2", "225° = SW."], ["On a map 1 : 20,000, 6.1 cm represents …", ["1,220 m", "122 m", "12,200 m", "610 m"], 0, "m-i0", "6.1 × 200 = 1,220 m."], ["Direction of B from A means …", ["Standing at A and looking at B", "Standing at B and looking at A", "The distance between them", "The height difference"], 0, "m-i2", "From A towards B."], ["Which sign is shown by “I” in the 2024-25 QE map?", ["Declared monument", "Government office", "Trigonometric station", "Church"], 0, "m-i3", "I = Declared monument."], ["[AI] On a map with scale 1 : 5,000, a road is 8 cm long. Its real length is …", ["400 m", "4,000 m", "800 m", "40 m"], 0, "m-i0", "Answer: <b>400 m</b>"], ["[AI] A map has scale 1 : 10,000. This means 1 cm to …", ["10,000 m", "100 m", "10 m", "1,000 m"], 1, "m-i0", "Answer: <b>100 m</b>"], ["[AI] A pond is 3.5 cm from a school on a 1 : 20,000 map. The real distance is …", ["70 m", "700 m", "7,000 m", "350 m"], 1, "m-i0", "Answer: <b>700 m</b>"], ["[AI] A grid square has easting 12 and northing 68. Its 4-figure grid reference is …", ["2168", "1286", "1268", "6812"], 2, "m-i1", "Answer: <b>1268</b>"], ["[AI] The 6-figure grid reference of a point is 143672. Its easting reading is …", ["143", "672", "67", "14"], 0, "m-i1", "Answer: <b>143</b>"], ["[AI] Whole-circle bearing 090° corresponds to the compass point …", ["W", "N", "S", "E"], 3, "m-i2", "Answer: <b>E</b>"], ["[AI] A reduced bearing of S 45° E equals a whole-circle bearing of …", ["315°", "135°", "045°", "225°"], 1, "m-i2", "Answer: <b>135°</b>"], ["[AI] A place is S 30° W of another. Its whole-circle bearing is …", ["210°", "150°", "330°", "030°"], 0, "m-i2", "Answer: <b>210°</b>"], ["[AI] B is due north of A. The whole-circle bearing of B from A is …", ["180°", "090°", "000°", "270°"], 2, "m-i2", "Answer: <b>000°</b>"], ["[AI] Which is more precise for locating a point?", ["4-figure grid reference", "6-figure grid reference", "Compass point", "Scale"], 1, "m-i0", "Answer: <b>6-figure grid reference</b>"], ["[AI] On a 1 : 20,000 map, a real distance of 2,400 m is shown as …", ["1.2 cm", "2.4 cm", "12 cm", "24 cm"], 2, "m-i0", "Answer: <b>12 cm</b>"]];
+  var QS2=M.map(function(m){return {q:m[0],opts:m[1],a:m[2],tag:m[3],note:m[4]}});
+  var tagPane2={"m-i0": "m-i0", "m-i1": "m-i1", "m-i2": "m-i2", "m-i3": "m-i3"};
+  TY.quiz(document.getElementById('mcqroot'),{
+    key:'mcqBestGeoMap',mode:'mcq',time:25,count:10,
+    kicker:'Multiple choice',title:'10 questions, 4 choices',
+    rules:['25 seconds per question','Faster answers score more','Missed topics are listed at the end'],
+    questions:QS2,
+    rank:function(r,n){return r>=n?['Signal 10','Perfect! Rock solid']:r>=n*0.9?['Signal 9','Almost perfect']:r>=n*0.7?['Signal 8','Solid']:r>=n*0.5?['Signal 3','Nearly there, review the notes']:['Signal 1','Go back to the notes first']},
+    onReview:function(tag){show('p-ref');var id=tagPane2[tag];setTimeout(function(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})},60)}
+  });
+
+})();
+</script>
+</body>
+</html>

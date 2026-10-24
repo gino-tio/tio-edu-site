@@ -1,4 +1,4 @@
-/* 繪本風 SVG 插圖：全部平塗、3px 墨灰線。用 data-art="scene|walker|notebook|camp|cloud" 放入頁面 */
+/* 繪本風 SVG 插圖：全部平塗、3px 墨灰線。用 data-art="scene|walker|notebook|camp|cloud|farm|map|scroll" 放入頁面 */
 (function(){
   var I='#3E3A39',C='#F2A497',Y='#F6D27A',B='#A8D3E6',G='#B9DAA5',P='#FFFCF6';
   var S='stroke="'+I+'" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"';
@@ -106,6 +106,42 @@
       t+='<ellipse cx="0" cy="0" rx="30" ry="23" fill="'+Y+'" '+S+'/><circle cx="-9" cy="-3" r="3" fill="'+I+'"/><circle cx="9" cy="-3" r="3" fill="'+I+'"/><ellipse cx="-16" cy="6" rx="5" ry="3.4" fill="'+C+'"/><ellipse cx="16" cy="6" rx="5" ry="3.4" fill="'+C+'"/><path d="M-4 5 q4 4 8 0" fill="none" '+S+'/></g></g>';
       t+='<path class="flow" d="M200 80 h36" fill="none" '+S+'/><path class="flow" style="animation-delay:-.6s" d="M212 98 h28" fill="none" '+S+'/>';
       return frame(t,[360,190],'可愛嘅插畫：軍帳、旗同一隻雞肋','sc4');
+    },
+    farm:function(){
+      var t='';
+      t+='<circle cx="318" cy="38" r="17" fill="'+Y+'" '+S+'/>';
+      t+='<path d="M-10 96 Q70 62 150 90 T380 80 V200 H-10 Z" fill="'+G+'" '+S+'/>';
+      t+='<path d="M-10 118 Q90 104 190 116 T380 108 V140 H-10 Z" fill="'+B+'" '+S+'/>';
+      t+='<path d="M-10 146 Q90 132 190 144 T380 136 V170 H-10 Z" fill="'+B+'" '+S+'/>';
+      t+='<path d="M-10 172 Q90 160 190 170 T380 164 V200 H-10 Z" fill="'+G+'" '+S+'/>';
+      for(var i=0;i<7;i++){var x=24+i*32;t+='<path d="M'+x+' 128 v-12 M'+x+' 128 l-5 -9 M'+x+' 128 l5 -9" fill="none" stroke="'+I+'" stroke-width="2.5" stroke-linecap="round"/>';}
+      for(var i=0;i<6;i++){var x=40+i*32;t+='<path d="M'+x+' 156 v-12 M'+x+' 156 l-5 -9 M'+x+' 156 l5 -9" fill="none" stroke="'+I+'" stroke-width="2.5" stroke-linecap="round"/>';}
+      t+='<g class="bob"><g transform="translate(96 84)"><path d="M-26 -8 L0 -34 L26 -8 Z" fill="'+Y+'" '+S+'/><circle cx="0" cy="2" r="16" fill="'+P+'" '+S+'/><circle cx="-5" cy="1" r="2.4" fill="'+I+'"/><circle cx="5" cy="1" r="2.4" fill="'+I+'"/><ellipse cx="-10" cy="8" rx="4" ry="2.8" fill="'+C+'"/><ellipse cx="10" cy="8" rx="4" ry="2.8" fill="'+C+'"/></g></g>';
+      t+='<g transform="translate(272 104)"><ellipse cx="0" cy="8" rx="36" ry="22" fill="'+P+'" '+S+'/><ellipse cx="-12" cy="4" rx="10" ry="8" fill="'+I+'" opacity=".85"/><ellipse cx="14" cy="14" rx="9" ry="6" fill="'+I+'" opacity=".85"/><rect x="-24" y="26" width="9" height="16" rx="4" fill="'+P+'" '+S+'/><rect x="14" y="26" width="9" height="16" rx="4" fill="'+P+'" '+S+'/><ellipse cx="-42" cy="0" rx="16" ry="14" fill="'+P+'" '+S+'/><ellipse cx="-46" cy="8" rx="9" ry="6" fill="'+C+'" '+S+'/><circle cx="-44" cy="-4" r="2.6" fill="'+I+'"/><path d="M-50 -14 l-4 -8 M-36 -14 l3 -8" fill="none" '+S+'/></g>';
+      t+='<g class="bob">'+cloud(210,32,.5,false)+'</g>';
+      return frame(t,[360,190],'可愛嘅插畫：稻田、農夫同一隻牛','sc5');
+    },
+    map:function(){
+      var t='';
+      t+='<circle cx="316" cy="36" r="16" fill="'+Y+'" '+S+'/>';
+      t+='<g transform="rotate(-4 160 100)"><rect x="40" y="34" width="210" height="132" rx="14" fill="'+G+'" '+S+'/>';
+      for(var i=1;i<5;i++){t+='<path d="M'+(40+i*42)+' 34 V166" fill="none" stroke="'+I+'" stroke-width="2" stroke-dasharray="5 6"/>';}
+      for(var j=1;j<4;j++){t+='<path d="M40 '+(34+j*33)+' H250" fill="none" stroke="'+I+'" stroke-width="2" stroke-dasharray="5 6"/>';}
+      t+='<path d="M52 140 Q96 96 140 120 T236 62" fill="none" stroke="'+B+'" stroke-width="12" stroke-linecap="round"/><path d="M52 140 Q96 96 140 120 T236 62" fill="none" '+S+' stroke-dasharray="2 9"/>';
+      t+='<g class="bob"><path d="M178 72 q-16 -22 0 -36 q16 14 0 36 Z" fill="'+C+'" '+S+'/><circle cx="178" cy="52" r="4.5" fill="'+P+'" '+S+'/></g></g>';
+      t+='<g transform="translate(300 118)"><circle r="40" fill="'+P+'" '+S+'/><path d="M0 -34 L9 0 L0 34 L-9 0 Z" fill="'+C+'" '+S+'/><path d="M-34 0 L0 -9 L34 0 L0 9 Z" fill="'+Y+'" '+S+'/><circle r="4.5" fill="'+P+'" '+S+'/><text x="0" y="-44" text-anchor="middle" font-size="14" font-weight="700" fill="'+I+'" font-family="sans-serif">N</text></g>';
+      t+='<g class="bob">'+cloud(70,22,.46,false)+'</g>';
+      return frame(t,[360,190],'可愛嘅插畫：地圖、方格同指南針','sc6');
+    },
+    scroll:function(){
+      var t='';
+      t+='<circle cx="316" cy="36" r="16" fill="'+Y+'" '+S+'/>';
+      t+='<rect x="64" y="46" width="232" height="92" fill="'+P+'" '+S+'/>';
+      t+='<rect x="52" y="38" width="20" height="108" rx="10" fill="'+Y+'" '+S+'/><rect x="288" y="38" width="20" height="108" rx="10" fill="'+Y+'" '+S+'/>';
+      for(var i=0;i<4;i++){var y=64+i*20;t+='<path d="M92 '+y+' q10 -8 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="'+I+'" stroke-width="2.5" stroke-linecap="round"/>';}
+      t+='<g class="bob"><g transform="translate(36 120) rotate(-30)"><rect x="-4" y="-40" width="9" height="46" rx="4" fill="'+C+'" '+S+'/><path d="M-4 6 L0.5 18 L5 6 Z" fill="'+I+'"/></g></g>';
+      t+='<g class="bob">'+cloud(330,138,.5,true)+'</g>';
+      return frame(t,[360,170],'可愛嘅插畫：卷軸、毛筆同名句','sc7');
     },
     cloud:function(){
       return '<svg class="art" style="width:64px;margin:0" viewBox="0 0 90 70" role="img" aria-label="颱風雲"><g class="bob">'+cloud(45,36,1.05,true)+'</g></svg>';
