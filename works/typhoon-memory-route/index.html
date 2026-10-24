@@ -16,43 +16,83 @@
   color-scheme:dark;
 }
 html,body{height:100%;overflow:hidden}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:15px;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;-webkit-tap-highlight-color:transparent}
 #stage{position:fixed;inset:0;touch-action:pan-y}
 #stage canvas{display:block;width:100%;height:100%}
 .ui{position:fixed;inset:0;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none;
   padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .ui>*{pointer-events:auto}
-.top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:12px}
+.top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-top:12px}
 .brand{display:flex;flex-direction:column;min-width:0}
-.brand .t{font-family:var(--font-display);font-size:24px;font-weight:600;line-height:1.1;letter-spacing:.08em}
-.brand .s{font-size:12px;color:var(--ink2);letter-spacing:.06em}
+.brand .t{font-family:var(--font-display);font-size:28px;font-weight:600;line-height:1.1;letter-spacing:.08em}
+.brand .s{font-size:14px;color:var(--ink2);letter-spacing:.06em}
 .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 button{font-family:inherit;color:inherit;cursor:pointer}
-.chip{background:rgba(11,22,29,.7);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;min-height:40px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.chip{background:rgba(11,22,29,.7);border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:16px;min-height:46px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.chip-q{background:var(--signal);color:#16110a;border-color:var(--signal);font-weight:500}
 .chip[aria-pressed="true"]{border-color:var(--signal);color:var(--signal)}
 button:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
-.sheet{width:100%;max-width:560px;margin:0 auto 12px;box-sizing:border-box;background:var(--sheet);border:1px solid var(--line);border-radius:16px;padding:14px 16px 10px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);max-height:46vh;overflow:auto}
+.sheet{width:100%;max-width:560px;margin:0 auto 12px;box-sizing:border-box;background:var(--sheet);border:1px solid var(--line);border-radius:16px;padding:16px 18px 12px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);max-height:54vh;overflow:auto}
 .meta{display:flex;align-items:center;gap:10px}
-.no{flex:none;width:30px;height:30px;border-radius:50%;background:var(--signal);color:#16110a;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:15px}
-h1{margin:0;font-family:var(--font-display);font-size:20px;font-weight:600;line-height:1.2;text-wrap:balance}
-.seg{margin-left:auto;font-size:13px;color:var(--ink2);white-space:nowrap}
-.hook{margin:8px 0 0;font-size:14px;color:var(--rain)}
-.tx{margin:6px 0 0;font-size:15px;line-height:1.8}
+.no{flex:none;width:38px;height:38px;border-radius:50%;background:var(--signal);color:#16110a;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:19px}
+h1{margin:0;font-family:var(--font-display);font-size:27px;font-weight:600;line-height:1.2;text-wrap:balance}
+.seg{margin-left:auto;font-size:16px;color:var(--ink2);white-space:nowrap}
+.hook{margin:10px 0 0;font-size:18px;color:var(--rain)}
+.tx{margin:8px 0 0;font-size:20px;line-height:1.85}
 .k{color:var(--signal);background:rgba(244,194,75,.14);border-radius:4px;padding:0 3px;font-weight:500}
 .hide .k{color:transparent;background:rgba(233,240,242,.24);cursor:pointer;user-select:none}
 .hide .k.open{color:var(--signal);background:rgba(244,194,75,.14)}
 .ctl{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}
-.nav{flex:none;width:44px;height:44px;border-radius:50%;background:transparent;border:1px solid var(--line);font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center;padding:0 0 3px}
+.nav{flex:none;width:52px;height:52px;border-radius:50%;background:transparent;border:1px solid var(--line);font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center;padding:0 0 3px}
 .dots{display:flex;gap:0;flex:1;justify-content:center}
 .dot{width:26px;height:36px;background:none;border:0;padding:0;position:relative}
 .dot::after{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--line);transition:background .2s,transform .2s}
 .dot.on::after{background:var(--signal);transform:scale(1.5)}
 .lt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
-.lt button{width:100%;display:flex;align-items:center;gap:10px;background:transparent;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:15px;text-align:left;min-height:44px}
-.lt .n{flex:none;width:24px;height:24px;border-radius:50%;background:var(--signal);color:#16110a;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500}
-.lead{margin:0 0 10px;font-size:14px;color:var(--ink2)}
+.lt button{width:100%;display:flex;align-items:center;gap:10px;background:transparent;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:19px;text-align:left;min-height:56px}
+.lt .n{flex:none;width:32px;height:32px;border-radius:50%;background:var(--signal);color:#16110a;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:500}
+.lead{margin:0 0 12px;font-size:17px;color:var(--ink2)}
 .no3d-msg{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;color:var(--ink2);font-size:14px;padding:24px;text-align:center}
+
+.qz{position:fixed;inset:0;z-index:20;background:var(--bg);overflow:auto;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.qin{max-width:560px;margin:0 auto;padding:16px 0 28px}
+.qk{margin:8px 0 0;color:var(--signal);font-size:18px;font-weight:500;letter-spacing:.08em}
+.qh{font-family:var(--font-display);font-size:30px;line-height:1.25;margin:6px 0 12px;font-weight:600;text-wrap:balance}
+.qrules{margin:0 0 14px;padding-left:22px;font-size:19px;line-height:1.9;color:var(--ink2)}
+.qbest{margin:0 0 14px;font-size:18px;color:var(--rain);min-height:1.4em}
+.qbtn{display:block;width:100%;min-height:60px;border:0;border-radius:14px;background:var(--signal);color:#16110a;font-size:22px;font-weight:500}
+.qlink{display:block;width:100%;min-height:52px;margin-top:10px;background:transparent;border:1px solid var(--line);border-radius:14px;font-size:18px}
+.qtop{display:flex;justify-content:space-between;align-items:center;font-size:18px;color:var(--ink2);margin-bottom:8px}
+.qtop b{color:var(--signal);font-size:22px;font-weight:500}
+.qbar{height:10px;border-radius:5px;background:var(--line);overflow:hidden}
+.qbar i{display:block;height:100%;width:100%;background:var(--signal);transition:width .1s linear}
+.qq{font-family:var(--font-display);font-size:27px;line-height:1.5;font-weight:600;margin:20px 0;text-wrap:balance}
+.ans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.a{position:relative;min-height:104px;border:0;border-radius:14px;color:#fff;font-size:22px;font-weight:500;line-height:1.3;padding:26px 8px 12px;display:flex;align-items:center;justify-content:center;text-align:center;transition:opacity .2s}
+.a::before{content:attr(data-s);position:absolute;left:12px;top:6px;font-size:16px;opacity:.9}
+.a.c0{background:#d64550}.a.c1{background:#2f6fe0}.a.c2{background:#e0a526;color:#1a1400}.a.c3{background:#2e9e5e}
+.a.dim{opacity:.3}
+.a.ok{box-shadow:0 0 0 4px var(--ink)}
+.a.ok::after{content:"✓";position:absolute;right:12px;top:4px;font-size:24px}
+.a.bad::after{content:"✕";position:absolute;right:12px;top:4px;font-size:24px}
+.qf{margin-top:16px;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--sheet)}
+.qf.good{border-color:#2e9e5e}.qf.miss{border-color:#d64550}
+.qft{margin:0;font-size:26px;font-weight:600;font-family:var(--font-display)}
+.qf.good .qft{color:#6fd49a}.qf.miss .qft{color:#ff8a92}
+.qfs{margin:4px 0 0;font-size:19px;color:var(--ink)}
+.qfr{margin:10px 0 12px;font-size:18px;line-height:1.8;color:var(--ink2)}
+.qfr b{color:var(--ink);font-weight:500}
+.qlv{font-family:var(--font-display);font-size:46px;line-height:1.1;margin:10px 0 0;color:var(--signal);font-weight:600}
+.qlm{margin:6px 0 16px;font-size:20px}
+.qstat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:16px}
+.qstat div{border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center;font-size:15px;color:var(--ink2)}
+.qstat b{display:block;font-size:26px;color:var(--ink);font-weight:500}
+.qmh{margin:6px 0 8px;font-size:18px;color:var(--ink2)}
+.qm{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.qm button{min-height:48px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:transparent;font-size:18px}
 @media (min-width:700px){.sheet{max-height:none}}
 </style>
 
@@ -61,6 +101,7 @@ h1{margin:0;font-family:var(--font-display);font-size:20px;font-weight:600;line-
   <header class="top">
     <div class="brand"><span class="t">颱風</span><span class="s">內容分析 · 記憶路線</span></div>
     <div class="chips">
+      <button class="chip chip-q" id="qopen">問答挑戰</button>
       <button class="chip" id="quiz" aria-pressed="false">遮住答案</button>
       <button class="chip" id="ov">全覽</button>
     </div>
@@ -83,6 +124,46 @@ h1{margin:0;font-family:var(--font-display);font-size:20px;font-weight:600;line-
   </section>
 </div>
 
+
+<div class="qz" id="qz" hidden>
+  <div class="qin">
+    <section id="qstart">
+      <p class="qk">颱風問答挑戰</p>
+      <h2 class="qh">十條題目，答得越快分數越高</h2>
+      <ul class="qrules"><li>每題 20 秒，四揀一</li><li>連續答啱有額外加分</li><li>按答啱幾多題，掛起風球</li></ul>
+      <p class="qbest" id="qbest"></p>
+      <button class="qbtn" id="qgo">開始</button>
+      <button class="qlink" id="qexit1">返回路線</button>
+    </section>
+    <section id="qplay" hidden>
+      <div class="qtop"><span id="qn"></span><span>分數 <b id="qs">0</b></span></div>
+      <div class="qbar"><i id="qbi"></i></div>
+      <p class="qq" id="qq"></p>
+      <div class="ans">
+        <button class="a c0" id="q0" data-s="▲"></button>
+        <button class="a c1" id="q1" data-s="◆"></button>
+        <button class="a c2" id="q2" data-s="●"></button>
+        <button class="a c3" id="q3" data-s="■"></button>
+      </div>
+      <div class="qf" id="qf" hidden>
+        <p class="qft" id="qft"></p>
+        <p class="qfs" id="qfs"></p>
+        <p class="qfr" id="qfr"></p>
+        <button class="qbtn" id="qnext">下一題</button>
+      </div>
+    </section>
+    <section id="qend" hidden>
+      <p class="qk">挑戰完成</p>
+      <p class="qlv" id="qlv"></p>
+      <p class="qlm" id="qlm"></p>
+      <div class="qstat"><div><b id="qsc">0</b>總分</div><div><b id="qrt">0</b>答啱</div><div><b id="qbs">0</b>最長連續</div></div>
+      <div id="qmw" hidden><p class="qmh">答錯嘅地方，撳入去溫習：</p><div class="qm" id="qmiss"></div></div>
+      <button class="qbtn" id="qagain">再玩一次</button>
+      <button class="qlink" id="qexit2">返回路線</button>
+    </section>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (function(){
@@ -96,7 +177,7 @@ var STOPS=[
  {name:'碼頭',seg:'第10–12段',hook:'口訣：停開、空籮、樹斷垂地',html:'碼頭關閉，公共汽車<span class="k">停開</span>。海浪洶湧滾動，遠處停泊着大輪船，鐵欄的網上綁着<span class="k">空的竹簍和籮子</span>。附近一株樹<span class="k">被風吹斷</span>，樹葉<span class="k">垂到地面</span>。'},
  {name:'大街',seg:'第13–14段',hook:'口訣：風後一地狼藉，人走出街',html:'紙屑飄飛，地上有<span class="k">橫臥的垃圾筒</span>和<span class="k">破碎的招牌</span>，人們逐漸走到街上。'}
 ];
-var N=STOPS.length, cur=0, ok=false;
+var N=STOPS.length, cur=0, ok=false, quizOpen=false;
 function $(id){return document.getElementById(id)}
 
 /* ---------- UI ---------- */
@@ -336,12 +417,12 @@ function makeLabel(text){
     var x=c.getContext('2d'); x.clearRect(0,0,512,128);
     x.fillStyle='rgba(11,22,29,0.82)'; x.fillRect(0,0,512,128);
     x.strokeStyle='#f4c24b'; x.lineWidth=4; x.strokeRect(2,2,508,124);
-    x.fillStyle='#f4c24b'; x.font='500 58px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
+    x.fillStyle='#f4c24b'; x.font='500 74px "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
     x.textAlign='center'; x.textBaseline='middle'; x.fillText(text,256,68);
     tex.needsUpdate=true;
   }
   draw(); labels.push(draw);
-  return new THREE.Mesh(new THREE.PlaneGeometry(4.4,1.1),new THREE.MeshBasicMaterial({map:tex,transparent:true}));
+  return new THREE.Mesh(new THREE.PlaneGeometry(6.2,1.55),new THREE.MeshBasicMaterial({map:tex,transparent:true}));
 }
 function makeNumber(n){
   var c=document.createElement('canvas'); c.width=128; c.height=128;
@@ -396,7 +477,9 @@ function fit(){
   dist=Math.min(30,Math.max(16,6.4/(tn*camera.aspect)));
 }
 function frame(now){
-  var dt=Math.min(0.05,(now-last)/1000); last=now; t+=dt;
+  var dt=Math.min(0.05,(now-last)/1000); last=now;
+  if(quizOpen){requestAnimationFrame(frame);return}
+  t+=dt;
   var ov=cur<0;
   if(!ov){
     var p=pathPos(cur);
@@ -433,6 +516,113 @@ function frame(now){
   renderer.render(scene,camera);
   requestAnimationFrame(frame);
 }
+
+
+var QS=[
+[0,'街上沒有＿＿，只有風迎面撲打。','行人',['車輛','商店','雨傘']],
+[0,'街上沒有行人，只有＿＿迎面撲打。','風',['浪','沙塵','落葉']],
+[1,'有人被吹得＿＿。','腳步踉蹌',['飛上半空','大聲呼叫','緊緊抓住']],
+[1,'人們要轉進＿＿內暫避。','大廈的鐵閘',['商店的玻璃門','地下車站','公共汽車']],
+[2,'橫街：滿地都是＿＿。','垃圾',['積水','沙石','雨傘']],
+[2,'頭上有＿＿的招牌。','岌岌可危',['色彩繽紛','閃閃發亮','安然無恙']],
+[2,'招牌上面還掉下＿＿。','碎磚和玻璃片',['白色膠片','雨水和樹葉','紙屑和垃圾']],
+[3,'海洋旁邊有＿＿。','鐵欄',['木欄','石牆','鐵絲網']],
+[3,'風呼呼地颳過＿＿。','空地',['馬路','公園','碼頭']],
+[4,'招牌在風中＿＿。','晃動',['靜止','閃爍','掉落']],
+[4,'有些招牌＿＿。','半吊在空中擺動',['牢牢釘在牆上','整齊排列','掉進海裏']],
+[4,'馬路上，地上散滿＿＿。','白色膠片',['碎磚和玻璃片','青綠樹葉','空的竹簍']],
+[5,'公園：有的樹葉＿＿。','鮮嫩青綠、濕漉漉的',['枯黃乾脆','紅得像火','被踩得粉碎']],
+[5,'也有樹葉＿＿。','在樹上搖動掙扎',['靜靜躺在地上','隨水漂走','被人撿走']],
+[6,'碼頭關閉，公共汽車＿＿。','停開',['加班行駛','擠滿乘客','繼續行駛']],
+[6,'鐵欄的網上綁着＿＿。','空的竹簍和籮子',['白色膠片','破碎的招牌','濕透的衣服']],
+[6,'附近一株樹＿＿，樹葉垂到地面。','被風吹斷',['長得茂盛','被雨淋濕','開滿鮮花']],
+[7,'大街：地上有＿＿和破碎的招牌。','橫臥的垃圾筒',['直立的路燈','翻倒的汽車','完整的招牌']],
+[7,'地上有橫臥的垃圾筒和＿＿。','破碎的招牌',['完整的招牌','碎磚和玻璃片','白色膠片']],
+[7,'人們逐漸＿＿。','走到街上',['躲進鐵閘','離開城市','登上輪船']],
+[1,'由居所樓下出發，下一站係邊度？','鐵絲網旁',['公園','碼頭','大街']],
+[5,'馬路之後，下一站係邊度？','公園',['橫街','碼頭','大廈後面']],
+[7,'最後一站係邊度？','大街',['碼頭','公園','馬路']],
+[6,'邊一站出現「空的竹簍和籮子」？','碼頭',['公園','馬路','橫街']]
+];
+var QN=10, TL=20;
+var qz={list:[],i:0,score:0,streak:0,bestStreak:0,right:0,missed:[],t0:0,iv:0,locked:true,opts:[]};
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var x=a[i];a[i]=a[j];a[j]=x}return a}
+function qshow(id){['qstart','qplay','qend'].forEach(function(n){$(n).hidden=n!==id});$('qz').scrollTop=0}
+function qopen(){
+  quizOpen=true; $('qz').hidden=false; qshow('qstart');
+  var b=0; try{b=+localStorage.getItem('typhoonBest')||0}catch(e){}
+  $('qbest').textContent=b?('你嘅最高分：'+b):'';
+}
+function qclose(){clearInterval(qz.iv);quizOpen=false;$('qz').hidden=true}
+function qbegin(){
+  qz.list=shuffle(QS).slice(0,QN); qz.i=0; qz.score=0; qz.streak=0; qz.bestStreak=0; qz.right=0; qz.missed=[];
+  $('qs').textContent=0; qask();
+}
+function qask(){
+  var q=qz.list[qz.i]; qz.locked=false; qshow('qplay');
+  $('qn').textContent='第 '+(qz.i+1)+' / '+QN+' 題';
+  $('qq').textContent=q[1];
+  qz.opts=shuffle([q[2]].concat(q[3]));
+  for(var i=0;i<4;i++){var b=$('q'+i); b.textContent=qz.opts[i]; b.className='a c'+i}
+  $('qf').hidden=true;
+  $('qbi').style.width='100%';
+  qz.t0=performance.now(); clearInterval(qz.iv);
+  qz.iv=setInterval(function(){
+    var el=(performance.now()-qz.t0)/1000;
+    $('qbi').style.width=Math.max(0,(1-el/TL)*100)+'%';
+    if(el>=TL) qanswer(-1);
+  },100);
+}
+function qanswer(idx){
+  if(qz.locked) return; qz.locked=true; clearInterval(qz.iv);
+  var q=qz.list[qz.i], el=(performance.now()-qz.t0)/1000, hit=idx>=0&&qz.opts[idx]===q[2], pts=0;
+  if(hit){
+    pts=Math.round(1000*(1-Math.min(el,TL)/TL/2))+Math.min(qz.streak,5)*100;
+    qz.score+=pts; qz.streak++; qz.right++; if(qz.streak>qz.bestStreak) qz.bestStreak=qz.streak;
+  }else{
+    qz.streak=0; if(qz.missed.indexOf(q[0])<0) qz.missed.push(q[0]);
+  }
+  for(var i=0;i<4;i++){
+    var b=$('q'+i);
+    if(qz.opts[i]===q[2]) b.classList.add('ok');
+    else if(i===idx) b.classList.add('bad');
+    else b.classList.add('dim');
+  }
+  $('qs').textContent=qz.score;
+  var f=$('qf'); f.hidden=false; f.className='qf '+(hit?'good':'miss');
+  $('qft').textContent=hit?('答啱咗！+'+pts):(idx<0?'時間到':'答錯咗');
+  $('qfs').textContent=(hit&&qz.streak>1)?('連續答啱 '+qz.streak+' 題'):('答案：'+q[2]);
+  var st=STOPS[q[0]];
+  $('qfr').innerHTML='<b>第'+(q[0]+1)+'站 '+st.name+'</b>（'+st.seg+'）<br>'+st.html;
+  $('qnext').textContent=qz.i>=QN-1?'睇結果':'下一題';
+  try{$('qnext').scrollIntoView({block:'nearest',behavior:'smooth'})}catch(e){}
+}
+function qfinish(){
+  qshow('qend');
+  var r=qz.right;
+  var lv=r>=10?['十號','全對！你就係颱風專家']:r>=9?['九號','幾乎滿分，好叻']:r>=7?['八號','好穩陣，再接再厲']:r>=5?['三號','仲差少少，睇多一次路線']:['一號','由第一站慢慢行返一次'];
+  $('qlv').textContent=lv[0]+'風球'; $('qlm').textContent=lv[1];
+  $('qsc').textContent=qz.score; $('qrt').textContent=r+' / '+QN; $('qbs').textContent=qz.bestStreak;
+  try{var b=+localStorage.getItem('typhoonBest')||0; if(qz.score>b) localStorage.setItem('typhoonBest',String(qz.score))}catch(e){}
+  var box=$('qmiss'); box.innerHTML='';
+  qz.missed.sort(function(a,b){return a-b}).forEach(function(si){
+    var bt=document.createElement('button'); bt.textContent=(si+1)+' '+STOPS[si].name;
+    bt.addEventListener('click',function(){qclose();go(si)}); box.appendChild(bt);
+  });
+  $('qmw').hidden=qz.missed.length===0;
+}
+$('qopen').addEventListener('click',qopen);
+$('qgo').addEventListener('click',qbegin);
+$('qagain').addEventListener('click',qbegin);
+$('qexit1').addEventListener('click',qclose);
+$('qexit2').addEventListener('click',qclose);
+$('qnext').addEventListener('click',function(){qz.i++; if(qz.i>=QN) qfinish(); else qask()});
+for(var qi=0;qi<4;qi++)(function(n){$('q'+n).addEventListener('click',function(){qanswer(n)})})(qi);
+document.addEventListener('keydown',function(e){
+  if(!quizOpen||$('qplay').hidden) return;
+  var n=parseInt(e.key,10);
+  if(n>=1&&n<=4) qanswer(n-1);
+});
 
 var sx=0,sy=0,sdown=false;
 stage.addEventListener('pointerdown',function(e){sx=e.clientX;sy=e.clientY;sdown=true});
