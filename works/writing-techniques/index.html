@@ -133,7 +133,7 @@
     var set=SETS[cur]; sel=null; done=0; miss=0; t0=Date.now();
     document.getElementById('mres').hidden=true;
     var L=set.map(function(p,i){return {i:i,t:p[0],l:true}});
-    var R=TY.shuffle(set.map(function(p,i){return {i:i,t:p[1],l:false}}));
+    var R=TY.derange(set.map(function(p,i){return {i:i,t:p[1],l:false}}));
     var html='';
     for(var k=0;k<5;k++){
       html+='<button class="mt l" data-i="'+L[k].i+'" data-side="l">'+TY.esc(L[k].t)+'</button>';

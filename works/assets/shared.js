@@ -178,7 +178,8 @@ window.TY=(function(){
     function build(){
       var set=SETS[cur].pairs; done=0; miss=0; t0=Date.now();
       q$('res').hidden=true; q$('help').textContent=SETS[cur].help||'先撳左邊，再撳右邊相配嘅一項。';
-      var R=shuffle(set.map(function(p,i){return {i:i,t:p[1]}})), html='';
+      var R, tries=0; do{R=shuffle(set.map(function(p,i){return {i:i,t:p[1]}})); tries++}while(tries<50&&set.length>1&&R.some(function(x,k){return x.i===k}));
+      var html='';
       for(var k=0;k<set.length;k++){
         html+='<button class="mt l" data-i="'+k+'" data-side="l">'+esc(set[k][0])+'</button>';
         html+='<button class="mt" data-i="'+R[k].i+'" data-side="r">'+esc(R[k].t)+'</button>';
@@ -213,5 +214,6 @@ window.TY=(function(){
     build();
   }
 
-  return {fill:fill,match:match,shuffle:shuffle,lsGet:lsGet,lsSet:lsSet,esc:esc,tabs:tabs,mask:mask,quiz:quiz};
+  function derange(arr){var r,t=0;do{r=shuffle(arr);t++}while(t<50&&arr.length>1&&r.some(function(x,k){return x.i===k}));return r}
+  return {derange:derange,fill:fill,match:match,shuffle:shuffle,lsGet:lsGet,lsSet:lsSet,esc:esc,tabs:tabs,mask:mask,quiz:quiz};
 })();
