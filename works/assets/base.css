@@ -146,6 +146,9 @@ input.blank.bad{background:var(--coral)}
 .hub:active{transform:translateY(5px);box-shadow:0 1px 0 var(--ink)}
 .hub strong{display:block;font-size:24px;font-weight:400;margin-bottom:2px}
 .hub span.d{display:block;font-size:18px;line-height:1.7}
+.hub.h4c{background:var(--coral)}
+.hub.soon{border-style:dashed;box-shadow:none;opacity:.7;pointer-events:none}
+.hub .pt{display:inline-block;margin-right:8px;font-size:15px;background:var(--paper);border:3px solid var(--ink);border-radius:999px;padding:0 12px;line-height:1.6;vertical-align:2px}
 .hub.h1c{background:var(--sky)}.hub.h2c{background:var(--leaf)}.hub.h3c{background:var(--sun)}
 .tag{display:inline-block;margin:8px 8px 0 0;font-size:15px;background:var(--paper);border:3px solid var(--ink);border-radius:999px;padding:0 12px;line-height:1.6}
 .lead{margin:0 0 12px;font-size:19px}
