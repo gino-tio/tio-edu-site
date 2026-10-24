@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>颱風 增潤篇章提問</title>
+<meta name="description" content="颱風增潤篇章提問溫習：答案重點、寫字填空、選擇題。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@600&display=swap">
+<link rel="stylesheet" href="../assets/base.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="bar"><a href="../">‹ 目錄</a><b>颱風</b></div>
+  <h1>增潤篇章提問</h1>
+  <p class="sub">三條考試題：睇答案、自己寫、再選擇</p>
+
+  <nav class="tabs" id="tabs" aria-label="溫習方式">
+    <button role="tab" data-pane="p-ans" aria-selected="true">答案重點</button>
+    <button role="tab" data-pane="p-fill" aria-selected="false">寫字填空</button>
+    <button role="tab" data-pane="p-mcq" aria-selected="false">選擇題</button>
+  </nav>
+
+  <section id="p-ans">
+    <div class="row"><span>黃色字就係得分關鍵</span><button class="chip" id="mk" aria-pressed="false">遮住答案</button></div>
+    <div id="ansbox">
+      <div class="item" id="a1">
+        <h3>第 1 題（第 2 段）</h3>
+        <p class="eg" style="border:0;margin:0;padding:0">作者在第2段引述朋友的說話，對表達文章主題有甚麼作用？</p>
+        <p>作者的朋友提到「<span class="k">十號風球了</span>」，以及瓦煲在空中飛舞和雨傘被風吹斷的景象。這<span class="k">間接描寫</span>了風勢的猛烈，帶出<span class="k">颱風的威力</span>這個文章主題，並能<span class="k">開啟下文</span>，引出作者和朋友在街上感受颱風的經過。</p>
+      </div>
+      <div class="item" id="a2">
+        <h3>第 2 題（第 10 至 11 段）</h3>
+        <p class="eg" style="border:0;margin:0;padding:0">作者如何運用近看和遠眺的視角，描寫颱風下的海洋？這帶來了甚麼寫作效果？</p>
+        <p>作者運用<span class="k">近看</span>的視角，描寫①<span class="k">眼前翻騰不息的海洋</span>，以及漁民在碼頭鐵欄的網上留下的<span class="k">竹簍和籮子</span>；又運用<span class="k">遠眺</span>的視角，描寫②<span class="k">洶湧滾動的海洋和逆着方向前行的大輪船</span>。<span class="k">定點描寫</span>有助讀者從不同的角度觀察颱風對③<span class="k">海洋</span>帶來的影響，突顯颱風的④<span class="k">威力</span>。</p>
+      </div>
+      <div class="item" id="a3">
+        <h3>第 3 題（整篇）</h3>
+        <p class="eg" style="border:0;margin:0;padding:0">作者直接描寫颱風的篇幅較少，反而仔細描寫人或事物在颱風下的表現。這對表達主題有何好處？</p>
+        <p>颱風是<span class="k">無形</span>的，不能單憑<span class="k">肉眼</span>看見，因此作者在文中仔細描寫人們在颱風下<span class="k">舉步為艱</span>，又描寫不同事物被颱風<span class="k">破壞</span>。通過具體地寫出颱風對不同人或事物都帶來影響，有助<span class="k">渲染</span>出風勢的<span class="k">強勁</span>。</p>
+        <p class="eg">作答提示：①颱風有甚麼特色？②文章的主題是甚麼？③作者的描寫如何加強主題？</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="p-fill" hidden>
+    <p class="sub">喺空格入面打字，撳「檢查」睇對唔對。唔肯定可以撳「提示」。</p>
+    <div id="fills"></div>
+  </section>
+
+  <section id="p-mcq" hidden><div id="mcqroot"></div></section>
+</div>
+
+<script src="../assets/shared.js"></script>
+<script>
+(function(){
+  var show=TY.tabs(document.getElementById('tabs'));
+  TY.mask(document.getElementById('mk'),document.getElementById('ansbox'));
+
+  /* ---------- 寫字填空 ---------- */
+  /* 文字用 {n} 標出空格，blanks[n] = 可接受答案（第一個為標準答案） */
+  var FQ=[
+    {t:'第 1 題　作者在第2段引述朋友的說話，對表達文章主題有甚麼作用？',
+     p:'作者的朋友提到「{0}」，以及瓦煲在空中飛舞和雨傘被風吹斷的景象。這{1}描寫了風勢的猛烈，帶出{2}這個文章主題，並能{3}，引出作者和朋友在街上感受颱風的經過。',
+     b:[['十號風球了','十號風球','十號'],['間接','間接描寫','側面描寫'],['颱風的威力','颱風威力','威力'],['開啟下文','開啓下文']]},
+    {t:'第 2 題　第10至11段，作者如何運用近看和遠眺的視角，描寫颱風下的海洋？這帶來了甚麼寫作效果？',
+     p:'作者運用近看的視角，描寫眼前{0}的海洋，以及漁民在碼頭鐵欄的網上留下的{1}；又運用遠眺的視角，描寫{2}的海洋和逆着方向前行的{3}。{4}描寫有助讀者從不同的角度觀察颱風對{5}帶來的影響，突顯颱風的{6}。',
+     b:[['翻騰不息','翻騰'],['竹簍和籮子','竹簍','籮子'],['洶湧滾動','洶湧','滾動'],['大輪船','輪船'],['定點','定點描寫'],['海洋','大海'],['威力','破壞力']]},
+    {t:'第 3 題　作者直接描寫颱風的篇幅較少，反而仔細描寫人或事物在颱風下的表現。這對表達文章主題有何好處？',
+     p:'颱風是{0}的，不能單憑{1}看見，因此作者在文中仔細描寫人們在颱風下{2}，又描寫不同事物被颱風{3}。通過具體地寫出颱風對不同人或事物都帶來影響，有助{4}出風勢的{5}。',
+     b:[['無形'],['肉眼'],['舉步為艱','舉步維艱','步履維艱'],['破壞','吹毀','摧毀'],['渲染','烘托'],['強勁','猛烈','強大']]}
+  ];
+  function norm(s){return String(s).replace(/[\s，。、「」！？,.!?]/g,'')}
+  function ok(v,list){
+    v=norm(v); if(!v) return false;
+    return list.some(function(a){return v===a||(v.length>a.length&&v.indexOf(a)>=0&&v.length<=a.length+2)});
+  }
+  var host=document.getElementById('fills');
+  FQ.forEach(function(q,qi){
+    var box=document.createElement('div'); box.className='fq';
+    var html=TY.esc(q.p).replace(/\{(\d+)\}/g,function(m,n){
+      var len=q.b[+n][0].length;
+      return '<input class="blank" type="text" data-b="'+n+'" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="第'+(+n+1)+'個空格" style="--w:'+(len*1.15+1.6).toFixed(1)+'em" placeholder="'+len+'字">';
+    });
+    box.innerHTML='<h3>'+TY.esc(q.t)+'</h3><div class="fill">'+html+'</div>'
+      +'<div class="fbtns"><button class="main" data-f="check">檢查</button><button data-f="hint">提示</button><button data-f="show">睇答案</button><button data-f="clear">重做</button></div>'
+      +'<p class="fres" aria-live="polite"></p>';
+    host.appendChild(box);
+    var inputs=box.querySelectorAll('input.blank'), res=box.querySelector('.fres');
+    function check(){
+      var n=0;
+      inputs.forEach(function(inp){
+        var o=ok(inp.value,q.b[+inp.getAttribute('data-b')]);
+        inp.classList.toggle('ok',o); inp.classList.toggle('bad',!o&&norm(inp.value)!=='');
+        if(o) n++;
+      });
+      res.className='fres'+(n===inputs.length?' good':'');
+      res.textContent=n===inputs.length?'全部答啱！好叻！':('答啱 '+n+' / '+inputs.length+'，紅色嘅再試下。');
+    }
+    box.addEventListener('click',function(e){
+      var b=e.target.closest('[data-f]'); if(!b) return; var f=b.getAttribute('data-f');
+      if(f==='check') check();
+      else if(f==='hint'){
+        var shown=false;
+        inputs.forEach(function(inp){
+          if(shown||ok(inp.value,q.b[+inp.getAttribute('data-b')])) return;
+          var a=q.b[+inp.getAttribute('data-b')][0]; inp.value=a.charAt(0); shown=true; inp.focus();
+        });
+        res.className='fres'; res.textContent=shown?'已經填咗第一個字，繼續寫下去。':'已經全部啱晒。';
+      }else if(f==='show'){
+        inputs.forEach(function(inp){inp.value=q.b[+inp.getAttribute('data-b')][0]}); check();
+        res.className='fres'; res.textContent='答案已填好，再試一次自己寫就更好。';
+      }else if(f==='clear'){
+        inputs.forEach(function(inp){inp.value='';inp.classList.remove('ok','bad')}); res.textContent=''; res.className='fres';
+      }
+    });
+    inputs.forEach(function(inp){inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();check()}})});
+  });
+
+  /* ---------- 選擇題 ---------- */
+  var M=[
+    ['第2段引述朋友「十號風球了」嘅說話，主要係用咩方法寫颱風？',['間接描寫','直接描寫','比喻描寫','步移法'],0,'第1題','朋友嘅說話同瓦煲飛舞、雨傘被吹斷，係<b>間接描寫</b>風勢猛烈。'],
+    ['引述朋友嘅說話，對表達主題有咩作用？',['帶出颱風威力嘅主題，並開啟下文','介紹朋友嘅背景','交代天氣報告嘅時間','描寫朋友嘅性格'],0,'第1題','引述朋友說話帶出主題，亦引出作者同朋友在街上感受颱風嘅經過。'],
+    ['第10至11段描寫海洋，主要用咩描寫次序？',['定點描寫','步移法','比喻描寫','直接描寫'],0,'第2題','作者站在固定嘅位置，用近看同遠眺嘅視角，屬<b>定點描寫</b>。'],
+    ['以下邊項屬於「近看」嘅視角？',['眼前翻騰不息嘅海洋，同網上嘅竹簍籮子','逆着方向前行嘅大輪船','洶湧滾動嘅遠方海洋','招牌被風吹毀'],0,'第2題','近看寫眼前翻騰不息嘅海洋，以及碼頭鐵欄網上嘅竹簍同籮子。'],
+    ['以下邊項屬於「遠眺」嘅視角？',['洶湧滾動嘅海洋同逆着方向前行嘅大輪船','眼前翻騰不息嘅海洋','碼頭鐵欄網上嘅竹簍','雨點刺人'],0,'第2題','遠眺寫洶湧滾動嘅海洋，同逆着方向前行嘅大輪船。'],
+    ['定點描寫令讀者從不同角度觀察颱風對海洋嘅影響，最後突顯颱風嘅乜？',['威力','聲音','顏色','速度'],0,'第2題','突顯颱風嘅<b>威力</b>。'],
+    ['颱風係無形嘅，作者點樣令讀者感受到颱風？',['仔細描寫人同事物受颱風影響','只寫風嘅聲音','列出天氣報告嘅數字','詳細描寫颱風嘅外形'],0,'第3題','颱風無形，不能單憑肉眼看見，所以寫人舉步為艱、事物被破壞。'],
+    ['作者直接描寫颱風嘅篇幅較少，卻仔細描寫人同事物，好處係？',['具體寫出影響，有助渲染風勢強勁','令文章篇幅更短','減少出場人物','令讀者唔使想像'],0,'第3題','具體寫出颱風對不同人或事物嘅影響，有助<b>渲染風勢強勁</b>。']
+  ];
+  var QS=M.map(function(m){return {q:m[0],opts:m[1],a:m[2],tag:m[3],note:m[4]}});
+  var tagPane={'第1題':'a1','第2題':'a2','第3題':'a3'};
+  TY.quiz(document.getElementById('mcqroot'),{
+    key:'mcqBestEssay',mode:'mcq',time:25,count:8,
+    kicker:'選擇題',title:'八條題，四揀一',
+    rules:['每題 25 秒','答得越快分數越高','錯咗會話你知係邊一題要溫習'],
+    questions:QS,
+    rank:function(r,n){return r>=8?['十號風球','全對！答題思路好清晰']:r>=7?['九號風球','幾乎滿分']:r>=5?['八號風球','好穩陣']:r>=3?['三號風球','仲差少少，睇多次答案重點']:['一號風球','返去答案重點睇返先']},
+    onReview:function(tag){
+      show('p-ans'); var id=tagPane[tag];
+      setTimeout(function(){var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'})},60);
+    }
+  });
+})();
+</script>
+</body>
+</html>

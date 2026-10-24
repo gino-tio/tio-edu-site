@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>颱風 寫作手法</title>
+<meta name="description" content="颱風寫作手法溫習：重點速覽、對錯快答、配對遊戲。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@600&display=swap">
+<link rel="stylesheet" href="../assets/base.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="bar"><a href="../">‹ 目錄</a><b>颱風</b></div>
+  <h1>寫作手法</h1>
+  <p class="sub">善用描寫順序和描寫方法刻畫颱風</p>
+
+  <nav class="tabs" id="tabs" aria-label="溫習方式">
+    <button role="tab" data-pane="p-ref" aria-selected="true">重點速覽</button>
+    <button role="tab" data-pane="p-tf" aria-selected="false">對錯快答</button>
+    <button role="tab" data-pane="p-match" aria-selected="false">配對遊戲</button>
+  </nav>
+
+  <section id="p-ref">
+    <div class="row"><span>黃色字就係要背嘅答案</span><button class="chip" id="mk" aria-pressed="false">遮住答案</button></div>
+    <div id="refbox">
+      <p class="grp">描寫順序</p>
+      <div class="item" id="r-step">
+        <h3>步移法</h3>
+        <p>隨着作者<span class="k">行走的路線</span>依次描寫景物，讓讀者有如跟隨<span class="k">作者的步伐</span>，一同親臨當中的環境，並突出景物的特徵。</p>
+        <p class="eg">課文：根據步行路線，由<span class="k">作者居所樓下</span>至<span class="k">大街</span>，依次描寫景象。</p>
+      </div>
+      <div class="item" id="r-fix">
+        <h3>定點描寫</h3>
+        <p>在一個<span class="k">固定</span>的觀察點，按<span class="k">視線</span>的轉移，如由<span class="k">近</span>至<span class="k">遠</span>、由<span class="k">高</span>至低、由<span class="k">左</span>至<span class="k">右</span>等，將看到的景物順序地描寫出來。</p>
+        <p class="eg">課文：以<span class="k">碼頭的鐵欄</span>為觀察點，按着視線的轉移，把海洋和近岸的景物由<span class="k">遠</span>到<span class="k">近</span>描寫出來。</p>
+      </div>
+      <p class="grp">描寫方法</p>
+      <div class="item" id="r-dir">
+        <h3>直接描寫</h3>
+        <p>又稱<span class="k">正面描寫</span>，指直接描繪事物或景物的<span class="k">形態和特徵</span>。</p>
+        <p class="eg">課文：直接寫出颱風的<span class="k">風勢、聲音和動態</span>，又表示颱風像<span class="k">要把人吹下海去</span>。</p>
+      </div>
+      <div class="item" id="r-ind">
+        <h3>間接描寫</h3>
+        <p>又稱<span class="k">側面描寫</span>，指通過描繪<span class="k">其他事物</span>，間接地把描寫對象烘托出，使描寫對象更<span class="k">明顯突出</span>。</p>
+        <p class="eg">課文：描寫「瓦煲」和雨傘在風中的情形，行人<span class="k">在街道前進</span>的艱難情況，<span class="k">招牌和樹木</span>被吹毀，以及海浪翻騰的景象。</p>
+      </div>
+      <div class="item" id="r-met">
+        <h3>比喻描寫</h3>
+        <p>根據景物與事物之間的<span class="k">相似之處</span>，發揮<span class="k">聯想</span>，運用比喻描寫景物，使景物描畫得更<span class="k">具體、生動</span>。</p>
+        <p class="eg">課文：把雨比喻為<span class="k">針刺</span>，拍打在人的臉上和耳朵，令人疼痛。</p>
+      </div>
+      <p class="grp">颱風特徵</p>
+      <div class="item">
+        <p>來勢<span class="k">洶洶</span>、破壞力<span class="k">強</span>。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="p-tf" hidden><div id="tfroot"></div></section>
+
+  <section id="p-match" hidden>
+    <div class="mset" id="mset">
+      <button class="chip" data-set="0" aria-pressed="true">課文例子配對</button>
+      <button class="chip" data-set="1" aria-pressed="false">特點配對</button>
+    </div>
+    <p class="sub" id="mhelp">先撳左邊嘅手法，再撳右邊相配嘅一項。</p>
+    <div class="mg" id="mg"></div>
+    <div class="mres" id="mres" hidden>
+      <p id="mrt"></p>
+      <button class="qbtn" id="magain">再玩一次</button>
+    </div>
+  </section>
+</div>
+
+<script src="../assets/shared.js"></script>
+<script>
+(function(){
+  var show=TY.tabs(document.getElementById('tabs'));
+  TY.mask(document.getElementById('mk'),document.getElementById('refbox'));
+
+  /* ---------- 對錯快答 ---------- */
+  var T=[
+    ['步移法係隨着作者行走嘅路線，依次描寫景物。',1,'步移法','步移法：隨着作者行走的路線依次描寫景物。'],
+    ['《颱風》用步移法，由作者居所樓下寫到大街。',1,'步移法','課文由作者居所樓下，依次寫到大街。'],
+    ['定點描寫要不停轉換觀察點，邊行邊寫。',0,'定點描寫','定點描寫係在一個「固定」的觀察點。邊行邊寫係步移法。'],
+    ['定點描寫會按視線轉移，例如由近至遠、由高至低、由左至右。',1,'定點描寫','視線轉移可以係近至遠、高至低、左至右。'],
+    ['課文以碼頭嘅鐵欄做觀察點，由遠到近描寫海洋同近岸景物。',1,'定點描寫','以碼頭的鐵欄為觀察點，屬定點描寫。'],
+    ['直接描寫又稱「側面描寫」。',0,'直接描寫','直接描寫又稱「正面描寫」，側面描寫係間接描寫。'],
+    ['間接描寫又稱「側面描寫」。',1,'間接描寫','間接描寫即側面描寫。'],
+    ['直接寫出颱風嘅風勢、聲音同動態，係直接描寫。',1,'直接描寫','直接描繪事物的形態和特徵，屬直接描寫。'],
+    ['描寫瓦煲同雨傘在風中嘅情形，係直接描寫。',0,'間接描寫','透過瓦煲、雨傘等其他事物烘托颱風，屬間接描寫。'],
+    ['描寫招牌同樹木被風吹毀，係間接描寫。',1,'間接描寫','透過其他事物，間接地烘托出颱風的威力。'],
+    ['課文把雨比喻為針刺，係比喻描寫。',1,'比喻描寫','雨與針刺有相似之處，屬比喻描寫。'],
+    ['比喻描寫係根據景物之間嘅相似之處，發揮聯想。',1,'比喻描寫','比喻描寫令景物更具體、生動。'],
+    ['間接描寫嘅作用係烘托描寫對象，令對象更明顯突出。',1,'間接描寫','通過描繪其他事物，把描寫對象烘托出來。'],
+    ['颱風嘅特徵係來勢洶洶、破壞力強。',1,'颱風特徵','颱風來勢洶洶，破壞力強。'],
+    ['「颱風像要把人吹下海去」屬於間接描寫。',0,'直接描寫','直接寫出颱風嘅風勢，又表示颱風像要把人吹下海去，屬直接描寫。'],
+    ['步移法令讀者有如跟隨作者嘅步伐，親臨當中嘅環境。',1,'步移法','步移法令讀者有如跟隨作者的步伐。']
+  ];
+  var QS=T.map(function(t){return {q:t[0],opts:['對','錯'],a:t[1]?0:1,tag:t[2],note:t[3]}});
+  var tagPane={'步移法':'r-step','定點描寫':'r-fix','直接描寫':'r-dir','間接描寫':'r-ind','比喻描寫':'r-met','颱風特徵':'r-step'};
+  TY.quiz(document.getElementById('tfroot'),{
+    key:'tfBestWriting',mode:'tf',time:12,count:10,
+    kicker:'對錯快答',title:'十句說話，判斷對定錯',
+    rules:['每句 12 秒，撳「對」或「錯」','答得越快分數越高','連續答啱有額外加分'],
+    questions:QS,
+    rank:function(r,n){return r>=10?['十號風球','全對！手法你背得好熟']:r>=9?['九號風球','幾乎滿分']:r>=7?['八號風球','好穩陣']:r>=5?['三號風球','仲差少少，睇多次重點']:['一號風球','返去重點速覽睇返先']},
+    onReview:function(tag){
+      show('p-ref'); var id=tagPane[tag];
+      setTimeout(function(){var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'})},60);
+    }
+  });
+
+  /* ---------- 配對遊戲 ---------- */
+  var SETS=[
+    [['步移法','由作者居所樓下行到大街，依次描寫景象'],
+     ['定點描寫','站在碼頭鐵欄，由遠到近寫海洋同近岸'],
+     ['直接描寫','直接寫出風勢、聲音，似要把人吹下海去'],
+     ['間接描寫','寫瓦煲、雨傘、招牌、樹木被風吹毀'],
+     ['比喻描寫','把雨比喻為針刺，拍打人嘅臉同耳朵']],
+    [['步移法','隨着作者行走的路線描寫'],
+     ['定點描寫','固定觀察點，按視線轉移'],
+     ['直接描寫（正面描寫）','直接描繪事物的形態和特徵'],
+     ['間接描寫（側面描寫）','通過其他事物，烘托描寫對象'],
+     ['比喻描寫','抓住相似之處發揮聯想，更具體生動']]
+  ];
+  var cur=0, sel=null, done=0, miss=0, t0=0, mg=document.getElementById('mg');
+  function build(){
+    var set=SETS[cur]; sel=null; done=0; miss=0; t0=Date.now();
+    document.getElementById('mres').hidden=true;
+    var L=set.map(function(p,i){return {i:i,t:p[0],l:true}});
+    var R=TY.shuffle(set.map(function(p,i){return {i:i,t:p[1],l:false}}));
+    var html='';
+    for(var k=0;k<5;k++){
+      html+='<button class="mt l" data-i="'+L[k].i+'" data-side="l">'+TY.esc(L[k].t)+'</button>';
+      html+='<button class="mt" data-i="'+R[k].i+'" data-side="r">'+TY.esc(R[k].t)+'</button>';
+    }
+    mg.innerHTML=html;
+    Array.prototype.forEach.call(document.querySelectorAll('#mset .chip'),function(c){
+      c.setAttribute('aria-pressed',(+c.getAttribute('data-set')===cur)?'true':'false');
+    });
+  }
+  mg.addEventListener('click',function(e){
+    var b=e.target.closest('.mt'); if(!b||b.classList.contains('done')) return;
+    var side=b.getAttribute('data-side');
+    var cs=mg.querySelectorAll('.mt.sel');
+    var same=null; cs.forEach(function(x){if(x.getAttribute('data-side')===side) same=x});
+    if(same){same.classList.remove('sel')}
+    b.classList.add('sel');
+    var l=mg.querySelector('.mt.sel[data-side="l"]'), r=mg.querySelector('.mt.sel[data-side="r"]');
+    if(l&&r){
+      if(l.getAttribute('data-i')===r.getAttribute('data-i')){
+        l.classList.remove('sel'); r.classList.remove('sel'); l.classList.add('done'); r.classList.add('done'); done++;
+        if(done===5){
+          var s=Math.round((Date.now()-t0)/1000);
+          document.getElementById('mrt').textContent='全部配對完成！用咗 '+s+' 秒，錯咗 '+miss+' 次。'+(miss===0?'一次過全中，好叻！':'再玩一次，爭取零失誤。');
+          document.getElementById('mres').hidden=false;
+        }
+      }else{
+        miss++; l.classList.add('wrong'); r.classList.add('wrong');
+        setTimeout(function(){l.classList.remove('wrong','sel'); r.classList.remove('wrong','sel')},400);
+      }
+    }
+  });
+  document.getElementById('mset').addEventListener('click',function(e){
+    var c=e.target.closest('.chip'); if(!c) return; cur=+c.getAttribute('data-set'); build();
+  });
+  document.getElementById('magain').addEventListener('click',build);
+  build();
+})();
+</script>
+</body>
+</html>
