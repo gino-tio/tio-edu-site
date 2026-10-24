@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>楊修之死 記憶路線</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&display=swap">
+<link rel="stylesheet" href="../assets/base.css">
+<style>
+html,body{height:100%;overflow:hidden}
+body{padding:0;margin:0}
+#stage{position:fixed;inset:0;touch-action:pan-y}
+#stage canvas{display:block;width:100%;height:100%}
+.ui{position:fixed;inset:0;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.ui>*{pointer-events:auto}
+.top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-top:12px}
+.brand{display:flex;align-items:center;gap:6px;min-width:0}
+.brand .art{width:64px;flex:none}
+.brand .bt{display:flex;flex-direction:column}
+.brand .t{font-size:28px;line-height:1.1;letter-spacing:.08em}
+.brand .s{font-size:14px;color:var(--ink2)}
+html[data-theme=night] .brand .t,html[data-theme=night] .brand .s{color:#F4EBDD}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.sheet{width:100%;max-width:560px;margin:0 auto 12px;border:3px solid var(--ink);border-radius:28px;background:var(--paper);padding:16px 18px 12px;max-height:54vh;overflow:auto}
+.meta{display:flex;align-items:center;gap:10px}
+.no{flex:none;width:40px;height:40px;border-radius:50%;background:var(--sun);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:19px}
+.sheet h1{margin:0;font-size:27px;line-height:1.2;font-weight:400}
+.seg{margin-left:auto;font-size:16px;color:var(--ink2);white-space:nowrap}
+.hook{display:inline-block;margin:10px 0 0;font-size:17px;background:var(--sky);border:3px solid var(--ink);border-radius:999px;padding:0 14px}
+.tx{margin:10px 0 0;font-size:20px;line-height:1.85}
+.ctl{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px}
+.nav{flex:none;width:54px;height:54px;border-radius:50%;background:var(--paper);border:3px solid var(--ink);font-size:30px;line-height:1;display:flex;align-items:center;justify-content:center;padding:0 0 4px;box-shadow:0 4px 0 var(--ink)}
+.nav:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}
+.dots{display:flex;flex:1;justify-content:center}
+.dot{width:26px;height:38px;background:none;border:0;padding:0;position:relative}
+.dot::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--paper);border:3px solid var(--ink);transition:transform .2s,background .2s}
+.dot.on::after{background:var(--coral);transform:scale(1.4)}
+.lt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none}
+.lt button{width:100%;display:flex;align-items:center;gap:10px;background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:8px 12px;font-size:19px;text-align:left;min-height:58px}
+.lt .n{flex:none;width:32px;height:32px;border-radius:50%;background:var(--sun);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:17px}
+.no3d-msg{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-size:18px;padding:24px;text-align:center}
+.qz{position:fixed;inset:0;z-index:20;background:var(--paper);overflow:auto;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.qin{max-width:560px;margin:0 auto;padding:16px 0 28px}
+</style>
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+
+<div id="stage"></div>
+<div class="ui">
+  <header class="top">
+    <div class="brand"><span data-art="cloud"></span><div class="bt"><span class="t">楊修之死</span><span class="s">內容分析 · 記憶路線</span></div></div>
+    <div class="chips">
+      <a class="chip" href="../part-c/" style="text-decoration:none;display:inline-flex;align-items:center;color:inherit">目錄</a>
+      <button class="chip chip-q" id="qopen">問答挑戰</button>
+      <button class="chip" id="quiz" aria-pressed="false">遮住答案</button>
+      <button class="chip" id="theme" aria-pressed="false">🌙 夜間</button>
+      <button class="chip" id="ov">全覽</button>
+    </div>
+  </header>
+  <section class="sheet" id="sheet" aria-live="polite">
+    <div id="detail">
+      <div class="meta"><span class="no" id="no">1</span><h1 id="nm"></h1><span class="seg" id="sg"></span></div>
+      <p class="hook" id="hk"></p>
+      <p class="tx" id="tx"></p>
+    </div>
+    <div id="list" hidden>
+      <p class="lead">八個地點，跟着楊修同曹操嘅故事行一次。點一站就會飛過去。</p>
+      <ul class="lt" id="lt"></ul>
+    </div>
+    <div class="ctl" id="ctl">
+      <button class="nav" id="prev" aria-label="上一站">‹</button>
+      <div class="dots" id="dots"></div>
+      <button class="nav" id="next" aria-label="下一站">›</button>
+    </div>
+  </section>
+</div>
+
+
+<div class="qz" id="qz" hidden>
+  <div class="qin">
+    <section id="qstart">
+      <p class="qk">楊修之死問答挑戰</p>
+      <h2 class="qh">十條題目，答得越快分數越高</h2>
+      <ul class="qrules"><li>每題 20 秒，四揀一</li><li>連續答啱有額外加分</li><li>按答啱幾多題，官階愈升愈高</li></ul>
+      <p class="qbest" id="qbest"></p>
+      <button class="qbtn" id="qgo">開始</button>
+      <button class="qlink" id="qexit1">返回路線</button>
+    </section>
+    <section id="qplay" hidden>
+      <div class="qtop"><span id="qn"></span><span>分數 <b id="qs">0</b></span></div>
+      <div class="qbar"><i id="qbi"></i></div>
+      <p class="qq" id="qq"></p>
+      <div class="ans">
+        <button class="a c0" id="q0" data-s="▲"></button>
+        <button class="a c1" id="q1" data-s="◆"></button>
+        <button class="a c2" id="q2" data-s="●"></button>
+        <button class="a c3" id="q3" data-s="■"></button>
+      </div>
+      <div class="qf" id="qf" hidden>
+        <p class="qft" id="qft"></p>
+        <p class="qfs" id="qfs"></p>
+        <p class="qfr" id="qfr"></p>
+        <button class="qbtn" id="qnext">下一題</button>
+      </div>
+    </section>
+    <section id="qend" hidden>
+      <p class="qk">挑戰完成</p>
+      <p class="qlv" id="qlv"></p>
+      <p class="qlm" id="qlm"></p>
+      <div class="qstat"><div><b id="qsc">0</b>總分</div><div><b id="qrt">0</b>答啱</div><div><b id="qbs">0</b>最長連續</div></div>
+      <div id="qmw" hidden><p class="qmh">答錯嘅地方，撳入去溫習：</p><div class="qm" id="qmiss"></div></div>
+      <button class="qbtn" id="qagain">再玩一次</button>
+      <button class="qlink" id="qexit2">返回路線</button>
+    </section>
+  </div>
+</div>
+
+<script src="../assets/art.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+var STOPS=[
+ {name:'軍營・雞肋',seg:'第1–3段',hook:'口訣：現在・近因・詳寫',html:'楊修從暗號「<span class="k">雞肋</span>」推測<span class="k">曹操將退兵</span>，吩咐士兵<span class="k">收拾行裝</span>。結果被判<span class="k">惑亂軍心</span>之罪<span class="k">處死</span>。（發生時間：現在；篇幅較長，屬<span class="k">詳寫</span>）'},
+ {name:'過渡橋',seg:'第4段',hook:'口訣：上承經過，下啟往事',html:'「<span class="k">原來楊修為人，恃才放曠，數犯曹操之忌</span>」是過渡句：<span class="k">上承</span>楊修被處死的經過和結果，<span class="k">下啟</span>過去楊修與曹操之間的往事，令文章轉折<span class="k">自然</span>。'},
+ {name:'花園門',seg:'第4段',hook:'口訣：「活」字＝嫌門闊',html:'事件二：曹操在門上寫「<span class="k">活</span>」字，楊修猜出是嫌<span class="k">園門太闊</span>，招致曹操的<span class="k">妒忌</span>。（過去；略寫）'},
+ {name:'一合酥',seg:'第5段',hook:'口訣：一人一口酥，分來食',html:'事件三：楊修猜中「一合酥」是指「<span class="k">一人一口酥</span>」，把酥餅<span class="k">與眾人分來吃</span>，招致曹操的<span class="k">厭惡</span>。（過去；略寫）'},
+ {name:'夢中殺人',seg:'第6段',hook:'口訣：揭穿假夢，更厭惡',html:'事件四：曹操假裝<span class="k">夢中殺人</span>，楊修當眾<span class="k">揭穿</span>，令曹操<span class="k">更感厭惡</span>。（過去；略寫）'},
+ {name:'吳質大竹篋',seg:'第7段',hook:'口訣：密告反被暗算，背譖害',html:'事件五：楊修密告曹丕與吳質會談<span class="k">世子繼位</span>的事，反被<span class="k">吳質</span>暗算，背上<span class="k">譖害曹丕</span>之嫌，令曹操<span class="k">更感厭惡</span>。'},
+ {name:'鄴城門',seg:'第8段',hook:'口訣：教曹植斬門吏，曹操憤怒',html:'事件六：楊修教曹植出<span class="k">鄴城門</span>的方法，令曹操十分<span class="k">憤怒</span>。（過去；略寫）'},
+ {name:'答教書案',seg:'第9段',hook:'口訣：十多條答教，殺意起',html:'事件七：楊修為曹植作「<span class="k">答教</span>」，用以<span class="k">應對曹操的考問</span>，令曹操大怒並萌生<span class="k">殺意</span>，借<span class="k">惑亂軍心</span>的罪名殺了他。'}
+];
+var N=STOPS.length, cur=0, ok=false, quizOpen=false;
+function $(id){return document.getElementById(id)}
+
+/* ---------- UI ---------- */
+var dotsEl=$('dots'), ltEl=$('lt'), dotBtns=[];
+STOPS.forEach(function(s,i){
+  var d=document.createElement('button'); d.className='dot'; d.setAttribute('aria-label','第'+(i+1)+'站 '+s.name);
+  d.addEventListener('click',function(){go(i)}); dotsEl.appendChild(d); dotBtns.push(d);
+  var li=document.createElement('li'), b=document.createElement('button');
+  b.innerHTML='<span class="n">'+(i+1)+'</span><span>'+s.name+'</span>';
+  b.addEventListener('click',function(){go(i)}); li.appendChild(b); ltEl.appendChild(li);
+});
+function render(){
+  var ov=cur<0;
+  $('detail').hidden=ov; $('ctl').hidden=ov; $('list').hidden=!ov;
+  $('ov').textContent=ov?'返回':'全覽';
+  if(!ov){
+    var s=STOPS[cur];
+    $('no').textContent=cur+1; $('nm').textContent=s.name; $('sg').textContent=s.seg;
+    $('hk').textContent=s.hook; $('tx').innerHTML=s.html;
+    dotBtns.forEach(function(d,i){d.classList.toggle('on',i===cur)});
+  }
+  $('sheet').scrollTop=0;
+}
+var lastStop=0;
+function go(i){ cur=i; if(i>=0) lastStop=i; render(); }
+$('prev').addEventListener('click',function(){go((cur+N-1)%N)});
+$('next').addEventListener('click',function(){go((cur+1)%N)});
+$('theme').addEventListener('click',function(){applyTheme(theme==='day'?'night':'day')});
+$('ov').addEventListener('click',function(){go(cur<0?lastStop:-1)});
+$('quiz').addEventListener('click',function(){
+  var on=!document.body.classList.contains('hide');
+  document.body.classList.toggle('hide',on);
+  this.setAttribute('aria-pressed',on?'true':'false');
+  this.textContent=on?'顯示答案':'遮住答案';
+  Array.prototype.forEach.call(document.querySelectorAll('.k.open'),function(e){e.classList.remove('open')});
+});
+$('tx').addEventListener('click',function(e){
+  if(document.body.classList.contains('hide')&&e.target.classList.contains('k')) e.target.classList.toggle('open');
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight') go(cur<0?lastStop:(cur+1)%N);
+  if(e.key==='ArrowLeft') go(cur<0?lastStop:(cur+N-1)%N);
+});
+render();
+
+/* ---------- 3D ---------- */
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var dl,sea,theme='day',renderer,scene,camera,hemi,rain,rainPos,drops=[],labels=[],ovSprites=[],anims=[];
+var stage=$('stage');
+
+function M(c){return new THREE.MeshLambertMaterial({color:c})}
+function box(w,h,d,c,x,y,z){var m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),M(c));m.position.set(x,y,z);return m}
+function glow(w,h,d,c,x,y,z){var m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),new THREE.MeshBasicMaterial({color:c}));m.position.set(x,y,z);return m}
+function cyl(rt,rb,h,c,x,y,z,seg){var m=new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,seg||10),M(c));m.position.set(x,y,z);return m}
+function cone(r,h,c,x,y,z){var m=new THREE.Mesh(new THREE.ConeGeometry(r,h,8),new THREE.MeshLambertMaterial({color:c,flatShading:true}));m.position.set(x,y,z);return m}
+function sph(r,c,x,y,z){var m=new THREE.Mesh(new THREE.SphereGeometry(r,10,8),new THREE.MeshLambertMaterial({color:c,flatShading:true}));m.position.set(x,y,z);return m}
+function person(c,x,z){
+  var g=new THREE.Group();
+  g.add(cyl(0.26,0.32,1,c,0,0.5,0,8));
+  g.add(sph(0.24,0xe3c3a0,0,1.25,0));
+  g.position.set(x,0,z); return g;
+}
+function pathPos(i){return new THREE.Vector3(i*16,0,Math.sin(i*0.8)*9)}
+function rnd(s){var x=Math.sin(s*127.1)*43758.5453;return x-Math.floor(x)}
+function streaks(g,ys,z){
+  ys.forEach(function(y,i){
+    var m=new THREE.Mesh(new THREE.BoxGeometry(2.2,0.04,0.04),new THREE.MeshBasicMaterial({color:0xA8D3E6,transparent:true,opacity:0.8}));
+    m.position.set(0,y,z); g.add(m);
+    anims.push(function(t){m.position.x=5-((t*7+i*4.1)%11)});
+  });
+}
+
+
+var C_=0xF2A497,Y_=0xF6D27A,B_=0xA8D3E6,G_=0xB9DAA5,P_=0xFFFCF6,I_=0x3E3A39;
+function glyph(text,w,h,fg,bg,rot){
+  var W=512,H=Math.max(64,Math.round(512*h/w));
+  var c=document.createElement('canvas'); c.width=W; c.height=H;
+  var tex=new THREE.CanvasTexture(c);
+  function draw(){
+    var x=c.getContext('2d'); x.clearRect(0,0,W,H);
+    if(bg){x.fillStyle=bg; x.fillRect(0,0,W,H); x.strokeStyle='#3E3A39'; x.lineWidth=10; x.strokeRect(5,5,W-10,H-10);}
+    var fs=Math.min(H*0.62,(W-40)/Math.max(1,text.length)*0.95);
+    x.fillStyle=fg; x.font=fs+'px "Huninn","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
+    x.textAlign='center'; x.textBaseline='middle'; x.fillText(text,W/2,H/2+fs*0.06);
+    tex.needsUpdate=true;
+  }
+  draw(); labels.push(draw);
+  return new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:tex,transparent:true,side:THREE.DoubleSide}));
+}
+function tree2(g,x,z,s){
+  var t=new THREE.Group(); t.position.set(x,0,z);
+  t.add(cyl(0.18*s,0.26*s,1.6*s,C_,0,0.8*s,0,6));
+  t.add(cone(1.3*s,2.4*s,0xA9D08E,0,2.4*s,0));
+  t.add(cone(1*s,2*s,G_,0,3.5*s,0));
+  g.add(t); return t;
+}
+function ground(g,w,d,z){g.add(box(w,0.05,d,0xE9E1D1,0,0.025,z||0))}
+function b1(g){
+  ground(g,11,9,0);
+  var tent=new THREE.Mesh(new THREE.ConeGeometry(3.1,3.6,4),M(C_)); tent.position.set(-2.8,1.8,-1.2); tent.rotation.y=Math.PI/4; g.add(tent);
+  g.add(cyl(0.05,0.05,2,I_,-2.8,4.6,-1.2,6));
+  var flag=new THREE.Group(); flag.position.set(-2.8,5.3,-1.2); flag.add(box(1.1,0.6,0.05,Y_,0.55,0,0)); g.add(flag);
+  var dr=new THREE.Group(); dr.position.set(2.8,2.8,0);
+  var meat=sph(1.0,Y_,0,0,0); meat.scale.set(1,0.85,0.9); dr.add(meat);
+  var bone=cyl(0.17,0.17,1.7,P_,0.9,0.95,0,8); bone.rotation.z=-0.75; dr.add(bone);
+  dr.add(sph(0.3,P_,1.55,1.6,0.15)); dr.add(sph(0.3,P_,1.55,1.6,-0.15));
+  dr.add(glow(0.16,0.16,0.1,I_,-0.35,0.15,0.9)); dr.add(glow(0.16,0.16,0.1,I_,0.35,0.15,0.9));
+  g.add(dr);
+  var sol=[person(B_,-0.6,2.4),person(Y_,0.8,3.2),person(G_,-1.8,3.4)];
+  sol.forEach(function(p){g.add(p)});
+  var bun=[]; [[1.9,2.6],[2.9,3.1],[3.7,2.2]].forEach(function(a,i){var b=box(0.8,0.6,0.7,[C_,Y_,B_][i],a[0],0.33,a[1]); g.add(b); bun.push(b)});
+  g.add(cyl(0.06,0.08,2.6,I_,-4.6,1.3,2.4,6)); g.add(glow(0.4,0.4,0.4,Y_,-4.6,2.8,2.4));
+  anims.push(function(t){
+    dr.rotation.y=t*0.8; dr.position.y=2.8+Math.sin(t*2)*0.2;
+    flag.rotation.y=Math.sin(t*3)*0.4;
+    sol.forEach(function(p,i){p.position.y=Math.abs(Math.sin(t*4+i*1.3))*0.25});
+    bun.forEach(function(b,i){b.rotation.y=Math.sin(t*2+i)*0.2});
+  });
+}
+function b2(g){
+  ground(g,11,9,0);
+  g.add(box(11,0.3,2.6,Y_,0,0.55,0.8));
+  for(var x=-4;x<=4;x+=2) g.add(cyl(0.25,0.25,0.55,I_,x,0.28,0.8,8));
+  [-0.3,1.9].forEach(function(z){g.add(box(11,0.1,0.1,I_,0,1.5,z)); for(var x2=-5;x2<=5;x2+=2.5) g.add(box(0.1,0.9,0.1,I_,x2,1.05,z))});
+  g.add(box(2.6,3.8,2.4,B_,-4.4,1.9,-2.6)); g.add(box(2.6,2.6,2.4,G_,4.4,1.3,-2.6));
+  var a=glyph('現在',2.0,0.9,'#3E3A39','#FFFCF6'); a.position.set(-4.4,3.0,-1.38); g.add(a);
+  var b=glyph('過去',2.0,0.9,'#3E3A39','#FFFCF6'); b.position.set(4.4,1.9,-1.38); g.add(b);
+  var arrow=new THREE.Group(); arrow.position.set(0,3.0,0.8);
+  var sh=cyl(0.2,0.2,2.6,C_,0,0,0,8); sh.rotation.z=Math.PI/2; arrow.add(sh);
+  var hd=cone(0.6,1.1,C_,-1.85,0,0); hd.rotation.z=Math.PI/2; arrow.add(hd);
+  g.add(arrow);
+  var t1=glyph('原來楊修為人，恃才放曠，數犯曹操之忌',8.4,1.0,'#3E3A39','#FFFCF6'); t1.position.set(0,0.8,3.9); g.add(t1);
+  var p=person(B_,-2,2.4); g.add(p);
+  anims.push(function(t){arrow.position.x=Math.sin(t*1.4)*1.4; arrow.position.y=3.0+Math.sin(t*2.8)*0.12; p.position.x=-2+Math.sin(t*0.8)*2});
+}
+function b3(g){
+  ground(g,11,9,0);
+  g.add(box(1,4,1,C_,-3.4,2,0)); g.add(box(1,4,1,C_,3.4,2,0));
+  g.add(box(8.2,0.8,1.3,C_,0,4.3,0)); g.add(box(9.2,0.35,2.0,I_,0,4.9,0));
+  var board=new THREE.Group(); board.position.set(0,4.0,0.2);
+  var bd=glyph('活',1.7,1.7,'#3E3A39','#FFFCF6'); bd.position.set(0,-0.95,0.1); board.add(bd);
+  board.add(box(0.06,0.4,0.06,I_,-0.6,-0.1,0)); board.add(box(0.06,0.4,0.06,I_,0.6,-0.1,0));
+  g.add(board);
+  var w=glyph('嫌門太闊',3.4,0.8,'#3E3A39','#F6D27A'); w.position.set(0,0.9,3.4); g.add(w);
+  var ts=[tree2(g,-2,-3,1.1),tree2(g,2.2,-3.2,1.2),tree2(g,0,-4,0.9)];
+  for(var i=-4;i<=4;i+=1) g.add(box(0.08,1.0,0.08,I_,i,0.5,-1.4));
+  g.add(box(9,0.08,0.08,I_,0,0.9,-1.4));
+  var yx=person(B_,3.6,2.4), cc=person(C_,-3.6,2.4); g.add(yx); g.add(cc);
+  anims.push(function(t){board.rotation.z=Math.sin(t*2)*0.08; ts.forEach(function(tr,i){tr.rotation.z=Math.sin(t*1.6+i)*0.03}); yx.position.y=Math.abs(Math.sin(t*3))*0.15});
+}
+function b4(g){
+  ground(g,11,9,0);
+  g.add(box(5.6,0.25,2.8,Y_,0,1.3,0));
+  [[-2.5,-1.2],[2.5,-1.2],[-2.5,1.2],[2.5,1.2]].forEach(function(a){g.add(box(0.25,1.2,0.25,I_,a[0],0.62,a[1]))});
+  g.add(box(1.8,0.7,1.3,C_,0,1.78,0));
+  var lid=glyph('一合酥',1.6,0.9,'#3E3A39','#FFFCF6'); lid.rotation.x=-Math.PI/2; lid.position.set(0,2.15,0); g.add(lid);
+  var seats=[[-3.4,1.6,B_],[3.4,1.6,G_],[-2.2,-2.6,C_],[2.2,-2.6,Y_]], ps=[], ck=[];
+  seats.forEach(function(a){var p=person(a[2],a[0],a[1]); g.add(p); ps.push(p)});
+  for(var i=0;i<4;i++){var c=cyl(0.2,0.2,0.12,0xE9C98F,0,2,0,10); g.add(c); ck.push(c)}
+  var bub=glyph('一人一口酥',4.6,1.0,'#3E3A39','#F6D27A'); bub.position.set(0,3.7,0.4); g.add(bub);
+  anims.push(function(t){
+    ck.forEach(function(c,i){var ph=((t*0.5+i*0.25)%1), a=seats[i];
+      c.position.x=a[0]*ph; c.position.z=a[1]*ph; c.position.y=2.0-ph*0.4+Math.sin(ph*Math.PI)*0.9});
+    ps.forEach(function(p,i){p.position.y=Math.abs(Math.sin(t*3+i))*0.12});
+    bub.position.y=3.7+Math.sin(t*2)*0.12;
+  });
+}
+function b5(g){
+  ground(g,11,9,0);
+  g.add(box(4.6,0.6,2.6,B_,-1.2,0.6,-0.5));
+  g.add(box(1,0.3,1.3,P_,-3.0,1.05,-0.5));
+  g.add(sph(0.45,0xe3c3a0,-2.9,1.45,-0.5));
+  var blk=box(3,0.35,2.4,C_,0.1,1.05,-0.5); g.add(blk);
+  var fell=box(1.6,0.12,1.4,C_,2.4,0.08,1.6); fell.rotation.y=0.5; g.add(fell);
+  var dream=glyph('夢',1.4,1.4,'#3E3A39','#F6D27A'); dream.position.set(-2.6,3.6,-0.5); g.add(dream);
+  var z1=glyph('Z z z',1.8,0.7,'#3E3A39',null); z1.position.set(-2.2,2.7,-0.5); g.add(z1);
+  var sword=new THREE.Group(); sword.position.set(1.8,2.3,1.4);
+  sword.add(box(0.12,2.2,0.05,0xCFD8DC,0,0.9,0)); sword.add(box(0.5,0.12,0.12,C_,0,-0.2,0)); sword.add(box(0.12,0.5,0.12,I_,0,-0.5,0));
+  g.add(sword);
+  var att=person(B_,3.4,2.4); g.add(att);
+  var t1=glyph('丞相非在夢中，君乃在夢中耳',7.4,1.0,'#3E3A39','#FFFCF6'); t1.position.set(0,0.8,3.9); g.add(t1);
+  anims.push(function(t){
+    sword.rotation.z=0.7+Math.sin(t*3)*0.5; dream.position.y=3.6+Math.sin(t*1.5)*0.2; z1.position.y=2.7+Math.sin(t*1.5+1)*0.15;
+    att.position.z=2.4-Math.abs(Math.sin(t*0.7))*1.6; blk.position.y=1.05+Math.sin(t*1.2)*0.03;
+  });
+}
+function b6(g){
+  ground(g,11,9,0);
+  g.add(box(4.2,4,3.2,C_,3.8,2,-2.2)); g.add(box(5,0.5,4,I_,3.8,4.2,-2.2));
+  var door=glyph('府',1.1,1.5,'#3E3A39','#FFFCF6'); door.position.set(3.8,1.1,-0.58); g.add(door);
+  var bk=new THREE.Group(); bk.position.set(-4,0,1.4);
+  bk.add(cyl(1.15,1.0,2.4,0xE9C98F,0,1.2,0,14));
+  [[C_,-0.4],[B_,0],[G_,0.4]].forEach(function(a){bk.add(cyl(0.28,0.28,1.1,a[0],a[1],2.7,0,8))});
+  var tag=glyph('吳質',1.3,0.7,'#3E3A39','#FFFCF6'); tag.position.set(0,1.2,1.12); bk.add(tag);
+  g.add(bk);
+  var sec=glyph('絹疋',1.5,0.7,'#3E3A39','#F6D27A'); sec.position.set(0,4.1,0); bk.add(sec);
+  var yx=person(B_,-0.4,2.8), cp=person(G_,1.4,3.0); g.add(yx); g.add(cp);
+  var q=glyph('密告 → 反被暗算',4.8,0.9,'#3E3A39','#FFFCF6'); q.position.set(-0.6,0.8,4.0); g.add(q);
+  anims.push(function(t){
+    bk.position.x=-4.4+((t*0.9)%7.4); bk.position.y=Math.abs(Math.sin(t*5))*0.06;
+    yx.position.y=Math.abs(Math.sin(t*3))*0.15; cp.position.y=Math.abs(Math.sin(t*3+1))*0.15;
+  });
+}
+function b7(g){
+  ground(g,11,9,0);
+  g.add(box(2.4,4.6,2.6,B_,-3.5,2.3,-1.8)); g.add(box(2.4,4.6,2.6,B_,3.5,2.3,-1.8));
+  g.add(box(4.6,1.2,2.6,B_,0,4.0,-1.8));
+  var nm=glyph('鄴城門',3.6,0.9,'#3E3A39','#FFFCF6'); nm.position.set(0,4.0,-0.48); g.add(nm);
+  var dl=new THREE.Group(); dl.position.set(-2.2,0,-0.6); dl.add(box(2.2,3.2,0.25,Y_,1.1,1.6,0)); g.add(dl);
+  var dr=new THREE.Group(); dr.position.set(2.2,0,-0.6); dr.add(box(2.2,3.2,0.25,Y_,-1.1,1.6,0)); g.add(dr);
+  var guard=person(C_,-1,0.6), cz=person(G_,2,3.8); g.add(guard); g.add(cz);
+  g.add(cyl(0.05,0.05,3,I_,-1.7,1.6,0.6,6));
+  var sw=new THREE.Group(); sw.position.set(2.8,1.5,3.6); sw.add(box(0.12,1.8,0.05,0xCFD8DC,0,0.8,0)); sw.add(box(0.45,0.1,0.1,C_,0,-0.1,0)); g.add(sw);
+  g.add(cyl(0.06,0.08,2.4,I_,-5,1.2,2.2,6)); g.add(glow(0.4,0.4,0.4,Y_,-5,2.6,2.2));
+  g.add(cyl(0.06,0.08,2.4,I_,5,1.2,2.2,6)); g.add(glow(0.4,0.4,0.4,Y_,5,2.6,2.2));
+  var q=glyph('吾奉王命，誰敢阻當！',5.2,0.9,'#3E3A39','#F6D27A'); q.position.set(0.4,0.9,4.2); g.add(q);
+  anims.push(function(t){
+    var o=0.5+0.5*Math.sin(t*0.8); dl.rotation.y=-o*0.5; dr.rotation.y=o*0.5;
+    cz.position.z=3.8-((t*0.5)%1)*1.8; sw.rotation.z=Math.sin(t*3)*0.4; guard.position.y=Math.abs(Math.sin(t*2))*0.1;
+  });
+}
+function b8(g){
+  ground(g,11,9,0);
+  g.add(box(4.2,0.22,2.2,Y_,-1,1.3,0.4));
+  [[-2.8,-0.5],[0.8,-0.5],[-2.8,1.3],[0.8,1.3]].forEach(function(a){g.add(box(0.22,1.2,0.22,I_,a[0],0.62,a[1]))});
+  var sc=[];
+  for(var i=0;i<10;i++){
+    var r=i<5?0:1, k=i<5?i:i-5, x=-2.4+k*0.9+(r?0.45:0), y=1.62+r*0.38;
+    var c=cyl(0.2,0.2,1.2,P_,x,y,0.4,10); c.rotation.x=Math.PI/2; g.add(c);
+    var b=cyl(0.21,0.21,0.18,C_,x,y,0.4,10); b.rotation.x=Math.PI/2; g.add(b); sc.push(c);
+  }
+  var ds=glyph('答教十多條',3.2,0.8,'#3E3A39','#FFFCF6'); ds.position.set(-1,0.7,1.6); ds.rotation.x=-0.25; g.add(ds);
+  var cz=person(G_,-3.6,2.6); g.add(cz);
+  var cc=person(C_,3.6,-0.4); cc.scale.set(1.3,1.3,1.3); g.add(cc);
+  var bub=glyph('匹夫安敢欺我耶！',5.4,1.1,'#3E3A39','#F2A497'); bub.position.set(2.2,3.2,-0.4); g.add(bub);
+  var ang=glyph('怒',1.2,1.2,'#3E3A39','#F6D27A'); ang.position.set(-1.8,3.6,0.4); g.add(ang);
+  var pp=[];
+  for(var j=0;j<8;j++){var m=box(0.6,0.03,0.8,0xFFFFFF,0,0,0); g.add(m); pp.push(m)}
+  anims.push(function(t){
+    bub.position.x=2.2+Math.sin(t*14)*0.05; ang.scale.setScalar(1+0.12*Math.sin(t*6)); ang.rotation.z=Math.sin(t*10)*0.1;
+    pp.forEach(function(m,i){var a=t*0.6+i*0.785; m.position.set(-1+Math.cos(a)*3.2,2.6+Math.sin(a*2)*0.5,0.4+Math.sin(a)*2.2); m.rotation.y=a; m.rotation.x=Math.sin(a*3)*0.3});
+    cc.position.y=Math.abs(Math.sin(t*5))*0.08;
+  });
+}
+var BUILD=[b1,b2,b3,b4,b5,b6,b7,b8];
+
+
+function makeLabel(text){
+  var c=document.createElement('canvas'); c.width=512; c.height=128;
+  var tex=new THREE.CanvasTexture(c);
+  function draw(){
+    var x=c.getContext('2d'); x.clearRect(0,0,512,128);
+    x.fillStyle='#FFFCF6'; x.fillRect(0,0,512,128);
+    x.strokeStyle='#3E3A39'; x.lineWidth=8; x.strokeRect(4,4,504,120);
+    x.fillStyle='#3E3A39'; x.font='74px "Huninn","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
+    x.textAlign='center'; x.textBaseline='middle'; x.fillText(text,256,68);
+    tex.needsUpdate=true;
+  }
+  draw(); labels.push(draw);
+  return new THREE.Mesh(new THREE.PlaneGeometry(6.2,1.55),new THREE.MeshBasicMaterial({map:tex,transparent:true}));
+}
+function makeNumber(n){
+  var c=document.createElement('canvas'); c.width=128; c.height=128;
+  var x=c.getContext('2d');
+  x.fillStyle='#F6D27A'; x.beginPath(); x.arc(64,64,58,0,Math.PI*2); x.fill(); x.strokeStyle='#3E3A39'; x.lineWidth=7; x.stroke();
+  x.fillStyle='#3E3A39'; x.font='76px "Huninn","Noto Sans TC",sans-serif'; x.textAlign='center'; x.textBaseline='middle'; x.fillText(String(n),64,70);
+  var sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false,transparent:true,fog:false}));
+  sp.scale.set(15,15,1); return sp;
+}
+
+var camPos,look,camUp,gp,gl,gup;
+if(window.THREE){camPos=new THREE.Vector3(0,8,18); look=new THREE.Vector3(0,1,0); camUp=new THREE.Vector3(0,1,0); gp=new THREE.Vector3(); gl=new THREE.Vector3(); gup=new THREE.Vector3();}
+var THEMES={day:{bg:0xCFEAF5,sky:0xF4F8FF,gnd:0xBFD3B0,hi:0.78,dl:0.3,dlc:0xFFFFFF,sea:0xA8D3E6,rain:0x4F86A8,ro:0.6,fm:5},night:{bg:0x1C2140,sky:0x93A0D8,gnd:0x2A2F52,hi:0.85,dl:0.45,dlc:0xB8C4FF,sea:0x2A3160,rain:0xCFE3FF,ro:0.75,fm:3.6}};
+var dist=20, flash=0, nextFlash=4, t=0, last=0, fogN=18, fogF=60;
+
+function init(){
+  renderer=new THREE.WebGLRenderer({antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+  stage.appendChild(renderer.domElement);
+  scene=new THREE.Scene(); scene.background=new THREE.Color(0xCFEAF5); scene.fog=new THREE.Fog(0xCFEAF5,18,60);
+  camera=new THREE.PerspectiveCamera(60,1,0.1,500);
+  hemi=new THREE.HemisphereLight(0xFFFFFF,0xE8DFCB,1.0); scene.add(hemi);
+  dl=new THREE.DirectionalLight(0xffffff,0.6); dl.position.set(-6,14,9); scene.add(dl);
+  sea=new THREE.Mesh(new THREE.CircleGeometry(900,48),new THREE.MeshLambertMaterial({color:0xA8D3E6})); sea.rotation.x=-Math.PI/2; sea.position.y=-0.65; scene.add(sea);
+  for(var i=0;i<N;i++){
+    var g=new THREE.Group(); g.position.copy(pathPos(i)); scene.add(g);
+    var plat=new THREE.Mesh(new THREE.CylinderGeometry(6.4,6.8,0.6,36),M(0xB9DAA5)); plat.position.y=-0.3; g.add(plat);
+    BUILD[i](g);
+    var lb=makeLabel((i+1)+'  '+STOPS[i].name); lb.position.set(0,0.65,5.7); g.add(lb);
+    var ns=makeNumber(i+1); ns.position.set(0,4,0); ns.visible=false; g.add(ns); ovSprites.push(ns);
+    if(i<N-1){
+      var a=pathPos(i), b=pathPos(i+1);
+      for(var k=1;k<=5;k++){
+        var p=a.clone().lerp(b,0.22+k*0.11);
+        var s=box(1,0.2,1,0xF6D27A,p.x,-0.1,p.z); s.rotation.y=k; scene.add(s);
+      }
+    }
+  }
+  var cnt=900, pos=new Float32Array(cnt*6);
+  for(var d=0;d<cnt;d++) drops.push({x:(Math.random()-0.5)*50,y:Math.random()*22,z:(Math.random()-0.5)*50});
+  var geo=new THREE.BufferGeometry(); rainPos=new THREE.BufferAttribute(pos,3); geo.setAttribute('position',rainPos);
+  rain=new THREE.LineSegments(geo,new THREE.LineBasicMaterial({color:0x6FA9C6,transparent:true,opacity:0.75}));
+  rain.frustumCulled=false; scene.add(rain);
+  applyTheme(theme);
+  fit(); window.addEventListener('resize',fit);
+  var p0=pathPos(0); camPos.set(p0.x,12,p0.z+30); look.set(p0.x,1,p0.z);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){labels.forEach(function(f){f()})});
+  ok=true; requestAnimationFrame(frame);
+}
+function applyTheme(n){
+  theme=n; var T=THEMES[n];
+  document.documentElement.setAttribute('data-theme',n);
+  var b=document.getElementById('theme'); if(b){b.textContent=n==='day'?'🌙 夜間':'☀️ 白天'; b.setAttribute('aria-pressed',n==='night'?'true':'false')}
+  try{localStorage.setItem('tyTheme',n)}catch(e){}
+  if(!scene) return;
+  scene.background.setHex(T.bg); scene.fog.color.setHex(T.bg);
+  hemi.color.setHex(T.sky); hemi.groundColor.setHex(T.gnd); hemi.intensity=T.hi;
+  dl.intensity=T.dl; dl.color.setHex(T.dlc); sea.material.color.setHex(T.sea);
+  rain.material.color.setHex(T.rain); rain.material.opacity=T.ro;
+}
+function fit(){
+  var w=window.innerWidth,h=window.innerHeight;
+  renderer.setSize(w,h); camera.aspect=w/h;
+  camera.setViewOffset(w,h,0,Math.round(h*0.16),w,h);
+  var tn=Math.tan(30*Math.PI/180);
+  dist=Math.min(30,Math.max(16,6.4/(tn*camera.aspect)));
+}
+function frame(now){
+  var dt=Math.min(0.05,(now-last)/1000); last=now;
+  if(quizOpen){requestAnimationFrame(frame);return}
+  t+=dt;
+  var ov=cur<0;
+  if(!ov){
+    var p=pathPos(cur);
+    gl.set(p.x,1.2,p.z);
+    gp.set(p.x+Math.sin(t*0.5)*0.4,dist*0.42+Math.sin(t*0.7)*0.15,p.z+dist*0.9);
+    gup.set(0,1,0);
+  }else{
+    gl.set(56,0,0); gp.set(56,118,14); gup.set(1,0,0);
+  }
+  var k=1-Math.exp(-dt*2.6);
+  camPos.lerp(gp,k); look.lerp(gl,k); camUp.lerp(gup,k).normalize();
+  camera.position.copy(camPos); camera.up.copy(camUp); camera.lookAt(look);
+  var tn2=ov?400:dist*0.9, tf=ov?900:dist*THEMES[theme].fm;
+  fogN+=(tn2-fogN)*k; fogF+=(tf-fogF)*k; scene.fog.near=fogN; scene.fog.far=fogF;
+  for(var i=0;i<N;i++) ovSprites[i].visible=ov;
+  rain.visible=false; rain.position.set(look.x,0,look.z);
+  var sp=reduce?0.35:1, arr=rainPos.array;
+  for(var d=0;d<drops.length;d++){
+    var o=drops[d];
+    o.y-=26*dt*sp; o.x-=9*dt*sp;
+    if(o.y<0){o.y=22; o.x=(Math.random()-0.5)*50; o.z=(Math.random()-0.5)*50}
+    if(o.x<-25) o.x+=50;
+    var j=d*6;
+    arr[j]=o.x; arr[j+1]=o.y; arr[j+2]=o.z; arr[j+3]=o.x+0.4; arr[j+4]=o.y+1.0; arr[j+5]=o.z;
+  }
+  rainPos.needsUpdate=true;
+  for(var a=0;a<anims.length;a++) anims[a](reduce?t*0.4:t);
+  if(!reduce){
+    nextFlash-=dt;
+    if(nextFlash<0){flash=1; nextFlash=7+Math.random()*9}
+    flash=Math.max(0,flash-dt*3.2);
+    hemi.intensity=THEMES[theme].hi;
+  }
+  renderer.render(scene,camera);
+  requestAnimationFrame(frame);
+}
+
+
+var QS=[
+[0,'楊修從暗號「＿＿」推測曹操將退兵。','雞肋',['鴨肋', '牛肋', '豬肋']],
+[0,'楊修因為猜中曹操將退兵，吩咐士兵＿＿。','收拾行裝',['繼續進攻', '加強守衛', '修築營壘']],
+[0,'雞肋事件中，楊修被判＿＿之罪處死。','惑亂軍心',['欺君', '通敵', '貪污']],
+[0,'雞肋事件發生喺「＿＿」，屬於詳寫。','現在',['過去', '將來', '夢中']],
+[1,'第4段嘅過渡句係「原來楊修為人，＿＿，數犯曹操之忌」。','恃才放曠',['自作聰明', '目空一切', '鋒芒畢露']],
+[1,'過渡句上承楊修被處死嘅經過，下啟＿＿。','過去發生嘅往事',['日後嘅打算', '曹操嘅計劃', '城外嘅戰況']],
+[1,'過渡句令文章嘅轉折顯得＿＿。','自然',['突兀', '混亂', '冗長']],
+[2,'曹操喺門上寫咗一個「＿＿」字。','活',['闊', '闌', '閑']],
+[2,'楊修猜出「活」字係嫌＿＿。','園門太闊',['園門太窄', '園牆太高', '園內太靜']],
+[2,'闊門事件招致曹操嘅＿＿。','妒忌',['歡喜', '厭惡', '憤怒']],
+[3,'「一合酥」被楊修理解為「＿＿」。','一人一口酥',['一合一口酥', '一人一盒酥', '每人一盒酥']],
+[3,'楊修把酥餅＿＿。','與眾人分來吃',['獨自吃光', '送給曹操', '藏起來']],
+[3,'一合酥事件令曹操感到＿＿。','厭惡',['妒忌', '憤怒', '歡喜']],
+[4,'曹操常常假裝會喺＿＿殺人。','夢中',['戰場上', '營帳外', '酒醉時']],
+[4,'楊修當眾＿＿曹操假裝夢中殺人。','揭穿',['附和', '隱瞞', '讚賞']],
+[4,'夢中殺人事件令曹操＿＿。','更感厭惡',['十分高興', '毫不在意', '大怒殺人']],
+[5,'楊修密告曹丕與吳質會談嘅事，係關於＿＿。','世子繼位',['軍國大事', '出兵計劃', '糧草安排']],
+[5,'吳質被藏喺＿＿入面。','大竹篋',['馬車', '木箱', '大籮']],
+[5,'楊修因此背上＿＿之嫌。','譖害曹丕',['欺君', '謀反', '通敵']],
+[6,'楊修教曹植出＿＿嘅方法。','鄴城門',['洛陽門', '許昌門', '朝歌門']],
+[6,'楊修教曹植遇到阻擋嘅人，就可以＿＿。','直接斬殺',['好言相勸', '轉身回去', '另找出路']],
+[6,'城門事件令曹操十分＿＿。','憤怒',['高興', '妒忌', '擔心']],
+[7,'楊修替曹植作咗十多條＿＿。','答教',['奏章', '詩詞', '軍令']],
+[7,'曹操憤怒地說：「＿＿」','匹夫安敢欺我耶！',['汝怎敢造言亂我軍心！', '雞肋，雞肋！', '丞相非在夢中']],
+[7,'答教事件令曹操萌生＿＿。','殺意',['歡喜', '後悔', '退兵之心']],
+[1,'由軍營出發，下一站係邊度？','過渡橋',['花園門', '一合酥', '鄴城門']],
+[7,'最後一站係邊度？','答教書案',['鄴城門', '吳質大竹篋', '過渡橋']],
+[5,'邊一站出現「大竹篋」？','吳質大竹篋',['一合酥', '鄴城門', '花園門']]
+];
+var QN=10, TL=20;
+var qz={list:[],i:0,score:0,streak:0,bestStreak:0,right:0,missed:[],t0:0,iv:0,locked:true,opts:[]};
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var x=a[i];a[i]=a[j];a[j]=x}return a}
+function qshow(id){['qstart','qplay','qend'].forEach(function(n){$(n).hidden=n!==id});$('qz').scrollTop=0}
+function qopen(){
+  quizOpen=true; $('qz').hidden=false; qshow('qstart');
+  var b=0; try{b=+localStorage.getItem('yxBest')||0}catch(e){}
+  $('qbest').textContent=b?('你嘅最高分：'+b):'';
+}
+function qclose(){clearInterval(qz.iv);quizOpen=false;$('qz').hidden=true}
+function qbegin(){
+  qz.list=shuffle(QS).slice(0,QN); qz.i=0; qz.score=0; qz.streak=0; qz.bestStreak=0; qz.right=0; qz.missed=[];
+  $('qs').textContent=0; qask();
+}
+function qask(){
+  var q=qz.list[qz.i]; qz.locked=false; qshow('qplay');
+  $('qn').textContent='第 '+(qz.i+1)+' / '+QN+' 題';
+  $('qq').textContent=q[1];
+  qz.opts=shuffle([q[2]].concat(q[3]));
+  for(var i=0;i<4;i++){var b=$('q'+i); b.textContent=qz.opts[i]; b.className='a c'+i}
+  $('qf').hidden=true;
+  $('qbi').style.width='100%';
+  qz.t0=performance.now(); clearInterval(qz.iv);
+  qz.iv=setInterval(function(){
+    var el=(performance.now()-qz.t0)/1000;
+    $('qbi').style.width=Math.max(0,(1-el/TL)*100)+'%';
+    if(el>=TL) qanswer(-1);
+  },100);
+}
+function qanswer(idx){
+  if(qz.locked) return; qz.locked=true; clearInterval(qz.iv);
+  var q=qz.list[qz.i], el=(performance.now()-qz.t0)/1000, hit=idx>=0&&qz.opts[idx]===q[2], pts=0;
+  if(hit){
+    pts=Math.round(1000*(1-Math.min(el,TL)/TL/2))+Math.min(qz.streak,5)*100;
+    qz.score+=pts; qz.streak++; qz.right++; if(qz.streak>qz.bestStreak) qz.bestStreak=qz.streak;
+  }else{
+    qz.streak=0; if(qz.missed.indexOf(q[0])<0) qz.missed.push(q[0]);
+  }
+  for(var i=0;i<4;i++){
+    var b=$('q'+i);
+    if(qz.opts[i]===q[2]) b.classList.add('ok');
+    else if(i===idx) b.classList.add('bad');
+    else b.classList.add('dim');
+  }
+  $('qs').textContent=qz.score;
+  var f=$('qf'); f.hidden=false; f.className='qf '+(hit?'good':'miss');
+  $('qft').textContent=hit?('答啱咗！+'+pts):(idx<0?'時間到':'答錯咗');
+  $('qfs').textContent=(hit&&qz.streak>1)?('連續答啱 '+qz.streak+' 題'):('答案：'+q[2]);
+  var st=STOPS[q[0]];
+  $('qfr').innerHTML='<b>第'+(q[0]+1)+'站 '+st.name+'</b>（'+st.seg+'）<br>'+st.html;
+  $('qnext').textContent=qz.i>=QN-1?'睇結果':'下一題';
+  try{$('qnext').scrollIntoView({block:'nearest',behavior:'smooth'})}catch(e){}
+}
+function qfinish(){
+  qshow('qend');
+  var r=qz.right;
+  var lv=r>=10?['丞相','全對！你就係曹操身邊最強謀士']:r>=9?['軍師','幾乎滿分，好叻']:r>=7?['主簿','好穩陣，再接再厲']:r>=5?['士兵','仲差少少，睇多一次路線']:['新兵','由第一站慢慢行返一次'];
+  $('qlv').textContent=lv[0]; $('qlm').textContent=lv[1];
+  $('qsc').textContent=qz.score; $('qrt').textContent=r+' / '+QN; $('qbs').textContent=qz.bestStreak;
+  try{var b=+localStorage.getItem('yxBest')||0; if(qz.score>b) localStorage.setItem('yxBest',String(qz.score))}catch(e){}
+  var box=$('qmiss'); box.innerHTML='';
+  qz.missed.sort(function(a,b){return a-b}).forEach(function(si){
+    var bt=document.createElement('button'); bt.textContent=(si+1)+' '+STOPS[si].name;
+    bt.addEventListener('click',function(){qclose();go(si)}); box.appendChild(bt);
+  });
+  $('qmw').hidden=qz.missed.length===0;
+}
+$('qopen').addEventListener('click',qopen);
+$('qgo').addEventListener('click',qbegin);
+$('qagain').addEventListener('click',qbegin);
+$('qexit1').addEventListener('click',qclose);
+$('qexit2').addEventListener('click',qclose);
+$('qnext').addEventListener('click',function(){qz.i++; if(qz.i>=QN) qfinish(); else qask()});
+for(var qi=0;qi<4;qi++)(function(n){$('q'+n).addEventListener('click',function(){qanswer(n)})})(qi);
+document.addEventListener('keydown',function(e){
+  if(!quizOpen||$('qplay').hidden) return;
+  var n=parseInt(e.key,10);
+  if(n>=1&&n<=4) qanswer(n-1);
+});
+
+var sx=0,sy=0,sdown=false;
+stage.addEventListener('pointerdown',function(e){sx=e.clientX;sy=e.clientY;sdown=true});
+stage.addEventListener('pointerup',function(e){
+  if(!sdown) return; sdown=false;
+  var dx=e.clientX-sx, dy=e.clientY-sy;
+  if(cur>=0&&Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)) go(dx<0?(cur+1)%N:(cur+N-1)%N);
+});
+stage.addEventListener('pointercancel',function(){sdown=false});
+
+try{ if(localStorage.getItem('tyTheme')==='night') theme='night'; }catch(e){}
+if(window.THREE) applyTheme(theme);
+try{ init(); }
+catch(e){
+  var m=document.createElement('div'); m.className='no3d-msg';
+  m.textContent='呢部手機未能顯示 3D 畫面，下面仍然可以逐站溫習。';
+  stage.appendChild(m);
+}
+})();
+</script>
+</body>
+</html>
