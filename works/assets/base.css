@@ -167,3 +167,6 @@ html[data-scope=exam] [data-out]{display:none!important}
 .bar a#langBtn{padding:0 14px;justify-content:center}
 @media (max-width:440px){.bar{gap:6px}.bar a{padding:0 12px;font-size:16px}}
 @media (max-width:440px){.bar:has(#langBtn) b{display:none}.bar:has(#langBtn){justify-content:space-between}}
+.qopt{display:flex;align-items:center;gap:8px;margin:10px 0;flex-wrap:wrap}
+.qopt span{font-size:16px;min-width:3.2em}
+.qopt .chip[aria-pressed="true"]{background:var(--sun)}

@@ -35,20 +35,28 @@ window.TY=(function(){
   /* cfg: {key,kicker,title,rules[],mode:'tf'|'mcq',time,count,questions:[{q,opts[],a,tag,note}],rank(right,n),onReview(tag)} */
   function quiz(root,cfg){
     var TL=cfg.time||20, N=Math.min(cfg.count||10,cfg.questions.length), tf=cfg.mode==='tf';
+    var hasHard=cfg.questions.some(function(q){return q.h});
+    function pget(k,d){try{return localStorage.getItem(k)||d}catch(e){return d}}
+    function pset(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+    var tmOn=pget('tyTimer','on')!=='off', lvHard=hasHard&&pget('tyLevel','hard')!=='all';
+    function bkey(){return cfg.key+(tmOn?'':'_nt')+(lvHard?'_h':'')}
     var SH=['▲','◆','●','■'];
     var st={}, timer=0;
     function q$(s){return root.querySelector(s)}
 
     function start(){
       clearInterval(timer);
-      var best=lsGet(cfg.key);
+      var best=lsGet(bkey());
       root.innerHTML='<p class="qk">'+esc(cfg.kicker)+'</p><h2 class="qh">'+esc(cfg.title)+'</h2>'
         +'<ul class="qrules">'+cfg.rules.map(function(r){return '<li>'+esc(r)+'</li>'}).join('')+'</ul>'
+        +'<div class="qopt"><span>'+L('計時','Timer')+'</span><button class="chip" data-act="tm" data-v="on" aria-pressed="'+tmOn+'">'+L('開','On')+'</button><button class="chip" data-act="tm" data-v="off" aria-pressed="'+!tmOn+'">'+L('關','Off')+'</button></div>'
+        +(hasHard?'<div class="qopt"><span>'+L('題目','Questions')+'</span><button class="chip" data-act="lv" data-v="hard" aria-pressed="'+lvHard+'">'+L('挑戰題','Challenge')+'</button><button class="chip" data-act="lv" data-v="all" aria-pressed="'+!lvHard+'">'+L('全部（包括基本）','All')+'</button></div>':'')
         +'<p class="qbest">'+(best?L('你嘅最高分：','Your best: ')+best:'')+'</p>'
         +'<button class="qbtn" data-act="go">'+L('開始','Start')+'</button>';
     }
     function begin(){
-      st={list:shuffle(cfg.questions).slice(0,N),i:0,score:0,streak:0,bestStreak:0,right:0,missed:[],t0:0,locked:true,opts:[]};
+      var pool=lvHard?cfg.questions.filter(function(q){return q.h}):cfg.questions; N=Math.min(cfg.count||10,pool.length);
+      st={list:shuffle(pool).slice(0,N),i:0,score:0,streak:0,bestStreak:0,right:0,missed:[],t0:0,locked:true,opts:[]};
       ask();
     }
     function ask(){
@@ -60,12 +68,12 @@ window.TY=(function(){
         return '<button class="a c'+i+'" data-s="'+SH[i]+'" data-act="pick" data-i="'+i+'">'+esc(x.t)+'</button>';
       }).join('');
       root.innerHTML='<div class="qtop"><span>'+L('第 '+(st.i+1)+' / '+N+' 題','Question '+(st.i+1)+' / '+N)+'</span><span>'+L('分數','Score')+' <b data-r="score">'+st.score+'</b></span></div>'
-        +'<div class="qbar"><i data-r="bar"></i></div>'
+        +(tmOn?'<div class="qbar"><i data-r="bar"></i></div>':'<div style="height:14px"></div>')
         +(tf?'<p class="stmt">'+esc(q.q)+'</p>':'<p class="qq">'+esc(q.q)+'</p>')
         +'<div class="'+(tf?'tf':'ans')+'">'+tiles+'</div>'
         +'<div class="qf" data-r="fb" hidden><p class="qft" data-r="ft"></p><p class="qfs" data-r="fs"></p><p class="qfr" data-r="fr"></p><button class="qbtn" data-act="next"></button></div>';
       st.t0=performance.now(); clearInterval(timer);
-      timer=setInterval(function(){
+      if(tmOn) timer=setInterval(function(){
         if(!root.offsetParent){st.t0+=100;return}
         var el=(performance.now()-st.t0)/1000;
         var bar=q$('[data-r="bar"]'); if(bar) bar.style.width=Math.max(0,(1-el/TL)*100)+'%';
@@ -76,7 +84,7 @@ window.TY=(function(){
       if(st.locked) return; st.locked=true; clearInterval(timer);
       var q=st.list[st.i], el=(performance.now()-st.t0)/1000, hit=idx>=0&&st.opts[idx].c, pts=0;
       if(hit){
-        pts=Math.round(1000*(1-Math.min(el,TL)/TL/2))+Math.min(st.streak,5)*100;
+        pts=(tmOn?Math.round(1000*(1-Math.min(el,TL)/TL/2)):1000)+Math.min(st.streak,5)*100;
         st.score+=pts; st.streak++; st.right++; if(st.streak>st.bestStreak) st.bestStreak=st.streak;
       }else{
         st.streak=0; if(q.tag&&st.missed.indexOf(q.tag)<0) st.missed.push(q.tag);
@@ -97,7 +105,7 @@ window.TY=(function(){
     }
     function finish(){
       var r=st.right, rk=cfg.rank?cfg.rank(r,N):['',''];
-      var b=lsGet(cfg.key); if(st.score>b) lsSet(cfg.key,st.score);
+      var b=lsGet(bkey()); if(st.score>b) lsSet(bkey(),st.score);
       root.innerHTML='<p class="qk">'+L('挑戰完成','Challenge complete')+'</p><p class="qlv">'+esc(rk[0])+'</p><p class="qlm">'+esc(rk[1])+'</p>'
         +'<div class="qstat"><div><b>'+st.score+'</b>'+L('總分','Score')+'</div><div><b>'+r+' / '+N+'</b>'+L('答啱','Correct')+'</div><div><b>'+st.bestStreak+'</b>'+L('最長連續','Best streak')+'</div></div>'
         +(st.missed.length?'<p class="qmh">'+L('答錯嘅位，撳入去睇返重點：','Missed topics, tap to review:')+'</p><div class="qm">'+st.missed.map(function(t){return '<button data-act="review" data-tag="'+esc(t)+'">'+esc(t)+'</button>'}).join('')+'</div>':'')
@@ -107,6 +115,8 @@ window.TY=(function(){
       var t=e.target.closest?e.target.closest('[data-act]'):null; if(!t) return;
       var act=t.getAttribute('data-act');
       if(act==='go') begin();
+      else if(act==='tm'){tmOn=t.getAttribute('data-v')==='on';pset('tyTimer',tmOn?'on':'off');start()}
+      else if(act==='lv'){lvHard=t.getAttribute('data-v')==='hard';pset('tyLevel',lvHard?'hard':'all');start()}
       else if(act==='pick') answer(+t.getAttribute('data-i'));
       else if(act==='next'){st.i++; if(st.i>=N) finish(); else ask()}
       else if(act==='review'&&cfg.onReview) cfg.onReview(t.getAttribute('data-tag'));
