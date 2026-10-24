@@ -2,11 +2,21 @@
 :root{
   --paper:#FFFCF6;--ink:#3E3A39;--ink2:#6B6562;
   --coral:#F2A497;--sun:#F6D27A;--sky:#A8D3E6;--leaf:#B9DAA5;
-  --bg:var(--paper);
+  --bg:var(--paper);--mask:#E9E4D8;
   --fb:"Huninn","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
   --r:24px;
   color-scheme:light;
 }
+/* 夜間模式：深藍紙底，填色變深，字同線變淺 */
+html[data-theme=night]{
+  --paper:#232741;--ink:#F4EBDD;--ink2:#BDB8CC;
+  --coral:#9C4F45;--sun:#8A6A1E;--sky:#3D6D8A;--leaf:#4A7541;
+  --mask:#3A3F63;color-scheme:dark;
+}
+html[data-theme=night] .art{filter:brightness(.8)}
+html[data-theme=night] .a.dim{opacity:.4}
+.themebtn{min-height:48px;font-size:16px;padding:6px 14px;white-space:nowrap}
+
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
@@ -47,7 +57,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(-
 .tabs button{flex:none;min-height:52px;padding:8px 18px;border-radius:999px;border:3px solid var(--ink);background:var(--paper);font-size:18px}
 .tabs button[aria-selected="true"]{background:var(--sun)}
 .k{background:var(--sun);color:var(--ink);border-radius:8px;padding:0 4px}
-.hide .k{color:transparent;background:#E9E4D8;cursor:pointer;user-select:none}
+.hide .k{color:transparent;background:var(--mask);cursor:pointer;user-select:none}
 .hide .k.open{color:var(--ink);background:var(--sun)}
 .chip{background:var(--paper);border:3px solid var(--ink);border-radius:999px;padding:6px 16px;font-size:17px;min-height:48px;display:inline-flex;align-items:center;color:var(--ink);text-decoration:none}
 .chip[aria-pressed="true"]{background:var(--sky)}
