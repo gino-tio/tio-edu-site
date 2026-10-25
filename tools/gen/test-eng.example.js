@@ -1,7 +1,7 @@
 // Smoke test for the English pages: node tools/gen/test-eng.example.js (server on :8765, needs playwright)
 const {chromium}=require('playwright');
 (async()=>{const b=await chromium.launch();let bad=0;
-for(const lang of ['zh','en']){for(const f of ['eng','eng-adj','eng-cond','eng-tense']){
+for(const lang of ['zh','en']){for(const f of ['eng','eng-vocab','eng-read','eng-adj','eng-cond','eng-tense','eng-proof']){
  const url=(lang=='en'?'/works/en/':'/works/')+f+'/';
  const c=await b.newContext({viewport:{width:390,height:800}});await c.addInitScript(l=>localStorage.setItem('tyLang',l),lang);
  const p=await c.newPage();const errs=[];p.on('pageerror',e=>errs.push(e.message));
