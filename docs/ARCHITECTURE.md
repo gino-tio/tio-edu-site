@@ -6,7 +6,7 @@ index.html                 intro page; hub cards → works/ (中文) and works/g
 works/index.html           中文 hub (hand-written) incl. 資料狀態 panel
 works/assets/              base.css, theme.js, shared.js, art.js  (shared by every page)
 works/<folder>/index.html  zh pages        works/en/<folder>/index.html  English twins
-works/geo, geo-food, geo-map, geo-past     地理 hub + 3 sub pages (generated, zh + en)
+works/geo, geo-food, geo-map, geo-past, geo-farm-3d     地理 hub + 3 sub pages + 3D Farm Island (generated, zh + en)
 works/eng, eng-vocab, eng-read, eng-read1, eng-adj, eng-cond, eng-tense, eng-proof, eng-paper   English hub + 8 pages (generated, zh + en; `c5body.py`)
 works/part-b, part-c, cy-unit1/2, mingju, yx-*, ...   中文 pages (generated)
 works/typhoon-memory-route, yx-3d          three.js route page (+ generated 3D variant)
@@ -18,7 +18,7 @@ docs/                      this documentation
 ## Generators (tools/gen)
 - `gen.py`: helpers `page()`, `refpane()`, `item()`, `K()/P()/EG()`, JS emitters `tfjs() mcqjs() filljs() matchjs()`; then `exec`s `content.py` → `content4.py`.
 - `content.py` 楊修之死 pages (yx-*); `content2.py` 成語 (cy-unit1/2, part-b hub); `content3.py` 名句 (mingju); `content4.py` + `c4head.py` + `c4body.py` Geography. `c4body.py` is executed twice: `LANG='zh'` then `'en'` (ROOT switched to `works/en/`); `T(zh,en)` picks the language string.
-- `c5body.py` English grammar pages (also executed for `zh` then `en`; notes are English, zh build adds Chinese glosses via `G(en,zh)`). `gen3d.py` derives `yx-3d` from `typhoon-memory-route`.
+- `c6farm.py` + `c6farm.html` generate the 3D Farm Island (`geo-farm-3d`, zh + en): Three.js r128 from cdnjs, every model procedural (no Blender assets), own orbit/pinch controls, 2D tile fallback, challenge with optional timer (`tyTimer`, best key `farm3dBest[_nt]`). `window.__farm` is a test hook. `c5body.py` English grammar pages (also executed for `zh` then `en`; notes are English, zh build adds Chinese glosses via `G(en,zh)`). `gen3d.py` derives `yx-3d` from `typhoon-memory-route`.
 - `build.sh` runs everything and patches meta descriptions (the shared `page()` template defaults to 《楊修之死》 wording).
 
 ## Data shapes used in content files
@@ -41,3 +41,6 @@ docs/                      this documentation
 
 ## Testing
 Playwright chromium against `python3 -m http.server`; abort Google Fonts requests; set `tyLang` via `addInitScript` when testing `/works/en/`. Checks: no `pageerror`, tab switching, match/fill/MCQ playthrough, timer-off flow, EN pages free of `[一-鿿]`, mobile width 390 has no horizontal overflow.
+
+## 3D pages (testing notes)
+Launch chromium with `--use-gl=swiftshader --enable-unsafe-swiftshader` (see `tools/gen/test-farm3d.example.js`). A full-viewport `page.screenshot()` of a WebGL page shows a white box in headless; clipped screenshots or `window.__farm.snap()` (canvas `toDataURL`) render correctly, so use those to inspect visuals.

@@ -187,7 +187,7 @@ def build_food():
     ref=''
     for i,(h,b) in enumerate(FOOD):
         ref+=item('g-i%d'%i,'%d. %s'%(i+1,h),b,['','s2','s3','s4'][i%4])
-    ref=refpane('<p class="sub">'+T('已對照課本《Exploring Geography 3 Food Problems》Unit 1-3（頁 3-29）同兩份試卷標準答案整理。','Based on the two past papers and marking schemes. Please check against the textbook <i>Exploring Geography 3 Food Problems</i>, Units 1-3 (pp.3-29).')+'</p>'+ref,T('黃色字係重點，撳開睇','Highlighted text = key points. Tap to open'))
+    ref=refpane('<p class="sub"><a href="../geo-farm-3d/"><b>'+T('🏝️ 3D 農場島：行入島睇 inputs、processes、outputs，仲有挑戰','🏝️ 3D Farm Island: explore inputs, processes and outputs, with a challenge')+'</b></a></p><p class="sub">'+T('已對照課本《Exploring Geography 3 Food Problems》Unit 1-3（頁 3-29）同兩份試卷標準答案整理。','Based on the two past papers and marking schemes. Please check against the textbook <i>Exploring Geography 3 Food Problems</i>, Units 1-3 (pp.3-29).')+'</p>'+ref,T('黃色字係重點，撳開睇','Highlighted text = key points. Tap to open'))
     sets=[]
     for n,k in enumerate(range(0,len(FOODMATCH),6)):
         sets.append({'name':T('術語配對（%s）'%'一二'[n],'Terms (%d)'%(n+1)),'help':T('先撳英文術語，再撳相配嘅意思。','Tap a term, then tap its meaning.'),'pairs':[[a,b] for a,b in FOODMATCH[k:k+6]]})
@@ -364,6 +364,7 @@ GEOHUB='''<!doctype html>
   <p class="sub">%(scopetxt)s</p>
   <a class="hub h1c" href="../geo-food/"><strong>Food Problems %(fp)s</strong><span class="d">%(d1)s</span><span class="tag">%(t1)s</span><span class="tag">%(t2)s</span><span class="tag">%(t3)s</span><span class="tag">%(t4)s</span></a>
   <a class="hub h2c" href="../geo-map/"><strong>Map Reading %(mr)s</strong><span class="d">%(d2)s</span><span class="tag">%(t1)s</span><span class="tag">%(t5)s</span><span class="tag">%(t2)s</span><span class="tag">%(t4)s</span></a>
+  <a class="hub h1c" href="../geo-farm-3d/"><strong>%(fm)s</strong><span class="d">%(d4)s</span><span class="tag">3D</span><span class="tag">%(t4)s</span></a>
   <a class="hub h3c" href="../geo-past/"><strong>%(pp)s</strong><span class="d">%(d3)s</span><span class="tag">%(t4)s</span><span class="tag">%(t6)s</span></a>
   <div class="stat"><h2>%(sth)s</h2><ul>%(stl)s</ul></div>
   <footer>%(foot)s</footer>
@@ -379,6 +380,7 @@ hub=GEOHUB%dict(home=T('首頁','Home'),h1=T('中二地理','(Form 2)'),sub=T('�
  d1=T('Unit 1 食物從哪裡來、Unit 2 中國農業地區、Unit 3 糧食供求同自給率。','Unit 1 where food comes from, Unit 2 farming regions in China, Unit 3 food demand, supply and self-sufficiency.'),
  d2=T('比例尺、方格參考、方向同距離，附隨機計算練習。','Scale, grid references, direction and distance, with random calculation practice.'),
  d3=T('14 條真實選擇題、結構題同讀圖題標準答案。','14 real MCQs, with marking schemes for structured and map-reading questions.'),
+ fm=T('3D 農場島','3D Farm Island'),d4=T('行入島睇 inputs、processes、outputs，比較兩個農場，仲有計時（可關）挑戰。有 2D 版。','Explore inputs, processes and outputs, compare two farms, and take a challenge with an optional timer. A 2D view is included.'),
  t1=T('重點','Notes'),t2=T('配對','Match'),t3=T('填空','Fill in'),t4=T('選擇題','Quiz'),t5=T('計算','Practice'),t6=T('答案','Answers'),
  sth=T('資料狀態','Material status'),
  stl=''.join('<li><span class="st %s">%s</span>%s</li>'%x for x in [

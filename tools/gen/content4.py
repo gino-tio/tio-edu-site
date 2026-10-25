@@ -36,3 +36,9 @@ for LANG in ['zh','en']:
     exec(_body5)
 ROOT=_ROOT0
 LANG='zh'
+# ---------- 3D Farm Island (Geography) ----------
+for LANG in ['zh','en']:
+    ROOT=_ROOT0+('en/' if LANG=='en' else '')
+    exec(open(HERE+'/c6farm.py',encoding='utf-8').read())
+ROOT=_ROOT0
+LANG='zh'

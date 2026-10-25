@@ -10,6 +10,7 @@
 | 中文 丁 文言詞解 / 文言文 | not started | need 《歷代文言小故事》1,2,4,9,10 + 課文 |
 | 地理 Food Problems | checked vs textbook Units 1-3 (pp.3-29) + 2 past papers | Oxford *Exploring Geography 3 Food Problems* |
 | 地理 歷屆試題 | done | 2024-25 QE, 2025-26 UT papers + marking schemes |
+| 地理 3D 農場島 (geo-farm-3d) | done: farming system + Farm A / Farm B (inputs, processes, outputs, intensive/extensive, farmers per unit of land); challenge with optional timer; 2D fallback | same notes as Food Problems (checked vs textbook Units 1-3) |
 | 地理 Map Reading | NOT checked vs textbook | past papers + general knowledge only |
 | English 文法 (Unit 1 A/B/C, Unit 2 A, Unit 3 C) | checked vs Success in Grammar 2 Units 1-3 notes; quiz questions AI-made | SIG Units 1-3 (B2U1-3) |
 | English 過去完成式 | done: teacher's notes (2 past events, reported speech, wish) + SIG Unit 3 A | teacher notes PDF, SIG 3A |
