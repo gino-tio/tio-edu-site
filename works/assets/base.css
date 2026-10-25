@@ -161,6 +161,7 @@ html[data-scope=exam] [data-out]{display:none!important}
 .tb{width:100%;border-collapse:collapse;margin:8px 0;font-size:15px}
 .tb th,.tb td{border:2px solid var(--ink);padding:6px 8px;text-align:left;vertical-align:top}
 .tb th{background:var(--sun)}
+@media(max-width:480px){.tb{font-size:13px}.tb th,.tb td{padding:4px 5px}}
 .bar a{white-space:nowrap}
 .bar b{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;font-size:18px;letter-spacing:.04em}
 .bar .themebtn{padding:6px 12px;font-size:15px;flex:none}

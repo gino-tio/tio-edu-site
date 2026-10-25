@@ -25,7 +25,8 @@ Edit content in `tools/gen/*.py` (never hand-edit generated `index.html` files e
 1. 地理 Map Reading: need the textbook (*New Century Geography Map Reading* Ch 1, 2 [skip p.33-35], 3, 4 [skip p.59-66]) → check `MAPNOTES`, `AIMAP`, `HARDMAP` in `tools/gen/c4body.py`.
 2. 中文 甲部 片段寫作; 丁部 文言詞解 (《歷代文言小故事》1,2,4,9,10) and 文言文; 《在風中》主旨 page; hard questions for 《楊修之死》 and `geo-past`.
 3. Hide the "每題 25 秒" rule text when the timer is off.
-4. Other subjects (中史普通話, English, Maths, Science) if the user supplies material.
+4. English: grammar pages exist (`c5body.py`, AI-made, not checked vs *Oxford English Forward 2A* / *Success in Grammar 2*); still need Comprehension, Vocabulary, Proofreading, Bonus material + past papers → add to `c5body.py`.
+5. Other subjects (中史普通話, Maths, Science) if the user supplies material.
 
 ## Related
 Private repo `gino-tio/tio-edu` (Flutter + Supabase app) is separate; the plan to port this format into it is `docs/TIO-EDU-APP-PLAN.md`. Do not modify that repo from here.

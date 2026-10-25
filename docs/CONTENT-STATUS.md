@@ -11,6 +11,8 @@
 | 地理 Food Problems | checked vs textbook Units 1-3 (pp.3-29) + 2 past papers | Oxford *Exploring Geography 3 Food Problems* |
 | 地理 歷屆試題 | done | 2024-25 QE, 2025-26 UT papers + marking schemes |
 | 地理 Map Reading | NOT checked vs textbook | past papers + general knowledge only |
+| English 文法 (Unit 1 A/B/C, Unit 2 A, Unit 3 C, past perfect) | pages done, NOT checked vs textbook; all questions AI-made | exam syllabus only |
+| English Comprehension / Vocabulary / Proofreading / Bonus | not started | need Oxford English Forward 2A Units 1-2, Success in Grammar 2, past papers |
 | 課堂筆記 / 功課簿 / 讀圖練習 | not received | |
 
 Known textbook vs marking-scheme conflict: Laos upland rice (see CLAUDE.md). Notes show both.
