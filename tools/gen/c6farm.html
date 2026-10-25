@@ -88,7 +88,7 @@ body{padding:0;margin:0}
     <div class="meta"><span class="no" id="no"></span><h1 id="nm"></h1><span class="seg" id="sg"></span></div>
     <p class="hook" id="hk"></p>
     <div class="tx" id="tx"></div>
-    <a class="tolink" id="qlink" href="__BACK__"></a>
+    <a class="tolink" id="qlink" href="__QUIZ__"></a>
     <div class="ctl"><button class="nav" id="prev" type="button" aria-label="prev">‹</button><div class="dots" id="dots"></div><button class="nav" id="next" type="button" aria-label="next">›</button></div>
   </section>
 </div>
@@ -137,14 +137,12 @@ $('ov').addEventListener('click',function(){go(0)});
 document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1)});
 
 /* ---------- 2D view ---------- */
-var tilesEl=$('tiles'),TAGSTOP={phys:1,cult:2,proc:3,useful:4,market:4,useless:5,farmB:6,farmA:7};
-var PRIO=['phys','cult','proc','useful','useless','market','farmB','farmA'];
+var tilesEl=$('tiles'),TAGSTOP=D.tagstop,PRIO=D.prio;
 D.tgroup.forEach(function(g){
   var h=document.createElement('h2');h.textContent=g[1];tilesEl.appendChild(h);
   var w=document.createElement('div');w.className='tiles';
   D.tiles.forEach(function(t){
-    var grp=(t[0]==='farmA'||t[0]==='farmB')?'farms':(t[0]==='market'?'useful':t[0]);
-    if(grp!==g[0])return;
+    if(g[2].indexOf(t[0])<0)return;
     var b=document.createElement('button');b.type='button';b.className='tile';b.innerHTML='<b>'+t[1]+'</b><span>'+t[2]+'</span>';
     b.addEventListener('click',function(){tilePick(t[0])});w.appendChild(b);
   });
@@ -169,7 +167,7 @@ $('mode').addEventListener('click',function(){setMode(mode==='3d'?'2d':'3d')});
 /* ---------- challenge ---------- */
 var LIM=20;
 function timerOn(){return pget('tyTimer','on')!=='off'}
-function bkey(){return 'farm3dBest'+(timerOn()?'':'_nt')}
+function bkey(){return D.best+(timerOn()?'':'_nt')}
 function openCard(html){$('qcard').innerHTML=html;$('qz').hidden=false}
 function closeCard(){$('qz').hidden=true}
 function startCard(){
@@ -234,17 +232,7 @@ function endChallenge(){chalOn=false;challenge=null;$('chbar').hidden=true;$('ch
 /* ---------- 3D ---------- */
 var renderer,scene,camera,hemi,sun,sea,rings=[],anims=[],mks=[],pickMeshes=[],pulse=null;
 var view={tx:0,ty:0,tz:0,r:34,th:0.55,ph:1.0},tw=null,lastInter=0;
-var VIEWS=[
- {t:[0,0,0],r:30,w:31,th:0.5,ph:1.0},
- {t:[-3.6,0.8,-6.6],r:10,w:10,th:0.35,ph:1.05},
- {t:[0.2,0.7,1.2],r:10,w:11,th:0.15,ph:1.0},
- {t:[0,0.3,5.6],r:9,w:10,th:0.0,ph:1.0},
- {t:[1,0.8,9.2],r:9,w:10,th:0.25,ph:1.0},
- {t:[-9,0.6,5.6],r:9,w:9,th:-0.35,ph:1.0},
- {t:[7.6,0.5,1.6],r:11,w:12,th:0.55,ph:0.95},
- {t:[-7.2,0.5,-0.5],r:12,w:13,th:-0.55,ph:0.95},
- {t:[0,0,0],r:30,w:31,th:0.0,ph:0.7}];
-var MARK=[null,[-3.6,3.4,-6.8],[0.4,3.6,0.6],[0,2.8,5.6],[0.5,3.8,9.8],[-9,3.2,5.8],[8,3.4,1.6],[-7.2,4.4,-0.5],null];
+var VIEWS=D.views,MARK=D.marks;
 
 function M(c){return new THREE.MeshLambertMaterial({color:c})}
 function flat(g){var n=g.toNonIndexed();n.computeVertexNormals();return n}
@@ -593,12 +581,16 @@ function bindControls(){
   el.addEventListener('wheel',function(e){e.preventDefault();view.r=Math.max(7,Math.min(48,view.r*(1+e.deltaY*0.001)));tw=null;lastInter=performance.now()},{passive:false});
 }
 var ray;
-function pick(cx,cy){
+function hitTags(cx,cy){
   ray=ray||new THREE.Raycaster();
   var nd=new THREE.Vector2(cx/window.innerWidth*2-1,-(cy/window.innerHeight)*2+1);
   ray.setFromCamera(nd,camera);
-  var hits=ray.intersectObjects(scene.children,true),tags=[];
-  for(var i=0;i<hits.length;i++){var o=hits[i].object;if(o.userData.all&&o.userData.all.length){tags=o.userData.all;break}if(hits[i].object===islandG||o.parent===islandG){break}}
+  var hits=ray.intersectObjects(scene.children,true);
+  for(var i=0;i<hits.length;i++){var o=hits[i].object;if(o.userData.all&&o.userData.all.length)return o.userData.all;if(o===islandG||o.parent===islandG)break}
+  return [];
+}
+function pick(cx,cy){
+  var tags=hitTags(cx,cy);
   if(chalOn){submit(tags);return}
   var s=PRIO.filter(function(t){return tags.indexOf(t)>=0})[0];
   if(s)go(TAGSTOP[s]);
@@ -652,7 +644,7 @@ if(!hasGL){mode='2d';var n=document.createElement('p');n.className='sub';n.textC
 setMode(mode);
 if(hasGL){onResize();flyTo(0,true);applyCam();requestAnimationFrame(loop)}
 setInterval(function(){if(mode==='2d')tickChallenge()},200);
-window.__farm={q:function(){return challenge&&challenge.qs[challenge.i]?challenge.qs[challenge.i][0]:null},where:function(t){camera.updateMatrixWorld();for(var i=0;i<pickMeshes.length;i++){var m=pickMeshes[i];if(m.userData.all.indexOf(t)>=0){var v=new THREE.Vector3();m.getWorldPosition(v);v.project(camera);var sx=(v.x*0.5+0.5)*window.innerWidth,sy=(-v.y*0.5+0.5)*window.innerHeight;var el=document.elementFromPoint(sx,sy);if(v.z<1&&el&&el.tagName==='CANVAS')return [sx,sy]}}return null},snap:function(){applyCam();renderer.render(scene,camera);return renderer.domElement.toDataURL('image/png')},scene:function(){return scene},go:go,state:function(){return {mode:mode,hasGL:hasGL,cur:cur,chal:chalOn,pick:pickMeshes.length,meshes:renderer?renderer.info.render.triangles:0,view:view,cam:camera?camera.position.toArray():null,asp:camera?camera.aspect:0,sz:renderer?[renderer.domElement.width,renderer.domElement.height]:0}}};
+window.__farm={tags:function(){return {prio:PRIO,tagstop:TAGSTOP}},tile:function(t){tilePick(t)},q:function(){return challenge&&challenge.qs[challenge.i]?challenge.qs[challenge.i][0]:null},where:function(t){camera.updateMatrixWorld();for(var i=0;i<pickMeshes.length;i++){var m=pickMeshes[i];if(m.userData.all.indexOf(t)>=0){var v=new THREE.Vector3();m.getWorldPosition(v);v.project(camera);var sx=(v.x*0.5+0.5)*window.innerWidth,sy=(-v.y*0.5+0.5)*window.innerHeight;var el=document.elementFromPoint(sx,sy);if(v.z<1&&el&&el.tagName==='CANVAS'&&hitTags(sx,sy).indexOf(t)>=0)return [sx,sy]}}return null},snap:function(){applyCam();renderer.render(scene,camera);return renderer.domElement.toDataURL('image/png')},scene:function(){return scene},go:go,state:function(){return {mode:mode,hasGL:hasGL,cur:cur,chal:chalOn,pick:pickMeshes.length,meshes:renderer?renderer.info.render.triangles:0,view:view,cam:camera?camera.position.toArray():null,asp:camera?camera.aspect:0,sz:renderer?[renderer.domElement.width,renderer.domElement.height]:0}}};
 })();
 </script>
 </body>

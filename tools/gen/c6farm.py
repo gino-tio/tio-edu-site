@@ -68,7 +68,7 @@ TILES=[
  ('useful','🥬','crops'),('useful','🥩','meat'),('useful','🥛','milk'),('useful','🧶','wool'),('market','🏪','market'),
  ('useless','💩','animal waste'),('useless','🌾','crop residues'),('useless','🏭','pollutants'),
  ('farmA','🐄','Farm A'),('farmB','🌾','Farm B')]
-TGROUP=[('phys',T('自然投入 Physical inputs','Physical inputs'),1),('cult',T('人文投入 Cultural inputs','Cultural inputs'),2),('proc',T('過程 Processes','Processes'),3),('useful',T('有用產出 Useful outputs','Useful outputs'),4),('useless',T('無用產出 Useless outputs','Useless outputs'),5),('farms',T('兩個農場 The two farms','The two farms'),6)]
+TGROUP=[('phys',T('自然投入 Physical inputs','Physical inputs'),['phys']),('cult',T('人文投入 Cultural inputs','Cultural inputs'),['cult']),('proc',T('過程 Processes','Processes'),['proc']),('useful',T('有用產出 Useful outputs','Useful outputs'),['useful','market']),('useless',T('無用產出 Useless outputs','Useless outputs'),['useless']),('farms',T('兩個農場 The two farms','The two farms'),['farmA','farmB'])]
 UI=dict(back=T('‹ 食物問題','‹ Food Problems'),title=T('農場島','Farm Island'),sub=T('3D 溫習 · Food Problems Unit 1-3','3D revision · Food Problems Units 1-3'),
  prev=T('上一個','Previous'),next=T('下一個','Next'),chal=T('挑戰','Challenge'),to2d=T('2D 版','2D view'),to3d=T('3D 版','3D view'),
  ovbtn=T('全島','Whole island'),
@@ -82,10 +82,10 @@ UI=dict(back=T('‹ 食物問題','‹ Food Problems'),title=T('農場島','Farm
  wgl=T('呢部機用唔到 3D，已轉做 2D 版。','3D is not available here, so the 2D view is shown.'),
  hint2d=T('撳一個項目睇解釋；挑戰時撳答案。','Tap an item to read about it; in the challenge, tap the answer.'),
  quiz=T('做選擇題 ›','Do the quiz ›'),qn=T('題','Question'))
-DATA=dict(stops=STOPS,qs=QS,tiles=TILES,tgroup=TGROUP,ui=UI,tagname=TAGNAME,lang=LANG)
+DATA=dict(tagstop={'phys':1,'cult':2,'proc':3,'useful':4,'market':4,'useless':5,'farmB':6,'farmA':7},prio=['phys','cult','proc','useful','useless','market','farmB','farmA'],best='farm3dBest',views=[{"t": [0, 0, 0], "r": 30, "w": 31, "th": 0.5, "ph": 1.0}, {"t": [-3.6, 0.8, -6.6], "r": 10, "w": 10, "th": 0.35, "ph": 1.05}, {"t": [0.2, 0.7, 1.2], "r": 10, "w": 11, "th": 0.15, "ph": 1.0}, {"t": [0, 0.3, 5.6], "r": 9, "w": 10, "th": 0.0, "ph": 1.0}, {"t": [1, 0.8, 9.2], "r": 9, "w": 10, "th": 0.25, "ph": 1.0}, {"t": [-9, 0.6, 5.6], "r": 9, "w": 9, "th": -0.35, "ph": 1.0}, {"t": [7.6, 0.5, 1.6], "r": 11, "w": 12, "th": 0.55, "ph": 0.95}, {"t": [-7.2, 0.5, -0.5], "r": 12, "w": 13, "th": -0.55, "ph": 0.95}, {"t": [0, 0, 0], "r": 30, "w": 31, "th": 0.0, "ph": 0.7}],marks=[None, [-3.6, 3.4, -6.8], [0.4, 3.6, 0.6], [0, 2.8, 5.6], [0.5, 3.8, 9.8], [-9, 3.2, 5.8], [8, 3.4, 1.6], [-7.2, 4.4, -0.5], None],stops=STOPS,qs=QS,tiles=TILES,tgroup=TGROUP,ui=UI,tagname=TAGNAME,lang=LANG)
 _TPL=open(HERE+'/c6farm.html',encoding='utf-8').read()
 _h=_TPL.replace('__DATA__',json.dumps(DATA,ensure_ascii=False)).replace('__LANG__','en' if LANG=='en' else 'zh-HK')
 _h=_h.replace('__TITLE__',T('農場島 3D 溫習 · 中二地理','Farm Island 3D · F.2 Geography')).replace('__ASSET__','../../assets/' if LANG=='en' else '../assets/')
-_h=_h.replace('__BACK__','../geo-food/')
+_h=_h.replace('__BACK__','../geo-food/').replace('__QUIZ__','../geo-food/')
 os.makedirs(ROOT+'geo-farm-3d',exist_ok=True)
 open(ROOT+'geo-farm-3d/index.html','w',encoding='utf-8').write(_h)

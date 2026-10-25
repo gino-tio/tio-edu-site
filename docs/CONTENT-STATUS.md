@@ -16,6 +16,7 @@
 | English 過去完成式 | done: teacher's notes (2 past events, reported speech, wish) + SIG Unit 3 A | teacher notes PDF, SIG 3A |
 | English Vocabulary | done: every word in school Unit 1 + Unit 2 glossaries (73) | Glossary handouts |
 | English Reading Unit 2 Text 2 + Life skill | done, answers checked vs text + teacher corrections | Oxford English Forward 2A pp.40-44 |
+| English 3D 購物街 (eng-shop-3d) | done: nine shop types + Unit 1 glossary words (Text 1, Text 2) in a 3D street; definition-based challenge (timer optional); 2D fallback | school Unit 1 glossary, textbook Warming up p.2 |
 | English Proofreading | done (SIG Unit 1 consolidation, Unit 2 Practice 8) | SIG |
 | English Reading Unit 1 Text 1 + Text 2 | done, answers checked vs text + teacher corrections | Oxford English Forward 2A pp.4-11 |
 | English past paper (school Form 2 practice paper) | answer notes + parallel practice; paper has no marking scheme, answers worked out by us; Section G text absent | practice paper PDF |

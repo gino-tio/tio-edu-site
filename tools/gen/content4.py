@@ -42,3 +42,9 @@ for LANG in ['zh','en']:
     exec(open(HERE+'/c6farm.py',encoding='utf-8').read())
 ROOT=_ROOT0
 LANG='zh'
+# ---------- 3D Shopping Street (English Unit 1) ----------
+for LANG in ['zh','en']:
+    ROOT=_ROOT0+('en/' if LANG=='en' else '')
+    exec(open(HERE+'/c7shop.py',encoding='utf-8').read())
+ROOT=_ROOT0
+LANG='zh'

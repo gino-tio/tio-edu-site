@@ -375,7 +375,7 @@ VFILL=[
 ('Life skill b','Please send me a {0} instead of posting on my page.',[['direct message']]),
 ('Life skill c','After a sad week, the happy song was very {0}.',[['uplifting']])]
 eng_page('eng-vocab','mcqBestEngVocab','Vocabulary '+T('詞彙',''),T('Unit 1 同 Unit 2 詞彙表：配對、填空、選擇題','Unit 1 and Unit 2 glossaries: match, fill in and quiz'),'scroll',VNOTES,VSETS,VFILL,VMCQ,'ev-i',
- T('詞彙同解釋來自學校 Unit 1 / Unit 2 Glossary；填空句子同「挑戰題」係【AI 出題】。','Words and meanings come from the school Unit 1 / Unit 2 glossaries; the fill-in sentences and challenge questions are AI-made.'),
+ '<a href="../eng-shop-3d/"><b>'+T('🛍️ 3D 購物街：逛街學 Unit 1 詞語，仲有挑戰','🛍️ 3D Shopping Street: learn the Unit 1 words by exploring, with a challenge')+'</b></a><br>'+T('詞彙同解釋來自學校 Unit 1 / Unit 2 Glossary；填空句子同「挑戰題」係【AI 出題】。','Words and meanings come from the school Unit 1 / Unit 2 glossaries; the fill-in sentences and challenge questions are AI-made.'),
  T('中二英文上學期統一測驗詞彙溫習。','F.2 English first-term uniform test vocabulary revision.'))
 
 # ---------- Reading: Unit 2 Text 2 "Watching your step" (p.40-43) ----------
@@ -592,6 +592,7 @@ eng_page('eng-paper','mcqBestEngPaper','Past paper '+T('歷屆試卷練習',''),
 def card(n,href,title,d,tags):
     return '  <a class="hub h%dc" href="../%s/"><strong>%s</strong><span class="d">%s</span>%s</a>\n'%((n%3)+1,href,title,d,''.join('<span class="tag">%s</span>'%t for t in tags))
 CARDS=''.join([
+ card(1,'eng-shop-3d','3D Shopping Street',T('逛 3D 購物街學 Unit 1 詞語：九種店舖、網購、Handcrafted! 市集，仲有挑戰（計時可關）。','Learn the Unit 1 words in a 3D street: nine shops, online shopping and the Handcrafted! market, with a challenge (optional timer).'),['3D','Unit 1']),
  card(0,'eng-vocab','Vocabulary',T('Unit 1 同 Unit 2 詞彙表：73 個詞語（另加 Unit 1 店舖類型），配對、填空、選擇題。','Unit 1 and Unit 2 glossaries: 73 words with match, fill-in and quiz.'),['Unit 1','Unit 2']),
  card(1,'eng-read1','Reading — Unit 1',T('Unit 1 Text 1 同 Text 2 閱讀理解（24 條題）。','Unit 1 Text 1 and Text 2 comprehension (24 questions).'),['Text 1','Text 2']),
  card(2,'eng-read','Reading — Unit 2',T('Unit 2 Text 2《Watching your step》閱讀理解同 Life skill 詞彙運用。','Unit 2 Text 2 “Watching your step” comprehension and Life skill vocabulary in use.'),['Unit 2 Text 2']),
