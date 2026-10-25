@@ -12,11 +12,13 @@
 | 地理 歷屆試題 | done | 2024-25 QE, 2025-26 UT papers + marking schemes |
 | 地理 Map Reading | NOT checked vs textbook | past papers + general knowledge only |
 | English 文法 (Unit 1 A/B/C, Unit 2 A, Unit 3 C) | checked vs Success in Grammar 2 Units 1-3 notes; quiz questions AI-made | SIG Units 1-3 (B2U1-3) |
-| English 過去完成式 | standard grammar only, teacher's extra notes missing | none |
+| English 過去完成式 | done: teacher's notes (2 past events, reported speech, wish) + SIG Unit 3 A | teacher notes PDF, SIG 3A |
 | English Vocabulary | done: every word in school Unit 1 + Unit 2 glossaries (73) | Glossary handouts |
 | English Reading Unit 2 Text 2 + Life skill | done, answers checked vs text + teacher corrections | Oxford English Forward 2A pp.40-44 |
 | English Proofreading | done (SIG Unit 1 consolidation, Unit 2 Practice 8) | SIG |
-| English Unit 1 texts (pp.4-5, 8-9), past papers, Bonus | missing | need textbook pages + papers |
+| English Reading Unit 1 Text 1 + Text 2 | done, answers checked vs text + teacher corrections | Oxford English Forward 2A pp.4-11 |
+| English past paper (school Form 2 practice paper) | answer notes + parallel practice; paper has no marking scheme, answers worked out by us; Section G text absent | practice paper PDF |
+| English other past papers / Section G | missing | |
 | 課堂筆記 / 功課簿 / 讀圖練習 | not received | |
 
 Known textbook vs marking-scheme conflict: Laos upland rice (see CLAUDE.md). Notes show both.

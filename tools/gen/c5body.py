@@ -172,13 +172,18 @@ TENSEN=[
  EG('While/When we were swimming, a shark suddenly appeared.　(past continuous for the longer action, simple past for the shorter action)')+
  EG('Crystal was quarrelling with her brother when their parents came home.')+
  P(G('<b>while / when</b> can go with the longer action; use <b>when</b> for the shorter action.','長動作可以用 while 或 when；短動作只用 when。'))),
-('Past perfect'+T(' 過去完成式（老師補充）',''),
+('Past perfect'+T(' 過去完成式（老師筆記 + SIG 3A）',''),
  '<p>'+K('had + past participle')+'</p>'+
- P(G('The <b>earlier</b> of two past actions: <i>When I arrived, the film had already started.</i>','兩件過去嘅事，先發生嗰件用 had + past participle。'))+
- P(G('Time words: <b>already, just, never … before, by the time, before, after</b>.','常見時間詞。'))+
- TB(['Form','Example'],[['+','She had finished.'],['−','She hadn’t finished.'],['?','Had you seen it before?']])+
- TB(['Verb','Past participle'],[['go','gone'],['eat','eaten'],['see','seen'],['take','taken'],['write','written'],['begin','begun'],['do','done']])+
- '<p class="sub">'+T('⚠ 呢部分未有老師筆記，內容係一般文法，等老師筆記再對。','⚠ The teacher’s notes are not available yet; this is standard grammar. To be checked.')+'</p>')]
+ P(G('<b>1. Two past events:</b> the <b>earlier</b> action → past perfect; the later action or the specific time → simple past. <i>The train had already left when Tim arrived at the station.</i> <i>Sandy had written three novels by the time she was eleven.</i>','兩件過去嘅事：先發生用 past perfect，後發生用 past simple。'))+
+ P(G('<b>2. Reported speech:</b> simple past → past perfect; present perfect → past perfect; past perfect stays. <i>“I was a bad student,” said Mrs Au. → Mrs Au said (that) she had been a bad student.</i> <i>“We haven’t finished,” said Tom and Kit. → They said they hadn’t finished.</i>','間接引語：simple past／present perfect 都變 past perfect；past perfect 不變。'))+
+ P(G('<b>3. wish</b> (regret about the past): <i>I wish I’d gone to the cinema.</i> <i>She wishes she hadn’t stayed up late last night.</i>','wish ＋ past perfect：對過去嘅事感到後悔。'))+
+ P(G(K('Time words')+' just, already, yet, ever, never, when, after, before, by the time.','常見時間詞。'))+
+ EG('I left when Terence arrived. (I saw him, then I left.)　Sam had left when Terence arrived. (Sam was already gone.)')+
+ EG('The man had gone before she opened the door.　Miss Lee emailed us after she had received the parcel.')+
+ TB(['Form','Example'],[['+','I/He/She/They had (’d) left.'],['−','had not (hadn’t) brought her passport'],['Yes/No ?','Had they finished dinner? — Yes, they had. / No, they hadn’t.']])+
+ TB(['Past perfect','Simple past','Present perfect'],[
+  ['two past actions, one before the other: My grandpa had passed away before I was born.','one past action / exact time: My grandpa passed away twenty years ago.','action continues to now: I have been ill for a week.']])+
+ TB(['Verb','Past participle'],[['go','gone'],['eat','eaten'],['see','seen'],['take','taken'],['swim','swum'],['fly','flown'],['dig','dug'],['break','broken'],['write','written'],['begin','begun'],['do','done']]))]
 TENSESETS=[('Past continuous',[['Past continuous','was / were + verb-ing'],['wasn’t / weren’t','negative form'],['Was he running?','Yes/No question'],['What were you doing?','Wh- question'],['die','dying'],['run','running']]),
  ('while / when',[['two long actions at the same time','while … while'],['long action + short action','past continuous + simple past'],['shorter action','when'],['While Leo was watching TV,','Rebecca was reading a book'],['Crystal was quarrelling with her brother','when their parents came home'],['While we were swimming,','a shark suddenly appeared']]),
  ('Past perfect',[['Past perfect','had + past participle'],['an earlier past action','had done'],['go','gone'],['eat','eaten'],['write','written'],['begin','begun']])]
@@ -193,8 +198,33 @@ TENSEFILL=[
 ('SIG 8','While Fiona {0} (perform) on the stage, her parents {1} (take) photos of her.',[['was performing'],['were taking']]),
 ('SIG 9','{0} you {1} (take) the lift when the electricity went out this morning?',[['Were'],['taking']]),
 ('SIG 10','What {0} Timmy and Anna {1} (find) at recess?',[['were'],['finding']]),
-('Past perfect 1','When we arrived, the show {0} (already / start).',[['had already started','had started already']]),
-('Past perfect 2','She {0} (not / finish) her homework before dinner.',[["hadn't finished",'had not finished']])]
+('SIG PP 1','The man fell asleep after he {0} (take) the medicine.',[['had taken']]),
+('SIG PP 2','They {0} (swim) in the Dead Sea before they went on their trip to Israel.',[['had swum']]),
+('SIG PP 3','The astronaut was nervous because he {0} (not fly) in space before.',[["hadn't flown",'had not flown']]),
+('SIG PP 4','You {0} (misunderstand) Kenneth. He was not that kind of person.',[['had misunderstood']]),
+('SIG PP 5','Mary {0} (throw) away some clothes before she bought some new ones.',[['had thrown']]),
+('SIG PP 6','The worker stopped the machine after he {0} (dig) a hole.',[['had dug']]),
+('SIG PP 7','I missed the plane because my passport {0} (expire).',[['had expired']]),
+('SIG PP 8','The film {0} (begin) before we arrived at the cinema.',[['had begun']]),
+('SIG PP 9','Bob could not drive a car because he {0} (not turn) 18 yet.',[["hadn't turned",'had not turned']]),
+('SIG PP 10','By the time William finally {0} (apologize) to Carrie, she {1} (not talk) to him for a week.',[['apologized','apologised'],["hadn't talked",'had not talked']]),
+('SIG PP 11','Dad’s car {0} (break) down on the road, so he {1} (go) to the airport by taxi.',[['had broken'],['went']]),
+('SIG PP 12','We {0} (finish) dinner when Dad {1} (come) home from work last night.',[['had finished'],['came']]),
+('SIG PP 13','I {0} (not return) the book by the time the library {1} (close).',[["hadn't returned",'had not returned'],['closed']]),
+('SIG PP 14','The boat {0} (sink) before the rescue team {1} (arrive).',[['had sunk'],['arrived']]),
+('SIG PP 15','Sandy and I {0} (sit) down before the drama {1} (begin).',[['had sat'],['began']]),
+('SIG PP 16','The woman started to feel unwell after she {0} (come) back from Thailand.',[['had come']]),
+('SIG PP 17','Cosmetics {0} (exist) long before modern cosmetic technology {1} (appear) in the 20th century.',[['had existed'],['appeared']]),
+('SIG PP 18','Cosmetics {0} (contain) toxic chemicals before people {1} (start) to innovate safer formulas.',[['had contained'],['started']]),
+('SIG PP 19','I {0} (try) out this new mascara that I {1} (not use) before.',[['tried'],["hadn't used",'had not used']]),
+('SIG PP 20','It {0} (not rain) for three weeks before the shower today.',[["hadn't rained",'had not rained']]),
+('SIG PP 21','I {0} (apply) the mascara before I {1} (go) out.',[['had applied'],['went']]),
+('SIG PP 22','By the time I {0} (arrive) at the venue, the party {1} (start).',[['arrived'],['had started']]),
+('SIG PP 23','{0} they {1} (finish) dinner when she came home?',[['Had'],['finished']]),
+('Reported speech 1','“I was a bad student,” said Mrs Au. → Mrs Au said (that) she {0} a bad student. (be)',[['had been']]),
+('Reported speech 2','“We haven’t finished our homework yet,” said Tom and Kit. → They said (that) they {0} their homework yet. (not finish)',[["hadn't finished",'had not finished']]),
+('wish 1','I’m bored. I wish I {0} (go) to the cinema with my friends.',[['had gone',"'d gone",'’d gone']]),
+('wish 2','Jean is really tired. She wishes she {0} (not stay) up late last night.',[["hadn't stayed",'had not stayed']])]
 TENSEMCQ=[
 ('At 7 p.m. yesterday, I ___ dinner.',['was having','am having','have had','were having'],0,''),
 ('They ___ football when it started to rain.',['were playing','played','are playing','had played'],1,'long action + short action.'),
@@ -210,8 +240,13 @@ TENSEMCQ=[
 ('Which sentence is correct?',['When Amy arrived, the lesson had already begun.','When Amy arrived, the lesson already begins.','When Amy arrived, the lesson has already begun.','When Amy had arrived, the lesson already begin.'],2,'',1),
 ('Proofreading: “They were sleeping when their parents were leaving home.” Which correction is right?',['“were leaving” → “left”','“were sleeping” → “slept”','“when” → “while”','“their” → “there”'],1,'Short action → simple past.',1),
 ('Proofreading: “Molly was cooking while her brother watched TV.” Which correction is right?',['“watched” → “was watching”','“was cooking” → “cooked”','“while” → “when”','“her” → “she”'],1,'Both actions went on at the same time.',1),
+('Tim arrived at the station at 8:10 and the train left at 8:05. Which sentence is correct?',['The train had already left when Tim arrived.','Tim had arrived when the train had already left.','The train already left when Tim had arrived.','The train has left when Tim arrived.'],2,'First action = had left.',0),
+('“We haven’t finished our homework yet,” said Tom and Kit. Which is the correct reported speech?',['Tom and Kit said they hadn’t finished their homework yet.','Tom and Kit said they haven’t finished their homework yet.','Tom and Kit said they didn’t finished their homework yet.','Tom and Kit said they weren’t finish their homework yet.'],2,'Present perfect → past perfect.',1),
+('Jean stayed up late last night and now she is tired. Which sentence is correct?',['Jean wishes she hadn’t stayed up late last night.','Jean wishes she didn’t stay up late last night.','Jean wishes she hasn’t stayed up late last night.','Jean wishes she wasn’t staying up late last night.'],2,'wish + past perfect (regret about the past).',1),
+('I ___ the book by the time the library closed.',['hadn’t returned','didn’t returned','haven’t returned','wasn’t returned'],2,'By the time + simple past → past perfect for the earlier action.',0),
+('Miss Lee emailed us after she ___ the parcel.',['had received','has received','was receiving','receives'],2,'after + past perfect (first action).',0),
 ('Proofreading: “She had went to bed before I came home.” Which correction is right?',['“had went” → “had gone”','“came” → “had come”','“before” → “after”','“to bed” → “in bed”'],2,'',1)]
-eng_page('eng-tense','mcqBestEngTense','Tenses '+T('過去進行式同過去完成式',''),T('Unit 2 (A) 過去進行式 · 補充：過去完成式','Unit 2 (A) past continuous · extra notes: past perfect'),'camp',TENSEN,TENSESETS,TENSEFILL,TENSEMCQ,'et-i',SIGB+T(' 過去完成式部分未有老師筆記。',' The past-perfect part has no teacher notes yet.'),GDESC)
+eng_page('eng-tense','mcqBestEngTense','Tenses '+T('過去進行式同過去完成式',''),T('Unit 2 (A) 過去進行式 · 補充：過去完成式','Unit 2 (A) past continuous · extra notes: past perfect'),'camp',TENSEN,TENSESETS,TENSEFILL,TENSEMCQ,'et-i',T('筆記跟 <i>Success in Grammar 2</i> Unit 2 (A) 同老師過去完成式筆記（含 SIG Unit 3 A）；填空標「SIG」係跟課本練習改寫，選擇題係【AI 出題】。','Notes follow SIG Unit 2 (A) and the teacher’s past-perfect notes (with SIG Unit 3 A); fill-in items marked “SIG” are adapted from the exercises; quiz questions are AI-made.'),GDESC)
 
 # ---------- Vocabulary: school glossaries Unit 1 and Unit 2 ----------
 VOC=[
@@ -293,7 +328,8 @@ VOC=[
 ('uplifting','adj.','making you feel happier and more hopeful'),
 ('go viral','v. phr.','spreading or becoming popular very quickly through communication from one person to another, especially on the internet')])]
 VNOTES=[(t,TB(['Word','Meaning'],[['<b>%s</b><br><small>%s</small>'%(w,p),m] for w,p,m in L])) for t,L in VOC]
-VSETS=[]
+VSETS=[('Types of shops (1)',[['confectioner','sells sweets and chocolate'],['florist’s','sells flowers and bouquets'],['antique shop','old but well-preserved valuables'],['optician’s','glasses and contact lenses'],['pharmacy','medicine and plasters'],['boutique','a small shop selling fashionable clothes']]),
+ ('Types of shops (2)',[['cosmetics shop','lipstick and foundation'],['electronics shop','headphones'],['jeweller’s','necklaces and earrings'],['confectioner','lollipops'],['florist’s','roses'],['pharmacy','plasters']])]
 for gi,(t,L) in enumerate(VOC):
     nm=['U1 Text 1','U1 Text 2','U2 Text 2','U2 Life skill'][gi]
     for k in range(0,len(L),6):
@@ -431,7 +467,12 @@ PF('SIG U1 10','It was the same height from a tall man.','from',['as']),
 PF('SIG U1 11','It was as heavier as ten people!','heavier',['heavy']),
 PF('SIG U1 12','You will probably found something that interests you.','found',['find']),
 PF('SIG U1 13','I think the most good part of a flea market is the nice surprises it offers.','the most good',['the best']),
-PF('SIG U1 14','No two flea markets are like.','like',['alike'])]
+PF('SIG U1 14','No two flea markets are like.','like',['alike']),
+PF('SIG U3 1','Before potato crisps emerged, people had enjoy potato chips as snacks.','had enjoy',['had enjoyed']),
+PF('SIG U3 2','A customer kept sending back the chips that Crum has prepared.','has prepared',['had prepared']),
+PF('SIG U3 3','By the 1920s, potato crisps not gain widespread popularity.','not gain',["hadn't gained",'had not gained']),
+PF('SIG U3 4','After entrepreneur Laura Scudder invent an innovative method of sealing crisps, the snack began to sell well.','invent',['invented']),
+PF('SIG U3 5','Potato crisps have been in their original flavour before Tayto invented the seasoning technology.','have been',['had been'])]
 PFMCQ=[
 ('Which sentence is correct?',['The price is higher than expected.','The price is more higher than expected.','The price is the higher than expected.','The price is most high than expected.'],1,'',0,1),
 ('Which sentence is correct?',['Jeffrey is the tallest of the four boys.','Jeffrey is the most tallest of the four boys.','Jeffrey is the more tall of the four boys.','Jeffrey is tallest than the four boys.'],1,'',0,1),
@@ -447,16 +488,118 @@ eng_page('eng-proof','mcqBestEngProof','Proofreading '+T('改錯',''),T('SIG Uni
  T('改錯句子改寫自 SIG Unit 1 綜合練習同 Unit 2 Practice 8（標「SIG」）；選擇題係【AI 出題】。','Error sentences are adapted from the SIG Unit 1 consolidation and Unit 2 Practice 8 (marked “SIG”); quiz questions are AI-made.'),
  T('中二英文上學期統一測驗改錯溫習。','F.2 English first-term uniform test proofreading revision.'))
 
+# ---------- Reading Unit 1 (Oxford English Forward 2A pp.4-11) ----------
+R1N=[
+('Text 1 — How big data improves online shopping (p.4-5)'+T('',''),
+ P(G(K('Para 1')+' Amazon began by selling books online; today online shopping is commonplace. The writer thinks it gives a far more customized experience than bricks-and-mortar shops.','第 1 段：網購好普遍，作者認為比實體店更貼身。'))+
+ P(G(K('Para 2')+' Every click is tracked; this data is combined with information from social media and search engine queries to create big data. Companies analyse it to find patterns and trends, formulate strategies and drive sales.','第 2 段：追蹤每一下點擊，同社交媒體、搜尋資料結合成 big data。'))+
+ P(G(K('Para 3')+' Marketing can match customers’ preferences: targeted emails instead of generic ones (boutique, online pharmacy, cosmetics shop, florist). The writer believes individualized marketing beats blanket advertising.','第 3 段：針對性電郵，作者唔鍾意收到唔相關嘅電郵。'))+
+ P(G(K('Para 4')+' Businesses optimize site design from data; asking customers directly was lengthy and cumbersome. They can be more responsive and give bestselling products a more prominent position.','第 4 段：用數據取代又長又麻煩嘅問卷。'))+
+ P(G(K('Para 5')+' Customer service: the writer’s problem at an online optician’s was solved by a message with a link to his basket, plus a free-shipping coupon — a favourable impression.','第 5 段：網上眼鏡店嘅好服務經驗。'))+
+ P(G(K('Para 6')+' The writer would rather visit online shops that tailor the experience to his specific needs than shops that treat everyone the same.','第 6 段：作者寧願去度身訂造嘅網店。'))),
+('Text 2 — Support local artisans at Handcrafted! (p.8-9)'+T('',''),
+ P(G('A leaflet for a monthly market (8 a.m.–8 p.m., first Sunday of every month, West Kowloon Cultural District) selling locally designed, handmade products.','宣傳單張：每月第一個星期日，西九文化區。'))+
+ P(G(K('Reasons to visit')+' sustainable shopping (local sources, recycled materials); bargain hunters find great deals on unique items; vendors are happy to haggle; special offer: a free reusable shopping bag if you spend $200 or more.','來嘅理由。'))+
+ P(G(K('What you’ll find')+' 132 stalls (snacks, gifts, homeware, stylish furniture by young local artisans), a few second-hand dealers selling rare vintage items, workshops (try your hand at making accessories), game stalls and live music from local indie bands.','會見到咩。'))+
+ P(G(K('Getting there / contact')+' MTR to Kowloon Station (Tung Chung Line) or Green Minibus 77M to Austin Road West; website and phone for enquiries.','交通同查詢。')))]
+R1SETS=[('Text 1 phrases',[['bricks-and-mortar shops','physical shops (not online)'],['big data','very large sets of information'],['targeted emails','aimed at a particular group'],['generic emails','general, not specific'],['lengthy and cumbersome','too long and troublesome'],['favourable impression','a good feeling about the shop']]),
+ ('Text 2 phrases',[['bargain hunters','people looking for things at low prices'],['vendors','companies or people who sell things'],['haggle','argue about the price'],['special offer','sold at less than the usual price'],['vintage items','typical of a period in the past, high quality'],['try your hand at','do something for the first time']])]
+R1FILL=[
+('Text 1 a','Some footwear companies let you {0} your shoes — you can choose the colours.',[['customize','customise']]),
+('Text 1 b','The shop was so busy that the staff served customers {0}. (without stopping)',[['non-stop','nonstop']]),
+('Text 1 c','The stationery shop’s sale was timed to {0} with the start of school.',[['coincide']]),
+('Text 1 d','Online shopping lets people shop quickly and {0}.',[['efficiently']]),
+('Text 1 e','The department store’s new layout has been {0} for younger shoppers.',[['tailored']]),
+('Text 2 a','As people become more environmentally conscious, many seek to shop more {0}.',[['sustainably']]),
+('Text 2 b','I got a good {0} on this laptop during a flash sale.',[['deal']]),
+('Text 2 c','The staff at the bookshop did not like it when I tried to {0} with them over their prices.',[['haggle']]),
+('Text 2 d','Do you like my {0} dress? I bought it at a second-hand market!',[['vintage']]),
+('Text 2 e','Can you recommend a shop that sells {0}? We are updating everything from sofas to kitchen utensils.',[['homeware']])]
+R1MCQ=[
+('Paragraph 1: which is NOT true about online shopping?',['None of the above','It is not uncommon to shop online nowadays.','Online shops can suit the needs of individual customers.','People can buy a wide range of products online.'],0,'A, B and C are all true.',0,0),
+('Find a word or phrase in paragraph 1 similar in meaning to “physical”.',['bricks-and-mortar shops','commonplace','customized','online shopping'],0,'',0,0),
+('According to paragraph 2, where does big data come from?',['Tracking online behaviour combined with social media and search engine queries','Only from emails the shops send','Only from the shops’ staff','Government records'],0,'',0,0),
+('Paragraph 2: “Some countries have laws about data tracking and big data.” This is …',['Not Given','True','False'],0,'',0,0),
+('Paragraph 2: “Most companies do not care about their customers’ preferences.” This is …',['False','True','Not Given'],0,'Companies analyse big data to find trends.',0,0),
+('Paragraph 2: “Your data can be tracked even if you never shop online.” This is …',['True','False','Not Given'],0,'Teacher’s answer: True.',1,0),
+('In paragraph 2, “them” (line 16) refers to …',['companies that analyse big data','customers','online shops only','patterns and trends'],0,'',0,0),
+('In paragraph 3, the writer says he dislikes …',['receiving emails that do not match his needs','individualized marketing','receiving emails that advertise blankets','special occasions'],0,'',0,0),
+('What is the main idea of paragraph 3?',['how companies use big data to market products','how florists take advantage of online tracking','when different types of shops use big data','why companies no longer use traditional marketing'],0,'',0,0),
+('Find two words in paragraph 4 showing the writer’s negative attitude to traditional feedback.',['lengthy and cumbersome','responsive and prominent','automatic and various','directly and efficient'],0,'',0,0),
+('The optician’s helped the writer solve his problem by …',['sending him a message with a special link','offering him a coupon code','offering him free shipping','recommending a few items to him'],0,'',0,0),
+('What is the writer’s attitude towards big data in online shopping?',['Positive: it makes shopping more personalized','Negative: it wastes his time','Neutral: he does not mind','Worried about his privacy'],0,'Paragraph 6.',0,0),
+('What is the purpose of the Handcrafted! leaflet?',['to promote the market and give visitors useful information','to sell products online','to warn people about prices','to recruit artisans'],1,'',0,0),
+('Paragraph 1: “Handcrafted! is held in Kowloon Tong.” This is …',['False','True','Not Given'],1,'It is held at West Kowloon Cultural District.',0,0),
+('Paragraph 1: “Handcrafted! is held every weekend.” This is …',['False','True','Not Given'],1,'First Sunday of every month.',0,0),
+('Paragraph 1: “Handcrafted! is organized by a group of local artisans.” This is …',['Not Given','True','False'],1,'',0,0),
+('Why does buying locally made goods help the environment?',['Everything comes from local sources and many items use recycled materials.','The market is held at night.','Shoppers pay in cash.','The goods are imported.'],1,'',0,0),
+('According to paragraphs 2 and 3, which is true about the market?',['Visitors can choose from a large range of items.','All visitors get a free reusable bag.','Some items are imported from overseas.','Items are sold at fixed prices.'],1,'',0,0),
+('Which word in paragraph 3 suggests the goods are very special?',['unique','amazing','friendly','cheaper'],1,'',0,0),
+('How will the vendors feel about customers bargaining with them?',['Positive','Negative','Neutral'],1,'They are happy to haggle.',0,0),
+('There are ___ a hundred stalls in the market.',['more than','nearly','less than','almost'],1,'132 stalls.',0,0),
+('Which is the least likely to be found in the market?',['a performance by a band from Japan','a stall selling collectibles from the 1980s','a stool made from local wood','a workshop on making bracelets'],1,'Local indie bands play.',1,0),
+('Which of the following does the leaflet NOT contain?',['background information about the stallholders','details about the types of goods','how to contact the organizers','transport information'],1,'',1,0),
+('Find a phrase in paragraph 6 that means “to do something for the first time”.',['try your hand','enquire about','shop around','coincide with'],1,'',0,0)]
+eng_page('eng-read1','mcqBestEngRead1','Reading '+T('Unit 1 閱讀理解',' — Unit 1'),T('Unit 1 Text 1《How big data improves online shopping》· Text 2《Handcrafted!》','Unit 1 Text 1 “How big data improves online shopping” · Text 2 “Handcrafted!”'),'farm',R1N,R1SETS,R1FILL,R1MCQ,'er1-i',
+ T('跟課本 Unit 1（p.4-11）；題目改寫自 Comprehension 1 同 2，答案對返文章同老師批改。','Based on Unit 1 (pp.4-11); questions adapted from Comprehension 1 and 2, answers checked against the texts and the teacher’s corrections.'),
+ T('中二英文上學期統一測驗 Unit 1 閱讀溫習。','F.2 English first-term uniform test Unit 1 reading revision.'))
+
+# ---------- School past-paper practice (answers + parallel practice) ----------
+PPN=[
+('The practice paper'+T(' 試卷格式',''),
+ TB(['Section','Marks'],[['A Reading Comprehension','20'],['B Vocabulary (first letters given)','10'],['C Tenses','10'],['D Gap Filling (conditionals)','10'],['E Cloze Passage (comparatives / superlatives)','10'],['F MC Cloze','10'],['G Proofreading (on the answer sheet)','10'],['H Bonus (not compulsory)','10']])+
+ P(G('1 hour · 80 marks (pass 40) · bonus 10 marks · write answers on the answer sheet · “Make sure your answers are grammatically correct.”','1 小時、80 分（合格 40）、另加 10 分 bonus；要寫文法正確嘅答案。'))),
+('Answers A–B: Reading and Vocabulary'+T('',''),
+ P('<b>A (“When Renting Homes Takes a Turn for the Worse”)</b>: 1 A · 2 disappointed · 3 (a) F (b) NG (c) T · 4 (a) ruined (b) deterred (c) promptly · 5 rubbish everywhere; many dirty dishes in the sink; a flooded kitchen that ruined his sneakers · 6 (a) shocked (b) privacy · 7 the beds · 8 No: the losses were not made up for in the end · 9 do research beforehand; buy travel insurance · 10 open answer · 11 B (cautious).')+
+ P('<b>B</b> (words from Oxford English Forward 2A Units 1-2): 1 formulated · 2 big data · 3 sources · 4 sparked · 5 cumbersome · 6 eavesdrop · 7 reliance · 8 assumed · 9 consequences/consequence · 10 embrace.')),
+('Answers C–F: Grammar sections'+T('',''),
+ P('<b>C Tenses</b>: 1 started · 2 had moved · 3 had already bought · 4 was looking · 5 were walking · 6 were taking · 7 were riding · 8 had explored · 9 will visit (are going to visit) · 10 enjoy.')+
+ P('<b>D Conditionals</b>: 1 will violate (violate) · 2 have · 3 will not be allowed (are not allowed) · 4 need · 5 will find · 6 is · 7 are not · 8 should avoid · 9 follow · 10 will enjoy.')+
+ P('<b>E Cloze</b> (each adjective once): 1 the most popular · 2 farther/further · 3 easier · 4 more crowded · 5 less fit · 6 taller than · 7 worse than · 8 rarer · 9 the least expensive · 10 the most memorable.')+
+ P('<b>F MC cloze</b>: 1 D · 2 A · 3 B · 4 B · 5 A · 6 C · 7 C · 8 C · 9 C · 10 D.')),
+('H Bonus'+T('',''),
+ P('Comprehension: 1 rising rates of anxiety and depression · 2 late-night scrolling or disruptive notifications disrupt sleep · 3 it is vital for physical and mental health, brain growth, cognitive growth and emotional regulation. Response (7 marks): give ONE rule (e.g. no phone after 9 p.m.), a reason and how it helps.')+
+ P(G('The paper itself is not copied here (school paper); these are answer notes made from it. Section G Proofreading has no text in the PDF.','試卷原文唔放上網；呢度只係答案筆記。G 部改錯喺答案紙，PDF 冇原文。')))]
+PPSETS=[('Section E skills',[['one of the ___ ski villages','the most popular'],['70 km from Beijing, ___ than other resorts','farther / further'],['It is a lot ___ to ski on thin snow','easier'],['not as ___ as my sister','less fit'],['___ than my sister (long legs)','taller than'],['the ___ ski village I have ever visited (cheapest)','the least expensive']]),
+ ('Section F skills',[['___ watching a concert','the same as'],['they are ___ in their love for music','alike'],['among global cities, offers ___ spots','the fewest'],['treats us ___ seasoned artists','like'],['earns ___ money than before','less'],['___ forms of performances in the past','fewer']])]
+PPFILL=[
+('C Tenses 1','Last Sunday our morning {0} (start) at the pier. Before my brother, who {1} (move) out recently, arrived, Mum {2} (already / buy) tickets.',[['started'],['had moved'],['had already bought']]),
+('C Tenses 2','Dad {0} (look) for a restaurant while we {1} (wait) for him.',[['was looking'],['were waiting']]),
+('C Tenses 3','While we {0} (walk) along the waterfront, tourists {1} (take) photos.',[['were walking'],['were taking']]),
+('C Tenses 4','We {0} (ride) the escalator when it began to rain.',[['were riding']]),
+('C Tenses 5','By the time the rain stopped, we {0} (explore) the old station.',[['had explored']]),
+('C Tenses 6','Next weekend, we {0} (visit) the Peak. We always {1} (enjoy) exploring the city.',[['will visit',"'ll visit",'are going to visit'],['enjoy']]),
+('D Conditionals 1','If you {0} (not remove) your shoes before entering, you {1} (violate) a basic rule.',[["don't remove",'do not remove'],['will violate','violate']]),
+('D Conditionals 2','If you {0} (have) tattoos, you {1} (not allow) to enter the facility.',[['have'],['will not be allowed','are not allowed',"won't be allowed"]]),
+('D Conditionals 3','When you visit, you {0} (need) to wash before entering. If you {1} (be, not) well, you {2} (avoid) hot baths.',[['need'],['are not',"aren't"],['should avoid']]),
+('D Conditionals 4','If you {0} (follow) these rules, you {1} (enjoy) a peaceful experience.',[['follow'],['will enjoy']])]
+PPMCQ=[
+('Some people think a live show is ___ watching a video of it.',['the same as','alike','likes','the same of'],3,'',0,1),
+('Live music brings ___ energy to the city.',['more','most','less','least'],3,'',0,1),
+('Singers and dancers come from all backgrounds, but they are ___ in their love for music.',['alike','like','the same as','as eager as'],3,'',0,1),
+('Among the cities in Asia, our city offers ___ public pianos. (the smallest number)',['the fewest','fewer','less','the least'],3,'',1,1),
+('The audience treats us ___ seasoned artists.',['like','alike','as same as','more'],3,'',0,1),
+('Performing in a hall gives her ___ satisfaction than busking.',['less','least','fewer','more satisfying'],3,'',0,1),
+('Their reactions are totally ___ those in a theatre.',['as exciting as','different of','more exciting','different'],3,'',1,1),
+('She earns ___ money per hour than she did teaching.',['less','fewer','the least','least'],3,'Money is uncountable.',0,1),
+('There were ___ forms of performances in the past.',['fewer','fewest','less','the least'],3,'Forms are countable.',0,1),
+('This is ___ skiing trip I have ever had. (the best experience)',['the most memorable','more memorable','memorable than','most memorable than'],3,'',1,1)]
+eng_page('eng-paper','mcqBestEngPaper','Past paper '+T('歷屆試卷練習',''),T('學校 Form 2 練習卷：答案筆記同仿卷練習','School Form 2 practice paper: answer notes and parallel practice'),'notebook',PPN,PPSETS,PPFILL,PPMCQ,'epp-i',
+ T('答案係根據學校練習卷（未有標準答案）自己計出；填空同選擇題係仿卷【AI 出題】，唔係原題。','Answers were worked out from the school practice paper (no marking scheme was given); fill-in and quiz items are AI-made parallels, not the original questions.'),
+ T('中二英文上學期統一測驗歷屆試卷練習。','F.2 English first-term uniform test past-paper practice.'))
+
 # ---------- hub ----------
 def card(n,href,title,d,tags):
     return '  <a class="hub h%dc" href="../%s/"><strong>%s</strong><span class="d">%s</span>%s</a>\n'%((n%3)+1,href,title,d,''.join('<span class="tag">%s</span>'%t for t in tags))
 CARDS=''.join([
- card(0,'eng-vocab','Vocabulary',T('Unit 1 同 Unit 2 詞彙表：73 個詞語，配對、填空、選擇題。','Unit 1 and Unit 2 glossaries: 73 words with match, fill-in and quiz.'),['Unit 1','Unit 2']),
- card(1,'eng-read','Reading',T('Unit 2 Text 2《Watching your step》閱讀理解同 Life skill 詞彙運用。','Unit 2 Text 2 “Watching your step” comprehension and Life skill vocabulary in use.'),['Unit 2 Text 2']),
+ card(0,'eng-vocab','Vocabulary',T('Unit 1 同 Unit 2 詞彙表：73 個詞語（另加 Unit 1 店舖類型），配對、填空、選擇題。','Unit 1 and Unit 2 glossaries: 73 words with match, fill-in and quiz.'),['Unit 1','Unit 2']),
+ card(1,'eng-read1','Reading — Unit 1',T('Unit 1 Text 1 同 Text 2 閱讀理解（24 條題）。','Unit 1 Text 1 and Text 2 comprehension (24 questions).'),['Text 1','Text 2']),
+ card(2,'eng-read','Reading — Unit 2',T('Unit 2 Text 2《Watching your step》閱讀理解同 Life skill 詞彙運用。','Unit 2 Text 2 “Watching your step” comprehension and Life skill vocabulary in use.'),['Unit 2 Text 2']),
  card(2,'eng-adj','Adjectives',T('比較級、最高級、比較數量、as … as、like／alike。','Comparative and superlative adjectives, quantities, as … as, like / alike.'),['Unit 1 (A)(B)']),
  card(0,'eng-cond','Conditionals',T('Type 1（可能情況、情態動詞）同 Type 0（事實）。','Type 1 (possible situations, modals) and Type 0 (facts).'),['Unit 1 (C)','Unit 3 (C)']),
  card(1,'eng-tense','Tenses',T('過去進行式、when／while、過去完成式（補充）。','Past continuous, when / while, past perfect (extra).'),['Unit 2 (A)','Past perfect']),
- card(2,'eng-proof','Proofreading',T('SIG 改錯練習：搵出錯處再改正。','SIG error-correction practice: find and fix the mistake.'),['Proofreading'])])
+ card(2,'eng-proof','Proofreading',T('SIG 改錯練習：搵出錯處再改正。','SIG error-correction practice: find and fix the mistake.'),['Proofreading']),
+ card(0,'eng-paper','Past paper',T('學校 Form 2 練習卷：答案筆記同仿卷練習。','School Form 2 practice paper: answer notes and parallel practice.'),['A–H'])])
 ENGHUB='''<!doctype html>
 <html lang="zh-HK">
 <head>
@@ -487,15 +630,16 @@ ENGHUB='''<!doctype html>
 hub=ENGHUB%dict(home=T('首頁','Home'),h1=T('中二英文','(Form 2)'),
  desc=T('中二英文上學期統一測驗溫習。','F.2 English first-term uniform test revision.'),
  scope=T('範圍','Syllabus'),cards=CARDS,
- scopetxt=T('<i>Oxford English Forward 2A</i> Unit 1-2；<i>Success in Grammar 2</i> Unit 1 (A)(B)(C)、Unit 2 (A)、Unit 3 (C)；過去完成式補充筆記。題型：Comprehension、Vocabulary、Grammar、Proofreading、Bonus。','<i>Oxford English Forward 2A</i> Units 1-2; <i>Success in Grammar 2</i> Unit 1 (A)(B)(C), Unit 2 (A), Unit 3 (C); extra notes on the past perfect. Sections: Comprehension, Vocabulary, Grammar, Proofreading, Bonus.'),
+ scopetxt=T('<i>Oxford English Forward 2A</i> Unit 1-2；<i>Success in Grammar 2</i> Unit 1 (A)(B)(C)、Unit 2 (A)、Unit 3 (C)；過去完成式補充筆記。題型：Reading、Vocabulary、Tenses、Gap Filling、Cloze、MC Cloze、Proofreading、Bonus。','<i>Oxford English Forward 2A</i> Units 1-2; <i>Success in Grammar 2</i> Unit 1 (A)(B)(C), Unit 2 (A), Unit 3 (C); extra notes on the past perfect. Sections: Reading, Vocabulary, Tenses, Gap filling, Cloze, MC cloze, Proofreading, Bonus.'),
  sth=T('資料狀態','Material status'),
  stl=''.join('<li><span class="st %s">%s</span>%s</li>'%x for x in [
   ('',T('已對照','Checked'),T('文法筆記：跟 Success in Grammar 2 Unit 1-3 對照','Grammar notes: checked against Success in Grammar 2 Units 1-3')),
   ('',T('已對照','Checked'),T('詞彙：Unit 1、Unit 2 學校 Glossary 全部詞語','Vocabulary: every word in the school Unit 1 and Unit 2 glossaries')),
   ('',T('已對照','Checked'),T('閱讀：Unit 2 Text 2 同 Life skill（課本 p.40-44）','Reading: Unit 2 Text 2 and Life skill (textbook pp.40-44)')),
-  ('p',T('未對老師筆記','Not checked'),T('過去完成式：只有一般文法，未有老師補充筆記','Past perfect: standard grammar only; teacher’s extra notes not received')),
-  ('t',T('未收到','Missing'),T('Unit 1 兩篇課文（p.4-5、p.8-9）同 Comprehension 題目','The two Unit 1 reading texts (pp.4-5, 8-9) and their comprehension questions')),
-  ('t',T('未收到','Missing'),T('歷屆試卷、Bonus 題型','Past papers and the Bonus section style')) ]),
+  ('',T('已對照','Checked'),T('過去完成式：老師筆記 + SIG Unit 3 A（含間接引語、wish）','Past perfect: teacher’s notes + SIG Unit 3 A (incl. reported speech and wish)')),
+  ('',T('已對照','Checked'),T('閱讀：Unit 1 Text 1、Text 2（p.4-11）','Reading: Unit 1 Text 1 and Text 2 (pp.4-11)')),
+  ('',T('已有','Done'),T('學校 Form 2 練習卷：答案筆記同仿卷練習（試卷冇標準答案，答案係自己計）','School Form 2 practice paper: answer notes and parallel practice (no marking scheme was given; answers were worked out)')),
+  ('t',T('未收到','Missing'),T('其他年份歷屆試卷、練習卷 G 部改錯原文','Other past papers and the Section G proofreading text of the practice paper')) ]),
  foot=T('選擇題同挑戰題係【AI 出題】；其餘跟課本同學校資料。','Quiz and challenge questions are AI-made; everything else follows the textbook and school handouts.'))
 if LANG=='en': hub=postEN(hub).replace('href="../../">','href="../../../">')
 os.makedirs(ROOT+'eng',exist_ok=True)

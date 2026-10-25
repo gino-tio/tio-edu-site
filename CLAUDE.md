@@ -25,7 +25,7 @@ Edit content in `tools/gen/*.py` (never hand-edit generated `index.html` files e
 1. 地理 Map Reading: need the textbook (*New Century Geography Map Reading* Ch 1, 2 [skip p.33-35], 3, 4 [skip p.59-66]) → check `MAPNOTES`, `AIMAP`, `HARDMAP` in `tools/gen/c4body.py`.
 2. 中文 甲部 片段寫作; 丁部 文言詞解 (《歷代文言小故事》1,2,4,9,10) and 文言文; 《在風中》主旨 page; hard questions for 《楊修之死》 and `geo-past`.
 3. Hide the "每題 25 秒" rule text when the timer is off.
-4. English: vocabulary (Unit 1+2 glossaries), Unit 2 Text 2 reading, grammar (checked vs *Success in Grammar 2* Units 1-3) and proofreading pages exist (`c5body.py`). Still need: Unit 1 reading texts (pp.4-5, 8-9) + comprehension, teacher's past-perfect notes, past papers / Bonus style.
+4. English: all pages exist in `c5body.py` (vocabulary, reading Unit 1 + Unit 2, adjectives, conditionals, tenses incl. past perfect, proofreading, school practice paper). Still need: more past papers with marking schemes, the practice paper's Section G proofreading text, and a review of AI-made quiz questions against the school's style.
 5. Other subjects (中史普通話, Maths, Science) if the user supplies material.
 
 ## Related
