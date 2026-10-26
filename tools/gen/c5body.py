@@ -550,43 +550,154 @@ PPN=[
  TB(['Section','Marks'],[['A Reading Comprehension','20'],['B Vocabulary (first letters given)','10'],['C Tenses','10'],['D Gap Filling (conditionals)','10'],['E Cloze Passage (comparatives / superlatives)','10'],['F MC Cloze','10'],['G Proofreading (on the answer sheet)','10'],['H Bonus (not compulsory)','10']])+
  P(G('1 hour · 80 marks (pass 40) · bonus 10 marks · write answers on the answer sheet · “Make sure your answers are grammatically correct.”','1 小時、80 分（合格 40）、另加 10 分 bonus；要寫文法正確嘅答案。'))),
 ('Answers A–B: Reading and Vocabulary'+T('',''),
- P('<b>A (“When Renting Homes Takes a Turn for the Worse”)</b>: 1 A · 2 disappointed · 3 (a) F (b) NG (c) T · 4 (a) ruined (b) deterred (c) promptly · 5 rubbish everywhere; many dirty dishes in the sink; a flooded kitchen that ruined his sneakers · 6 (a) shocked (b) privacy · 7 the beds · 8 No: the losses were not made up for in the end · 9 do research beforehand; buy travel insurance · 10 open answer · 11 B (cautious).')+
- P('<b>B</b> (words from Oxford English Forward 2A Units 1-2): 1 formulated · 2 big data · 3 sources · 4 sparked · 5 cumbersome · 6 eavesdrop · 7 reliance · 8 assumed · 9 consequences/consequence · 10 embrace.')),
+ P('<b>A (“When Renting Homes Takes a Turn for the Worse”)</b>: 1 A · 2 disappointed · 3 (a) F (b) NG (c) T · 4 (a) ruined (b) deterred (c) promptly · 5 (a) rubbish everywhere (b) many dirty dishes in the sink (c) Emi’s / her new sneakers were ruined after stepping into the flooded kitchen // flooded kitchen · 6 (a) shocked (b) privacy · 7 the beds (of the guests) · 8 No (1 mark) + the writer states that the losses were not made up for in the end (1 mark) · 9 (a) conducting research beforehand (b) purchasing travel insurance · 10 Travellers can live like a local by experiencing the neighbourhoods / live in accommodations that reflect the culture of the destination · 11 B.')+
+ P(G('<b>Marks lost</b>: 5(b) without “many”, or copying the whole sentence (“you wouldn’t believe how many…”) · 5(c) copying “my new sneakers” · 9 not using the -ing form (do research ✘) · 10 only saying “special accommodations” without explaining how they are special.','<b>會失分</b>：5(b) 漏咗 many 或者成句抄；5(c) 照抄 my；9 要用 -ing；10 淨係寫 special accommodations 唔解釋點特別。'))+
+ P('<b>B</b> (words from Oxford English Forward 2A Units 1-2): 1 formulated · 2 big data · 3 sources · 4 '+K('spread')+' · 5 cumbersome · 6 eavesdrop · 7 reliance · 8 assumed · 9 consequence · 10 embrace.')),
 ('Answers C–F: Grammar sections'+T('',''),
- P('<b>C Tenses</b>: 1 started · 2 had moved · 3 had already bought · 4 was looking · 5 were walking · 6 were taking · 7 were riding · 8 had explored · 9 will visit (are going to visit) · 10 enjoy.')+
- P('<b>D Conditionals</b>: 1 will violate (violate) · 2 have · 3 will not be allowed (are not allowed) · 4 need · 5 will find · 6 is · 7 are not · 8 should avoid · 9 follow · 10 will enjoy.')+
- P('<b>E Cloze</b> (each adjective once): 1 the most popular · 2 farther/further · 3 easier · 4 more crowded · 5 less fit · 6 taller than · 7 worse than · 8 rarer · 9 the least expensive · 10 the most memorable.')+
- P('<b>F MC cloze</b>: 1 D · 2 A · 3 B · 4 B · 5 A · 6 C · 7 C · 8 C · 9 C · 10 D.')),
+ P('<b>C Tenses</b>: 1 started · 2 '+K('has moved')+' · 3 had already bought · 4 '+K('had looked')+' · 5 were walking · 6 were taking · 7 were riding · 8 had explored · 9 will visit · 10 enjoy.')+
+ P(G('C2: “moved out recently” still matters now → present perfect. C4: Dad finished looking before another past action → past perfect.','C2：最近搬出去、同而家有關 → present perfect。C4：喺另一件過去事之前已經完成 → past perfect。'))+
+ P('<b>D Conditionals</b>: 1 '+K('violate')+' · 2 have · 3 '+K('are not allowed')+' · 4 need · 5 will find · 6 is · 7 are not · 8 should avoid · 9 follow · 10 will enjoy.')+
+ P(G('D1, D3: these are rules that are always true → zero conditional (If + present, present), no “will”.','D1、D3 係永遠成立嘅規則 → zero conditional，唔加 will。'))+
+ P('<b>E Cloze</b> (each adjective once): 1 the most popular · 2 farther / further · 3 easier · 4 more (and more) crowded · 5 less fit · 6 taller than · 7 worse than · 8 rarer · 9 the least expensive · 10 the most memorable.')+
+ P('<b>F MC cloze</b>: 1 D · 2 A · 3 B · 4 B · 5 A · 6 C · 7 '+K('B')+' · 8 '+K('A')+' · 9 C · 10 D.')),
+('G Proofreading'+T('',''),
+ P('<b>G (“The Care Bears”)</b>: (e.g.) on → in · (e.g.) ^was · 1 ^were · 2 ^had · 3 after → before · 4 plan → planned · 5 airring → airing · 6 played → playing · 7 ^had · 8 happiest → happy / happier · 9 grew → grown · 10 face → faces.')+
+ P(G('Tested: past continuous (were working, was airing), past perfect (had received, had planned, had become), present perfect (has grown), subject–verb agreement (any bear faces), spelling (airing).','考點：過去進行式、過去完成式、現在完成式、主謂一致、串字。'))),
 ('H Bonus'+T('',''),
- P('Comprehension: 1 rising rates of anxiety and depression · 2 late-night scrolling or disruptive notifications disrupt sleep · 3 it is vital for physical and mental health, brain growth, cognitive growth and emotional regulation. Response (7 marks): give ONE rule (e.g. no phone after 9 p.m.), a reason and how it helps.')+
- P(G('The paper itself is not copied here (school paper); these are answer notes made from it. Section G Proofreading has no text in the PDF.','試卷原文唔放上網；呢度只係答案筆記。G 部改錯喺答案紙，PDF 冇原文。')))]
+ P('Comprehension: 1 (rising rates of) anxiety and depression · 2 late-night scrolling / disruptive notifications / night-time device use · 3 It promotes cognitive growth and emotional regulation. Response (7 marks: content 3, language 4): give ONE rule for smartphone use, why, and how it helps; 6 or above needs good English, understanding of the passage and logical ideas.')+
+ P(G('The paper itself is not copied here (school paper); these are answer notes checked against the school marking scheme.','試卷原文唔放上網；呢度只係答案筆記，已經對照學校 marking scheme。')))]
 PPSETS=[('Section E skills',[['one of the ___ ski villages','the most popular'],['70 km from Beijing, ___ than other resorts','farther / further'],['It is a lot ___ to ski on thin snow','easier'],['not as ___ as my sister','less fit'],['___ than my sister (long legs)','taller than'],['the ___ ski village I have ever visited (cheapest)','the least expensive']]),
  ('Section F skills',[['___ watching a concert','the same as'],['they are ___ in their love for music','alike'],['among global cities, offers ___ spots','the fewest'],['treats us ___ seasoned artists','like'],['earns ___ money than before','less'],['___ forms of performances in the past','fewer']])]
 PPFILL=[
-('C Tenses 1','Last Sunday our morning {0} (start) at the pier. Before my brother, who {1} (move) out recently, arrived, Mum {2} (already / buy) tickets.',[['started'],['had moved'],['had already bought']]),
-('C Tenses 2','Dad {0} (look) for a restaurant while we {1} (wait) for him.',[['was looking'],['were waiting']]),
+('C Tenses 1','Last Sunday our morning {0} (start) at the pier. Before my brother, who {1} (move) out recently, arrived, Mum {2} (already / buy) tickets.',[['started'],['has moved'],['had already bought']]),
+('C Tenses 2','Dad {0} (look) for a restaurant online before we {1} (leave) home.',[['had looked'],['left']]),
 ('C Tenses 3','While we {0} (walk) along the waterfront, tourists {1} (take) photos.',[['were walking'],['were taking']]),
 ('C Tenses 4','We {0} (ride) the escalator when it began to rain.',[['were riding']]),
 ('C Tenses 5','By the time the rain stopped, we {0} (explore) the old station.',[['had explored']]),
-('C Tenses 6','Next weekend, we {0} (visit) the Peak. We always {1} (enjoy) exploring the city.',[['will visit',"'ll visit",'are going to visit'],['enjoy']]),
-('D Conditionals 1','If you {0} (not remove) your shoes before entering, you {1} (violate) a basic rule.',[["don't remove",'do not remove'],['will violate','violate']]),
-('D Conditionals 2','If you {0} (have) tattoos, you {1} (not allow) to enter the facility.',[['have'],['will not be allowed','are not allowed',"won't be allowed"]]),
+('C Tenses 6','Next weekend, we {0} (visit) the Peak. We always {1} (enjoy) exploring the city.',[['will visit',"'ll visit"],['enjoy']]),
+('D Conditionals 1','If you {0} (not remove) your shoes before entering, you {1} (violate) a basic rule.',[["don't remove",'do not remove'],['violate']]),
+('D Conditionals 2','If you {0} (have) tattoos, you {1} (not allow) to enter the facility.',[['have'],['are not allowed',"aren't allowed"]]),
 ('D Conditionals 3','When you visit, you {0} (need) to wash before entering. If you {1} (be, not) well, you {2} (avoid) hot baths.',[['need'],['are not',"aren't"],['should avoid']]),
 ('D Conditionals 4','If you {0} (follow) these rules, you {1} (enjoy) a peaceful experience.',[['follow'],['will enjoy']])]
 PPMCQ=[
-('Some people think a live show is ___ watching a video of it.',['the same as','alike','likes','the same of'],3,'',0,1),
-('Live music brings ___ energy to the city.',['more','most','less','least'],3,'',0,1),
-('Singers and dancers come from all backgrounds, but they are ___ in their love for music.',['alike','like','the same as','as eager as'],3,'',0,1),
-('Among the cities in Asia, our city offers ___ public pianos. (the smallest number)',['the fewest','fewer','less','the least'],3,'',1,1),
-('The audience treats us ___ seasoned artists.',['like','alike','as same as','more'],3,'',0,1),
-('Performing in a hall gives her ___ satisfaction than busking.',['less','least','fewer','more satisfying'],3,'',0,1),
-('Their reactions are totally ___ those in a theatre.',['as exciting as','different of','more exciting','different'],3,'',1,1),
-('She earns ___ money per hour than she did teaching.',['less','fewer','the least','least'],3,'Money is uncountable.',0,1),
-('There were ___ forms of performances in the past.',['fewer','fewest','less','the least'],3,'Forms are countable.',0,1),
-('This is ___ skiing trip I have ever had. (the best experience)',['the most memorable','more memorable','memorable than','most memorable than'],3,'',1,1)]
+('Some people think a live show is ___ watching a video of it.',['the same as','alike','likes','the same of'],2,'',0,1),
+('Live music brings ___ energy to the city.',['more','most','less','least'],2,'',0,1),
+('Singers and dancers come from all backgrounds, but they are ___ in their love for music.',['alike','like','the same as','as eager as'],2,'',0,1),
+('Among the cities in Asia, our city offers ___ public pianos. (the smallest number)',['the fewest','fewer','less','the least'],2,'',1,1),
+('The audience treats us ___ seasoned artists.',['like','alike','as same as','more'],2,'',0,1),
+('Performing in a hall gives her ___ satisfaction than busking.',['less','least','fewer','more satisfying'],2,'',0,1),
+('Their reactions are totally ___ those in a theatre.',['as exciting as','different of','more exciting','different'],2,'',1,1),
+('She earns ___ money per hour than she did teaching.',['less','fewer','the least','least'],2,'Money is uncountable.',0,1),
+('There were ___ forms of performances in the past.',['fewer','fewest','less','the least'],2,'Forms are countable.',0,1),
+('This is ___ skiing trip I have ever had. (the best experience)',['the most memorable','more memorable','memorable than','most memorable than'],2,'',1,1)]
 eng_page('eng-paper','mcqBestEngPaper','Past paper '+T('歷屆試卷練習',''),T('學校 Form 2 練習卷：答案筆記同仿卷練習','School Form 2 practice paper: answer notes and parallel practice'),'notebook',PPN,PPSETS,PPFILL,PPMCQ,'epp-i',
- T('答案係根據學校練習卷（未有標準答案）自己計出；填空同選擇題係仿卷【AI 出題】，唔係原題。','Answers were worked out from the school practice paper (no marking scheme was given); fill-in and quiz items are AI-made parallels, not the original questions.'),
+ T('答案已經對照學校 marking scheme（黃色字＝以前計錯、而家改正咗）；填空同選擇題係仿卷【AI 出題】，唔係原題。','Answers are checked against the school marking scheme (highlighted = corrected answers); fill-in and quiz items are AI-made parallels, not the original questions.'),
  T('中二英文上學期統一測驗歷屆試卷練習。','F.2 English first-term uniform test past-paper practice.'))
+
+# ---------- Mock paper (AI-made, same format as the school paper) ----------
+MKN=[
+('How to use the mock paper'+T(' 點樣用',''),
+ P(G('A full mock paper in the school format: A Reading 20 · B Vocabulary 10 · C Tenses 10 · D Gap filling 10 · E Cloze 10 · F MC cloze 10 · G Proofreading 10 · H Bonus 10. 1 hour, 80 marks + 10 bonus.','同學校試卷一樣格式嘅模擬卷：A–H 八部分，1 小時、80 分 + 10 分 bonus。'))+
+ P(G('Do the paper on paper first, then check: B–E and G are in Fill in, A and F are in Quiz, written answers are in the notes below (highlighted). Tap “Hide answers” to cover them.','建議先喺紙上做晒，再對答案：B–E 同 G 喺「寫字填空」，A 同 F 喺「選擇題」，文字答案喺下面筆記（黃色字），撳「遮住答案」可以遮住。'))),
+('A Reading: Glamping Gone Wrong',
+ P('[1] When Jasmine Lau, a 15-year-old from Hong Kong, saw the photos of “Starlight Glamping” online, she thought she had found the perfect weekend getaway for her family. The website promised spacious tents with real beds, a private bathroom for every tent and a breathtaking view of the lake. “It looked like a five-star hotel in the middle of nature,” she said. The family booked two nights for $3,600 and waited eagerly for their trip.')+
+ P('[2] Her excitement did not last long. When the family arrived, Jasmine was horrified. Water was dripping from a hole in the roof of the tent, and the mattress was covered in mould. Instead of a private bathroom, there was only one toilet, which was 500 metres away and shared by about 30 campers. “To make things worse, the ‘lake view’ was actually a muddy pond,” Jasmine said.')+
+ P('[3] The first night was a nightmare. A heavy rainstorm hit the campsite and water flowed into the tent. Jasmine woke up at 3 a.m. to find her sleeping bag completely soaked. The tents were also so close together that the family could hear every word their neighbours said. “We felt as if we were sleeping in a public park,” said her mother. The next morning, the family reluctantly decided to leave a day early.')+
+ P('[4] Jasmine’s mother called the owner many times, but nobody answered. A week later, she finally received an email offering a refund of only $500. “It was nowhere near enough to make up for our ruined weekend,” she said. She has since written a detailed review online to warn other families.')+
+ P('[5] Travel experts say that stories like Jasmine’s are becoming more common as glamping grows in popularity. They advise travellers to read recent reviews from other guests instead of relying on the photos on a website, and to check the cancellation policy before paying. “Photos can be edited, but hundreds of honest reviews cannot,” said travel blogger Sam Wong.')+
+ P('[6] Despite her experience, Jasmine has not given up on glamping. “When it is done well, glamping lets you sleep under the stars and wake up to birdsong without giving up comfort,” she said. “Next time, I will just do my homework first.”')),
+('A Reading: written answers',
+ P('2 Find ONE word in paragraph 2 that shows how Jasmine felt when she arrived. → '+K('horrified'))+
+ P('4 Find words that mean (a) with great excitement (para 1) (b) completely wet (para 3) (c) in an unwilling way (para 3). → '+K('(a) eagerly (b) soaked (c) reluctantly'))+
+ P('5 List THREE problems the family found when they arrived (3 marks). → '+K('any three: water was dripping from a hole in the roof · the mattress was covered in mould · only one toilet, 500 m away, shared by about 30 campers · the “lake view” was a muddy pond'))+
+ P('6 (a) The family’s first night was a ______. (b) The family had no ______ because the tents were too close together. → '+K('(a) nightmare (b) privacy'))+
+ P('7 What does “It” in paragraph 4 refer to? → '+K('the refund (of $500)'))+
+ P('8 Did the family get back all the money they paid? Explain (2 marks). → '+K('No (1). They paid $3,600 but only got $500 back / the mother said the refund was nowhere near enough (1).'))+
+ P('9 Travellers can avoid a bad glamping trip by (a) ______ and (b) ______. → '+K('(a) reading recent reviews from other guests (b) checking the cancellation policy (before paying)')+G(' (must be the -ing form)','（要用 -ing）'))+
+ P('10 What does Jasmine mean by “I will just do my homework first”? → '+K('She will find out more information / read reviews carefully before booking.')+G(' (✘ she will finish her school homework)','（唔係指學校功課）'))),
+('B–F answers',
+ P('<b>B</b>: 1 '+K('customize')+' · 2 '+K('haggle')+' · 3 '+K('vintage')+' · 4 '+K('coincided')+' · 5 '+K('prominent')+' · 6 '+K('bombarded')+' · 7 '+K('harassed')+' · 8 '+K('misleading')+' · 9 '+K('permission')+' · 10 '+K('track'))+
+ P('<b>C</b>: 1 '+K('went')+' · 2 '+K('has lived')+' · 3 '+K('had never seen')+' · 4 '+K('arrived')+' · 5 '+K('had already left')+' · 6 '+K('were waiting')+' · 7 '+K('bought')+' · 8 '+K('had walked')+' · 9 '+K('will fly / is flying')+' · 10 '+K('loves'))+
+ P('<b>D</b>: 1 '+K('do not take')+' · 2 '+K('break')+' · 3 '+K('want')+' · 4 '+K('must go')+' · 5 '+K('feel')+' · 6 '+K('should leave')+' · 7 '+K('rains')+' · 8 '+K('will close')+' · 9 '+K('follow')+' · 10 '+K('will have'))+
+ P(G('D1–6 are rules that are always true → zero conditional (no “will”); D7–8 is one future event → first conditional.','D1–6 係永遠成立嘅規則 → zero conditional（唔加 will）；D7–8 係將來一次嘅事 → first conditional。'))+
+ P('<b>E</b> (popular · far · quiet · cheap · delicious · good · bad · busy · expensive · healthy): 1 '+K('the most popular')+' · 2 '+K('farther / further')+' · 3 '+K('quieter')+' · 4 '+K('cheaper')+' · 5 '+K('more delicious than')+' · 6 '+K('the best')+' · 7 '+K('worse')+' · 8 '+K('busier')+' · 9 '+K('the least expensive')+' · 10 '+K('healthier'))+
+ P('<b>F</b> (A/B/C/D as in the printed paper): 1 '+K('alike')+' · 2 '+K('from')+' · 3 '+K('like')+' · 4 '+K('fewer')+' · 5 '+K('more')+' · 6 '+K('the same as')+' · 7 '+K('the highest')+' · 8 '+K('as')+' · 9 '+K('like')+' · 10 '+K('fewer'))),
+('G Proofreading: LEGO',
+ TB(['Line','Text','Answer'],[
+  ['e.g.','LEGO was started at 1932 by a Danish carpenter, Ole Kirk Christiansen.','at → in'],
+  ['e.g.','While he ^ building wooden toys in his small workshop, he chose the','^was'],
+  ['1','name LEGO, from the Danish words “leg godt”, which means “play well”.',K('means → mean')],
+  ['2','By the time the company made its first plastic bricks in 1949, it ^ already sold wooden toys for 17 years.',K('^had')],
+  ['3','In 1958, Ole’s son improve the design so that the bricks could lock together firmly.',K('improve → improved')],
+  ['4','Sadly, Ole died in the same year, but the company continues to grow after his death.',K('continues → continued')],
+  ['5','When the first LEGOLAND park opened in 1968, thousands of visitors were queue outside the gates.',K('queue → queuing')],
+  ['6','During the 1990s, while video games were becoming more popular, LEGO’s sales ^ falling.',K('^were')],
+  ['7','The company nearly went bankrupt in 2003 because it has made too many different products.',K('has → had')],
+  ['8','Since then, LEGO has became one of the biggest toy companies in the world.',K('became → become')],
+  ['9','Today, both children and adults enjoys building LEGO sets.',K('enjoys → enjoy')],
+  ['10','Many fans say that building LEGO is the more relaxing hobby they have ever tried.',K('more → most')]])),
+('H Bonus: Game On — or Game Over?',
+ P('Online gaming has become one of the most common hobbies among teenagers. In a survey of secondary students, seven in ten said they play online games every day, and one in five plays for more than three hours a day.')+
+ P('Gaming is not all bad. Some games improve problem-solving skills and teamwork, and many teenagers say gaming helps them relax after school. However, experts warn that playing for long hours can lead to poor eyesight, back pain and falling grades. Many games also use reward systems, such as daily login prizes and loot boxes, which make it hard for players to stop.')+
+ P('Experts suggest that teenagers set a time limit and take a ten-minute break every hour. Parents are encouraged to play together with their children, as this helps them understand the games and builds closer family bonds.')+
+ P('1 Give ONE benefit of gaming. → '+K('improves problem-solving skills / teamwork / helps teenagers relax'))+
+ P('2 What makes it hard for players to stop? → '+K('reward systems such as daily login prizes and loot boxes'))+
+ P('3 How can parents benefit from playing with their children? → '+K('it helps them understand the games / builds closer family bonds'))+
+ P('Response (7 marks: content 3, language 4): Should students be allowed to play online games at school during lunchtime? Give your opinion and reasons (about 80 words).'))]
+MKSETS=[('B Vocabulary',[['customize','change something to suit the user'],['haggle','argue to get a lower price'],['vintage','old but good quality and in style'],['coincide with','happen at the same time'],['prominent','easy to see; important']]),
+ ('B Vocabulary (Unit 2)',[['bombard','give somebody too much information'],['harass','keep troubling or attacking somebody'],['misleading','giving the wrong idea'],['permission','being allowed to do something'],['track','follow where somebody goes']]),
+ ('A Reading words',[['eagerly','with great excitement'],['soaked','completely wet'],['reluctantly','in an unwilling way'],['horrified','very shocked'],['refund','money paid back']])]
+MKFILL=[
+('B Vocabulary 1','Online shops {0} their homepages so that each shopper sees different products. (c…)',[['customize','customise']]),
+('B Vocabulary 2','Tourists at Ladies’ Market often {0} with stall owners to get a lower price. (h…)',[['haggle']]),
+('B Vocabulary 3','My mum loves {0} clothes from the 1970s because they have a unique style. (v…)',[['vintage']]),
+('B Vocabulary 4','The sale {0} with the school holidays, so the mall was very crowded. (c…)',[['coincided']]),
+('B Vocabulary 5','The new phone was placed in a {0} position at the front of the shop. (p…)',[['prominent']]),
+('B Vocabulary 6','After the singer’s post went viral, she was {0} with thousands of messages. (b…)',[['bombarded']]),
+('B Vocabulary 7','No one should be {0} online because of their appearance. (h…)',[['harassed']]),
+('B Vocabulary 8','The photo was {0} because it was taken out of context. (m…)',[['misleading']]),
+('B Vocabulary 9','You must ask for {0} before you post a photo of your friend online. (p…)',[['permission']]),
+('B Vocabulary 10','Some apps {0} your location even when you are not using them. (t…)',[['track']]),
+('C Tenses 1','Last Saturday, my cousin Leo and I {0} (go) to Tai O. Leo {1} (live) in Canada since 2020, and before that trip he {2} (never / see) a stilt house.',[['went'],['has lived'],['had never seen']]),
+('C Tenses 2','When we {0} (arrive) at the pier, the boat tour {1} (already / leave), so we had to wait for the next one. While we {2} (wait), Leo {3} (buy) some dried fish for his parents.',[['arrived'],['had already left'],['were waiting'],['bought']]),
+('C Tenses 3','By the time we got home, we {0} (walk) more than 15,000 steps. Leo {1} (fly) back to Canada next month, but he says he {2} (love) Hong Kong food more than anything.',[['had walked'],['will fly','is flying',"'ll fly",'is going to fly'],['loves']]),
+('D Gap filling 1','If you {0} (not take) a shower before swimming, you {1} (break) the pool’s hygiene rule.',[['do not take',"don't take"],['break']]),
+('D Gap filling 2','If children under 1.2 metres {0} (want) to swim, an adult {1} (must / go) into the water with them.',[['want'],['must go']]),
+('D Gap filling 3','If you {0} (feel) dizzy, you {1} (should / leave) the water at once.',[['feel'],['should leave']]),
+('D Gap filling 4','If it {0} (rain) heavily this afternoon, the outdoor pool {1} (close) early.',[['rains'],['will close',"'ll close"]]),
+('D Gap filling 5','If you {0} (follow) all these rules, everyone {1} (have) a safe and pleasant time.',[['follow'],['will have',"'ll have"]]),
+('E Cloze 1','Temple Street is one of {0} (popular) night markets in Hong Kong. The other market, in Sham Shui Po, is {1} (far) from our school. However, it was much {2} (quiet) than Temple Street.',[['the most popular'],['farther','further'],['quieter']]),
+('E Cloze 2','The food in Sham Shui Po was also {0} (cheap). Ken thinks the snacks at Temple Street are {1} (delicious) the snacks in Sham Shui Po. The curry fish balls were {2} (good) snack I had that night.',[['cheaper'],['more delicious than'],['the best']]),
+('E Cloze 3','The weather was {0} (bad) than the day before. Temple Street was even {1} (busy) at 10 p.m. The grilled squid was {2} (expensive) one; it cost only $8. Fruit cups are {3} (healthy) than fried snacks.',[['worse'],['busier'],['the least expensive'],['healthier']]),
+('G Proofreading 1','name LEGO, from the Danish words “leg godt”, which means “play well”. Correct word: {0}',[['mean']]),
+('G Proofreading 2','By the time the company made its first plastic bricks in 1949, it ^ already sold wooden toys for 17 years. Missing word: {0}',[['had']]),
+('G Proofreading 3','In 1958, Ole’s son improve the design so that the bricks could lock together firmly. Correct word: {0}',[['improved']]),
+('G Proofreading 4','Sadly, Ole died in the same year, but the company continues to grow after his death. Correct word: {0}',[['continued']]),
+('G Proofreading 5','When the first LEGOLAND park opened in 1968, thousands of visitors were queue outside the gates. Correct word: {0}',[['queuing','queueing']]),
+('G Proofreading 6','During the 1990s, while video games were becoming more popular, LEGO’s sales ^ falling. Missing word: {0}',[['were']]),
+('G Proofreading 7','The company nearly went bankrupt in 2003 because it has made too many different products. Correct word: {0}',[['had']]),
+('G Proofreading 8','Since then, LEGO has became one of the biggest toy companies in the world. Correct word: {0}',[['become']]),
+('G Proofreading 9','Today, both children and adults enjoys building LEGO sets. Correct word: {0}',[['enjoy']]),
+('G Proofreading 10','Many fans say that building LEGO is the more relaxing hobby they have ever tried. Correct word: {0}',[['most']])]
+MKMCQ=[
+('A1 What is the main purpose of the article?',['To share a bad glamping experience and give advice to travellers','To advertise Starlight Glamping','To compare hotels with campsites','To persuade readers never to go glamping'],1,'',0,1),
+('A3(a) “The family booked the tent for three nights.” This is …',['False','True','Not Given'],1,'They booked two nights.',0,1),
+('A3(b) “Jasmine’s younger brother also went on the trip.” This is …',['Not Given','True','False'],1,'The article does not say.',1,1),
+('A3(c) “The toilet at the campsite was used by many campers.” This is …',['True','False','Not Given'],1,'Shared by about 30 campers.',0,1),
+('A11 Which word best describes Jasmine’s attitude towards glamping at the end of the article?',['hopeful','angry','uninterested','frightened'],1,'She has not given up and will research first next time.',1,1),
+('F1 My twin sister Amy and I look exactly ___.',['alike','like','same','the same as'],3,'alike at the end, no object after it.',0,1),
+('F2 Our hobbies are very different ___ each other.',['from','than','with','to'],3,'different from',0,1),
+('F3 Amy enjoys reading, ___ our dad.',['like','alike','the same','as same as'],3,'like + noun',0,1),
+('F4 I have ___ books than her.',['fewer','less','least','fewest'],3,'books are countable.',0,1),
+('F5 I spend ___ time on sports than she does.',['more','most','much','many'],3,'comparative + than',0,1),
+('F6 Her favourite subject is ___ mine: Science.',['the same as','alike','same to','like as'],3,'the same as + noun',0,1),
+('F7 Of all the students in our class, Amy got ___ marks in the last Science test.',['the highest','higher','high','the higher'],3,'Of all … → superlative.',0,1),
+('F8 I am not ___ hard-working as she is.',['as','so','more','most'],3,'not as … as',0,1),
+('F9 Our grandma says we are ___ two peas in a pod.',['like','alike','same','as'],3,'like + noun',1,1),
+('F10 There are ___ arguments between us than when we were young.',['fewer','less','least','lesser'],3,'arguments are countable.',1,1)]
+eng_page('eng-mock','mcqBestEngMock','Mock paper '+T('模擬試卷',''),T('同學校 Form 2 練習卷一樣格式嘅模擬卷 A–H，附答案','A mock paper in the school Form 2 format (A–H), with answers'),'notebook',MKN,MKSETS,MKFILL,MKMCQ,'emk-i',
+ T('成份模擬卷係【AI 出題】，格式同程度跟學校練習卷同 marking scheme；文章為練習而寫。','The whole mock paper is AI-made, following the format and level of the school practice paper and its marking scheme; passages are written for practice.'),
+ T('中二英文上學期統一測驗模擬試卷。','F.2 English first-term uniform test mock paper.'))
 
 # ---------- hub ----------
 def card(n,href,title,d,tags):
@@ -600,7 +711,8 @@ CARDS=''.join([
  card(0,'eng-cond','Conditionals',T('Type 1（可能情況、情態動詞）同 Type 0（事實）。','Type 1 (possible situations, modals) and Type 0 (facts).'),['Unit 1 (C)','Unit 3 (C)']),
  card(1,'eng-tense','Tenses',T('過去進行式、when／while、過去完成式（補充）。','Past continuous, when / while, past perfect (extra).'),['Unit 2 (A)','Past perfect']),
  card(2,'eng-proof','Proofreading',T('SIG 改錯練習：搵出錯處再改正。','SIG error-correction practice: find and fix the mistake.'),['Proofreading']),
- card(0,'eng-paper','Past paper',T('學校 Form 2 練習卷：答案筆記同仿卷練習。','School Form 2 practice paper: answer notes and parallel practice.'),['A–H'])])
+ card(0,'eng-paper','Past paper',T('學校 Form 2 練習卷：已對照 marking scheme 嘅答案筆記同仿卷練習。','School Form 2 practice paper: answers checked against the marking scheme, plus parallel practice.'),['A–H']),
+ card(1,'eng-mock','Mock paper',T('同格式模擬卷 A–H【AI 出題】，附答案。','An AI-made mock paper in the same A–H format, with answers.'),['A–H','Mock'])])
 ENGHUB='''<!doctype html>
 <html lang="zh-HK">
 <head>
@@ -639,8 +751,9 @@ hub=ENGHUB%dict(home=T('首頁','Home'),h1=T('中二英文','(Form 2)'),
   ('',T('已對照','Checked'),T('閱讀：Unit 2 Text 2 同 Life skill（課本 p.40-44）','Reading: Unit 2 Text 2 and Life skill (textbook pp.40-44)')),
   ('',T('已對照','Checked'),T('過去完成式：老師筆記 + SIG Unit 3 A（含間接引語、wish）','Past perfect: teacher’s notes + SIG Unit 3 A (incl. reported speech and wish)')),
   ('',T('已對照','Checked'),T('閱讀：Unit 1 Text 1、Text 2（p.4-11）','Reading: Unit 1 Text 1 and Text 2 (pp.4-11)')),
-  ('',T('已有','Done'),T('學校 Form 2 練習卷：答案筆記同仿卷練習（試卷冇標準答案，答案係自己計）','School Form 2 practice paper: answer notes and parallel practice (no marking scheme was given; answers were worked out)')),
-  ('t',T('未收到','Missing'),T('其他年份歷屆試卷、練習卷 G 部改錯原文','Other past papers and the Section G proofreading text of the practice paper')) ]),
+  ('',T('已對照','Checked'),T('學校 Form 2 練習卷：答案已對照學校 marking scheme（包括 G 部改錯）','School Form 2 practice paper: answers checked against the school marking scheme (incl. Section G)')),
+  ('',T('已有','Done'),T('Mock paper：同格式嘅模擬卷【AI 出題】，附答案','Mock paper: an AI-made paper in the same format, with answers')),
+  ('t',T('未收到','Missing'),T('其他年份歷屆試卷','Other past papers')) ]),
  foot=T('選擇題同挑戰題係【AI 出題】；其餘跟課本同學校資料。','Quiz and challenge questions are AI-made; everything else follows the textbook and school handouts.'))
 if LANG=='en': hub=postEN(hub).replace('href="../../">','href="../../../">')
 os.makedirs(ROOT+'eng',exist_ok=True)

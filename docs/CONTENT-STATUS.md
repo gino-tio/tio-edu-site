@@ -19,8 +19,9 @@
 | English 3D 購物街 (eng-shop-3d) | done: nine shop types + Unit 1 glossary words (Text 1, Text 2) in a 3D street; definition-based challenge (timer optional); 2D fallback | school Unit 1 glossary, textbook Warming up p.2 |
 | English Proofreading | done (SIG Unit 1 consolidation, Unit 2 Practice 8) | SIG |
 | English Reading Unit 1 Text 1 + Text 2 | done, answers checked vs text + teacher corrections | Oxford English Forward 2A pp.4-11 |
-| English past paper (school Form 2 practice paper) | answer notes + parallel practice; paper has no marking scheme, answers worked out by us; Section G text absent | practice paper PDF |
-| English other past papers / Section G | missing | |
+| English past paper (school Form 2 practice paper) | checked: answer notes match the school marking scheme (2026-10-26; 7 earlier answers corrected, Section G answers added) + parallel practice | practice paper PDF + marking scheme |
+| English mock paper (eng-mock) | done: AI-made full paper A–H in the same format, with answers; not checked by a teacher | modelled on the practice paper + marking scheme |
+| English other past papers | missing | |
 | 課堂筆記 / 功課簿 / 讀圖練習 | not received | |
 
 Known textbook vs marking-scheme conflict: Laos upland rice (see CLAUDE.md). Notes show both.
