@@ -25,7 +25,7 @@ Edit content in `tools/gen/*.py` (never hand-edit generated `index.html` files e
 1. 地理 Map Reading: need the textbook (*New Century Geography Map Reading* Ch 1, 2 [skip p.33-35], 3, 4 [skip p.59-66]) → check `MAPNOTES`, `AIMAP`, `HARDMAP` in `tools/gen/c4body.py`.
 2. 中文 甲部 片段寫作; 丁部 文言詞解 (《歷代文言小故事》1,2,4,9,10) and 文言文; 《在風中》主旨 page; hard questions for 《楊修之死》 and `geo-past`.
 3. Hide the "每題 25 秒" rule text when the timer is off.
-4. English: all pages exist in `c5body.py` (vocabulary, reading Unit 1 + Unit 2, adjectives, conditionals, tenses incl. past perfect, proofreading, school practice paper). Still need: more past papers with marking schemes, the practice paper's Section G proofreading text, and a review of AI-made quiz questions against the school's style.
+4. English: all pages exist in `c5body.py` (vocabulary, reading Unit 1 + Unit 2, adjectives, conditionals, tenses incl. past perfect, proofreading, school practice paper checked against its marking scheme, AI mock paper `eng-mock`). Still need: more past papers with marking schemes, and a review of AI-made quiz questions against the school's style.
 5. 3D: `works/geo-farm-3d/` (地理 農場島) and `works/eng-shop-3d/` (英文 Unit 1 購物街) are done (`c6farm.*`, `c7shop.*`, test: `node tools/gen/test-3d.example.js`). Next candidate: Map Reading terrain once the textbook arrives; reuse the engine (procedural models, orbit controls, tag picking, challenge, 2D fallback). To change the scene edit `c7scene.js`/`c7shop.html`.
 6. Other subjects (中史普通話, Maths, Science) if the user supplies material.
 

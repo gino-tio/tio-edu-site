@@ -7,7 +7,7 @@ works/index.html           中文 hub (hand-written) incl. 資料狀態 panel
 works/assets/              base.css, theme.js, shared.js, art.js  (shared by every page)
 works/<folder>/index.html  zh pages        works/en/<folder>/index.html  English twins
 works/geo, geo-food, geo-map, geo-past, geo-farm-3d     地理 hub + 3 sub pages + 3D Farm Island (generated, zh + en)
-works/eng, eng-vocab, eng-read, eng-read1, eng-adj, eng-cond, eng-tense, eng-proof, eng-paper, eng-shop-3d   English hub + 9 pages (generated, zh + en; `c5body.py`)
+works/eng, eng-vocab, eng-read, eng-read1, eng-adj, eng-cond, eng-tense, eng-proof, eng-paper, eng-mock, eng-shop-3d   English hub + 10 pages (generated, zh + en; `c5body.py`)
 works/part-b, part-c, cy-unit1/2, mingju, yx-*, ...   中文 pages (generated)
 works/typhoon-memory-route, yx-3d          three.js route page (+ generated 3D variant)
 tools/gen/                 Python generators + build.sh + example Playwright tests
